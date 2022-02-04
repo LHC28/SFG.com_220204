@@ -1,1 +1,8 @@
 @charset "UTF-8";
+header {background-color:rgb(178,178,178); height:150px;}
+.teamFont {width:230px; color:white; font-size:30px; font-weight:500; border-left: 5px solid white;}
+#aBox {height: 50px; width: 200px; font-size:20px;}
+a {color: rgb(255,122,47); text-shadow: /* White glow */ 0 0 7px rgb(255,122,47), 0 0 10px rgb(255,122,47), 0 0 21px rgb(255,122,47);}
+a:link {color: white; text-decoration: none;}
+a:visited {color: white; text-decoration: none;}
+a:hover{color: white; text-decoration: none;}
