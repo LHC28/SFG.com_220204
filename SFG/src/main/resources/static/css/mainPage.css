@@ -1,0 +1,10 @@
+@charset "UTF-8";
+header {height:100px; background-color: white;}
+body {background-color:#ff7a2f;}
+#mainLogo{width:100px; height:100px;}
+.navBox{width:500px; height:50px;}
+.buttonBox{width:200px; height:50px;}
+
+.content {height: 800px;}
+
+footer {height:100px; background-color: #333333;}
