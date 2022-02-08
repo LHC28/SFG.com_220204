@@ -1,6 +1,7 @@
 package com.SFG.team;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/team")
@@ -8,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TeamController {
 	
 	@RequestMapping("/introduce_view")
-	public String introduceView() {
+	public String introduceView(Model model) {
 		
-		return "";
+		model.addAttribute("viewName", "team/teamIntroduceView");
+		return "template/layout";
 	}
 }

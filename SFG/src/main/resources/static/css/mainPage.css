@@ -1,16 +1,21 @@
 @charset "UTF-8";
 header {height:100px; background-color: white;}
-body {background-color:#ff7a2f;}
+body {background-color:#ff4814;}
 #mainLogo{width:100px; height:100px;}
 .navBox{width:500px; height:50px;}
 .buttonBox{width:200px; height:50px;}
 
-.content {width:1110px; background-color: white; border: 1px solid #333333;}
+.content {width:1110px; background-color: white;}
 
 /* signInView */
 #loginPage {width: 1110px; height: 600px; background-color: #ff7a2f;}
 #loginBox0 {width: 1000px; height: 550px; background-color: white;}
 #loginBox1 {width: 600px; height: 400px; background-color: #ff7a2f;}
 #loginBox2 {width: 550px; height: 350px; background-color: white;}
+
+/* introduceView */
+.introduceBox1 {width:1110px; height:500px; background-color: #ff7a2f;}
+.introduceBox2 {width:1050px; height:450px; background-color: white;}
+.introducebox3 {width:1000px; height:400px; background-color: #f2f2f2; border: 1px solid #333333;}
 
 footer {height:100px; background-color: #333333;}
