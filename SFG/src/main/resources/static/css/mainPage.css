@@ -1,9 +1,16 @@
 @charset "UTF-8";
+/* header */
 header {height:100px; background-color: white;}
-body {background-color:#ff4814;}
+body {background-color: #ff4814;}
 #mainLogo{width:100px; height:100px;}
 .navBox{width:500px; height:50px;}
-.buttonBox{width:200px; height:50px;}
+.buttonBox{width:150px; height:50px;}
+.loginBox {width: 70px; height:25px; background-color: #ff7a2f; color: white; font-size: 10px;}
+.loginBox a:link{text-decoration: none; color: white;}
+.loginBox a:visited{text-decoration: none; color: white;}
+.loginBox a:active{text-decoration: none; color: white;}
+.loginBox a:hover{text-decoration: none; color: white;}
+
 
 .content {width:1110px; background-color: white;}
 
@@ -12,10 +19,20 @@ body {background-color:#ff4814;}
 #loginBox0 {width: 1000px; height: 550px; background-color: white;}
 #loginBox1 {width: 600px; height: 400px; background-color: #ff7a2f;}
 #loginBox2 {width: 550px; height: 350px; background-color: white;}
+.loginTitle{font-size: 40px; color: #ff7a2f;}
+.loginInputTitle {font-size: 15px;}
+.loginInput {width: 350px;}
+.loginBtn {width:350px; background-color: #ff7a2f; color: white;}
+.loginFindBox {width:200px; font-size: 15px;}
+#loginBox2 a:link {text-decoration: none; color: black;}
+#loginBox2 a:visited {text-decoration: none; color: black;}
+#loginBox2 a:active {text-decoration: none; color: black;}
+#loginBox2 a:hover {text-decoration: none; color: black;}
 
 /* introduceView */
 .introduceBox1 {width:1110px; height:500px; background-color: #ff7a2f;}
 .introduceBox2 {width:1050px; height:450px; background-color: white;}
 .introducebox3 {width:1000px; height:400px; background-color: #f2f2f2; border: 1px solid #333333;}
 
+/* footer */
 footer {height:100px; background-color: #333333;}
