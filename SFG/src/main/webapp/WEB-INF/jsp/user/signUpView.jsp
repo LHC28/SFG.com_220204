@@ -40,11 +40,40 @@
 </div>
 <script>
 	$(document).ready(function(){
+		
+		// loginId 중복확인 버튼 클릭시
+		$('.duplicatedIdBtn').on('click',function(){
+			var loginId = $('#loginId').val();
+			if(loginId==''){
+				alert("아이디를 입력해주세요.");
+				return;
+			}
+			
+			$.ajax({
+				type: "post",
+				url: "/user/duplicated_id",
+				data: {"loginId":loginId},
+				success: function(data){
+					if(data.result=="success"){
+						$('.possibleLoginId').removeClass("d-none");
+						$('.duplicatedLoginId').addClass("d-none");
+					}else if(data.result=="fail"){
+						$('.possibleLoginId').addClass("d-none");
+						$('.duplicatedLoginId').removeClass("d-none");
+					}
+				},
+				error: function(e){
+					alert("error : "+e);
+				}
+			});
+		});
+		
+		// 회원가입 버튼 클릭시
 		$('.signUpBtn').on('click',function(){
 			
 			// 유효성 검사
-			var name = $('#loginId').val();
-			if(name==''){
+			var loginId = $('#loginId').val();
+			if(loginId==''){
 				alert("아이디를 입력하세요.");
 				return;
 			}
@@ -67,10 +96,15 @@
 				return;
 			}
 			
+			if($('.possibleLoginId').hasClass("d-none")){
+				alert("아이디 중복여부를 확인하세요.");
+				return;
+			}
+			
 			$.ajax({
 				type: "post",
 				url: "/user/sign_up",
-				data: {"name":name, "password":password, "name":name, "email":email},
+				data: {"loginId":loginId, "password":password, "name":name, "email":email},
 				success: function(data){
 					if(data.result=="success"){
 						alert("회원가입에 성공하였습니다.");
@@ -78,7 +112,7 @@
 					}
 				},
 				error: function(e){
-					alert("error : "+e;)
+					alert("error : "+e);
 				}
 				
 			});

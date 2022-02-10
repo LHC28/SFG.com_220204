@@ -27,7 +27,7 @@
 				<a href="/user/sign_in_view">로그인</a>
 			</div>
 			<div class="loginBox d-flex align-items-center justify-content-center">
-				<a href="">회원가입</a>
+				<a href="/user/sign_up_view">회원가입</a>
 			</div>
 		</div>
 		<div class="buttonBox2 mr-3 bg-success d-flex align-items-center justify-content-between">
