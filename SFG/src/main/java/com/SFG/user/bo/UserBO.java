@@ -19,4 +19,8 @@ public class UserBO {
 	public User selectUser(String loginId) {
 		return userDAO.selectUser(loginId);
 	}
+	
+	public User selectUserByLoginIdAndPassword(String loginId, String password) {
+		return userDAO.selectUserByLoginIdAndPassword(loginId, password);
+	}
 }

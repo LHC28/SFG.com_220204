@@ -1,5 +1,8 @@
 package com.SFG.user;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,5 +23,19 @@ public class UserController {
 		
 		model.addAttribute("viewName", "user/signUpView");
 		return "template/layout";
+	}
+	
+	@RequestMapping("/sign_out")
+	public String signOut(
+			HttpServletRequest request
+			) {
+		
+		HttpSession session = request.getSession();
+		session.removeAttribute("loginId");
+		session.removeAttribute("name");
+		session.removeAttribute("email");
+		session.removeAttribute("imagePath");
+		
+		return "redirect:/main/main_page";
 	}
 }
