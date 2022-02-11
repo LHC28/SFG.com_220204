@@ -50,8 +50,7 @@ body {background-color: #ff4814;}
 .duplicatedIdBtn {font-size: 10px;}
 
 
-
-/* introduceView */
+/* introduceView - 다른 소개 페이지도 활용 */
 .introduceBox1 {width:1110px; height:1000px; background-color: #ff7a2f;}
 .introduceBox2 {width:1050px; height:950px; background-color: white;}
 .introducebox3 {width:1000px; height:900px; background-color: #f2f2f2; border: 1px solid #333333;}
@@ -62,5 +61,14 @@ body {background-color: #ff4814;}
 .introduceImageBox {width: 400px;}
 .winnerYear {width: 75px; height:75px; border-radius: 50%; background-color: #ff7a2f; color: white; font-size: 15px;}
 .title {white-space:nowrap;}
+
+/* 대표선수 소개 페이지 */
+.representPlayerBox1 {width:1110px; height:1200px; background-color: #ff7a2f;}
+.representPlayerBox2 {width:1050px; height:1150px; background-color: white;}
+.representPlayerbox3 {width:1000px; height:1100px; background-color: #f2f2f2; border: 1px solid #333333;}
+.representTable {width: 400px; font-size: 15px; color: black;}
+.representTable th, td {border: 1px solid #333333;}
+
+
 /* footer */
 footer {height:100px; background-color: #333333;}
