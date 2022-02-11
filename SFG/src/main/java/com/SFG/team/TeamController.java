@@ -25,4 +25,18 @@ public class TeamController {
 		model.addAttribute("viewName", "team/representPlayerView");
 		return "template/layout";
 	}
+	
+	@RequestMapping("/logo_view")
+	public String logiView(Model model) {
+		
+		model.addAttribute("viewName", "team/logoView");
+		return "template/layout";
+	}
+	
+	@RequestMapping("/stadium_view")
+	public String stadiumView(Model model) {
+		
+		model.addAttribute("viewName", "team/stadiumView");
+		return "template/layout";
+	}
 }

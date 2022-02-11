@@ -67,8 +67,29 @@ body {background-color: #ff4814;}
 .representPlayerBox2 {width:1050px; height:1150px; background-color: white;}
 .representPlayerbox3 {width:1000px; height:1100px; background-color: #f2f2f2; border: 1px solid #333333;}
 .representTable {width: 400px; font-size: 15px; color: black;}
-.representTable th, td {border: 1px solid #333333;}
+.representTable th, .representTable td {border: 1px solid #333333;}
 
+/* 로고 및 마스코트 페이지 */
+.winnerImageBox {width: 800px;}
+.logoBox1 {width:1110px; height:1200px; background-color: #ff7a2f;}
+.logoBox2 {width:1050px; height:1150px; background-color: white;}
+.logobox3 {width:1000px; height:1100px; background-color: #f2f2f2; border: 1px solid #333333;}
+
+/* 경기장 페이지 */
+.stadiumBox1 {width:1110px; height:1300px; background-color: #ff7a2f;}
+.stadiumBox2 {width:1050px; height:1250px; background-color: white;}
+.stadiumbox3 {width:1000px; height:1200px; background-color: #f2f2f2; border: 1px solid #333333;}
+.stadiumTable{width: 300px; height: 300px; color: black; font-size:15px;}
+.stadiumTable tr {border: 1px solid #969696;}
+
+/* 코칭스태프 페이지 */
+.couchBox1 {width:1110px; height:1300px; background-color: #ff7a2f;}
+.couchBox2 {width:1050px; height:1250px; background-color: white;}
+.couchbox3 {width:1000px; height:1200px; background-color: #f2f2f2; border: 1px solid #333333;}
+.playerBox {width: 900px; height: 1100px;}
+.playerTable {width:200px; height: 250px;}
+.playerTable td {font-size:20px; font-weight: bold;}
+.player {width: 200px; height: 250px; border: 1px solid #333333;}
 
 /* footer */
 footer {height:100px; background-color: #333333;}
