@@ -43,7 +43,7 @@
 												<div class="d-flex justify-content-center">
 													<img src="/static/images/sfglogo.png" alt="구단로고" width="50px" height="50px">
 												</div>
-												<div class="text-center">04:30</div>
+												<div class="text-center mt-2">04:30</div>
 												<div class="text-center">승 4:1</div>
 												<br>
 											</div>
