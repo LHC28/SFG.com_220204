@@ -7,7 +7,7 @@
 				<div class="d-flex justify-content-center mb-4">
 					<div class="introduceTitleBox">
 						<div class="introduceTitle d-flex align-items-center justify-content-center">
-							<span>코칭스태프</span>
+							<span>외야수 소개</span>
 						</div>
 					</div>
 				</div>
@@ -17,18 +17,19 @@
 						<div class="player">
 							<table class="playerTable text-center d-flex justify-content-center align-items-center">
 								<tr>
-									<td>코치</td>
+									<td>투수</td>
 								</tr>
 								<tr>
 									<td>
-										<img src="/static/images/manager.jpg" alt="코치" width="180px;" height="180px;">
+										<img src="/static/images/queto.jpg" alt="코치" width="180px;" height="180px;">
 									</td>
 								</tr>
 								<tr>
-									<td>19. 게이브 케플러</td>
+									<td>47. 자니 쿠에토</td>
 								</tr>
 							</table>
 						</div>
+						<%-- 칸이 남을 땐 안 보이도록 하여 한줄에 4개를 채운다. --%>
 						<div class="player">
 							
 						</div>
