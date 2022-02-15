@@ -17,5 +17,59 @@
 			`updatedAt`
 		FROM
 			`player`
+		WHERE
+			`position` like "%coach"
+		
+	</select>
+	<select id="selectPitcherList" resultType="com.SFG.player.model.Player">
+		SELECT
+			`id`,
+			`name`,
+			`number`,
+			`position`,
+			`birth`,
+			`debut`,
+			`introduce`,
+			`imagePath`,
+			`createdAt`,
+			`updatedAt`
+		FROM
+			`player`
+		WHERE
+			`position`="pitcher"
+	</select>
+	<select id="selectInfieldList" resultType="com.SFG.player.model.Player">
+		SELECT
+			`id`,
+			`name`,
+			`number`,
+			`position`,
+			`birth`,
+			`debut`,
+			`introduce`,
+			`imagePath`,
+			`createdAt`,
+			`updatedAt`
+		FROM
+			`player`
+		WHERE
+			`position` = "infielder"
+	</select>
+	<select id="selectOutfieldList" resultType="com.SFG.player.model.Player">
+		SELECT
+			`id`,
+			`name`,
+			`number`,
+			`position`,
+			`birth`,
+			`debut`,
+			`introduce`,
+			`imagePath`,
+			`createdAt`,
+			`updatedAt`
+		FROM
+			`player`
+		WHERE
+			`position` = "outfielder"
 	</select>
 </mapper>

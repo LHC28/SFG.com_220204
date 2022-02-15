@@ -17,4 +17,17 @@ public class PlayerBO {
 	public List<Player> getCoachList(){
 		return playerDAO.selectCoachList();
 	}
+	
+	public List<Player> getPitcherList(){
+		return playerDAO.selectPitcherList();
+	}
+	
+	public List<Player> getInfieldList(){
+		return playerDAO.selectInfieldList();
+	}
+	
+	public List<Player> getOutfieldList(){
+		return playerDAO.selectOutfieldList();
+	}
+
 }

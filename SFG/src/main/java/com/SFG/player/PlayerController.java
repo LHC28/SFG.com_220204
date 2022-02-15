@@ -21,7 +21,9 @@ public class PlayerController {
 	@RequestMapping("/coach_view")
 	public String coachView(Model model) {
 		
+		// 코치리스트 가져오기
 		List<Player> coachList =  playerBO.getCoachList();
+		
 		model.addAttribute("coachList", coachList);
 		model.addAttribute("viewName", "player/coachView");
 		return "template/layout";
@@ -30,7 +32,10 @@ public class PlayerController {
 	//투수
 	@RequestMapping("/pitcher_view")
 	public String pitcherView(Model model) {
+		//투수리스트 가져오기
+		List<Player> pitcherList = playerBO.getPitcherList();
 		
+		model.addAttribute("pitcherList", pitcherList);
 		model.addAttribute("viewName", "player/pitcherView");
 		return "template/layout";
 	}
@@ -38,7 +43,10 @@ public class PlayerController {
 	//내야수
 	@RequestMapping("/in_fielder_view")
 	public String inFielderView(Model model) {
+		// 내야수 리스트 가져오기
+		List<Player> infieldList = playerBO.getInfieldList();
 		
+		model.addAttribute("infieldList", infieldList);
 		model.addAttribute("viewName", "player/inFielderView");
 		return "template/layout";
 	}
@@ -46,7 +54,10 @@ public class PlayerController {
 	//외야수
 	@RequestMapping("/out_fielder_view")
 	public String outFielderView(Model model) {
+		// 외야수 리스트 가져오기
+		List<Player> outfieldList = playerBO.getOutfieldList();
 		
+		model.addAttribute("outfieldList", outfieldList);
 		model.addAttribute("viewName", "player/outFielderView");
 		return "template/layout";
 	}
