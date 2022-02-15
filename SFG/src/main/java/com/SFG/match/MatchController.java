@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MatchController {
 
-	@RequestMapping("match_result_view")
+	@RequestMapping("/match_result_view")
 	public String matchResultView(Model model) {
 		
 		model.addAttribute("viewName", "match/resultView");
