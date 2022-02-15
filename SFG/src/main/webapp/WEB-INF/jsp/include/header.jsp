@@ -13,11 +13,42 @@
 			<%-- 네비게이션바 --%>
 			<nav class="navBox">
 				<ul class="nav nav-fill mt-1">
-					<li class="nav-item"><a href="#" class="nav-link">구단</a></li>
-					<li class="nav-item"><a href="#" class="nav-link">선수단</a></li>
-					<li class="nav-item"><a href="#" class="nav-link">경기정보</a></li>
-					<li class="nav-item"><a href="#" class="nav-link">히스토리</a></li>
-					<li class="nav-item"><a href="#" class="nav-link">팬</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">구단</a>
+						<ul class="subMenu">
+							<li><a href="#" class="m-3">구단소개</a></li>
+							<li><a href="#" class="m-3">대표 선수</a></li>
+							<li><a href="#" class="m-3">로고 및 마스코트</a></li>
+							<li><a href="#" class="m-3">구장</a></li>
+						</ul>
+					</li>
+					<li class="nav-item"><a href="#" class="nav-link">선수단</a>
+						<ul class="subMenu">
+							<li><a href="#" class="m-3">코칭스태프</a></li>
+							<li><a href="#" class="m-3">투수</a></li>
+							<li><a href="#" class="m-3">내야수</a></li>
+							<li><a href="#" class="m-3">외야수</a></li>
+						</ul>
+					</li>
+					<li class="nav-item"><a href="#" class="nav-link">경기정보</a>
+						<ul class="subMenu">
+							<li><a href="#" class="m-3">경기일정</a></li>
+						</ul>
+					</li>
+					<li class="nav-item"><a href="#" class="nav-link">히스토리</a>
+						<ul class="subMenu">
+							<li><a href="#" class="m-3">submenu</a></li>
+						</ul>
+					</li>
+					<li class="nav-item"><a href="#" class="nav-link">팬</a>
+						<%-- 마지막 메뉴바 왼쪽으로 땡기기 --%>
+						<ul class="subMenu subMenuLast">
+							<li><a href="#" class="m-3">공지사항</a></li>
+							<li><a href="#" class="m-3">구단뉴스</a></li>
+							<li><a href="#" class="m-3">팬 게시판</a></li>
+							<li><a href="#" class="m-3">사진 게시판</a></li>
+							<li><a href="#" class="m-3">건의사항</a></li>
+						</ul>
+					</li>
 				</ul>
 			</nav>
 		</div>

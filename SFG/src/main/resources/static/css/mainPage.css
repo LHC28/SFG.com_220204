@@ -4,10 +4,20 @@ header {height:100px; background-color: #333333;}
 body {background-color: #ff4814;}
 #mainLogo{width:100px; height:100px;}
 .navBox{width:500px; height:50px; font-weight: bold;}
-.navBox a:link{text-decoration: none; color: white;}
-.navBox a:visited{text-decoration: none; color: white;}
-.navBox a:active{text-decoration: none; color: white;}
-.navBox a:hover{text-decoration: none; color: white;}
+.subMenu {list-style: none; padding-left: 0px; display:none; position: absolute;}
+.navBox > ul > li:hover > ul { display: block;}
+.navBox > ul > li:hover > .subMenu > li {float: left; font-size: 15px; background-color: #ff7a2f;}
+.subMenu > li > a:link {text-decoration: none; background-color: #ff7a2f; color: black;}
+.subMenu > li > a:hover {text-decoration: none; background-color: #ff7a2f; color: black !important;}
+.subMenu > li > a:visited {text-decoration: none; background-color: #ff7a2f; color: white;}
+.subMenu > li > a:active {text-decoration: none; background-color: #ff7a2f; color: black;}
+.subMenuLast {right:400px;}
+
+
+.navBox > ul > li > a:link{text-decoration: none; color: white;}
+.navBox > ul > li > a:visited{text-decoration: none; color: white;}
+.navBox > ul > li > a:active{text-decoration: none; color: white;}
+.navBox > ul > li > a:hover{text-decoration: none; color: white; background-color:#ff7a2f;}
 .buttonBox1{width:150px; height:50px;}
 .buttonBox2{width:250px; height:50px;}
 .loginBox {width: 70px; height:25px; background-color: #ff7a2f; color: white; font-size: 10px;}
