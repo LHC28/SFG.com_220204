@@ -6,9 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.SFG.player.bo.PlayerBO;
+import com.SFG.player.model.PitcherStat;
+import com.SFG.player.model.PitcherTotalStat;
 import com.SFG.player.model.Player;
+import com.SFG.player.model.PlayerIntroduce;
 
 @RequestMapping("/player")
 @Controller
@@ -64,8 +68,26 @@ public class PlayerController {
 	
 	// 선수 세부 사항
 	@RequestMapping("/player_detail_view")
-	public String playerDetailView(Model model) {
+	public String playerDetailView(
+			Model model,
+			@RequestParam("playerId") int playerId
+			) {
+		// 선수 정보 가져오기
+		Player player = playerBO.getPlayer(playerId);
+		// 선수 소개 정보 가져오기
+		PlayerIntroduce playerIntroduce = playerBO.getPlayerIntroduce(playerId);
+		System.out.println(player.getPosition());
+		if(player.getPosition().equals("pitcher")) {
+			// 투수 통산기록 가져오기
+			PitcherTotalStat pitcherTotalStat = playerBO.getpitcherTotalStat(playerId);
+			// 투수 연도별 기록 가져오기
+			List<PitcherStat> pitcherStats =  playerBO.getPitcherStats(playerId);
+			model.addAttribute("pitcherStats", pitcherStats);
+			model.addAttribute("pitcherTotalStat", pitcherTotalStat);
+		}
 		
+		model.addAttribute("player", player);
+		model.addAttribute("playerIntroduce", playerIntroduce);
 		model.addAttribute("viewName", "player/playerDetailView");
 		return "template/layout";
 	}

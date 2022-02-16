@@ -113,6 +113,8 @@ body {background-color: #ff4814;}
 .playerStatTable {width: 600px; height: 30px;}
 .playerStatTable th, .playerStatTable td {border: 1px solid black;}
 .playerAnnualStat {width: 950px;}
+.playerAnnualStat th {border: 1px solid black; background-color: black; color: white;}
+.playerAnnualStat td {border: 1px solid black; height:35px;}
 
 /* 경기일정 페이지 */
 .matchBox1 {width:1110px; height:1200px; background-color: #ff7a2f;}

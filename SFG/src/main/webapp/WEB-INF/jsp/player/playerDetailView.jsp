@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="content">
 	<div class="detailPlayerBox1 d-flex align-items-center justify-content-center">
 		<div class="detailPlayerBox2 d-flex align-items-center justify-content-center">
@@ -16,19 +17,17 @@
 					<div class="detailContentBox">
 						<div class="detailTitleName d-flex align-items-center justify-content-center mb-2">
 							<span class="title">
-								자니 쿠에토
+								${player.name}
 							</span>
 						</div>
 						<div>
-							어깨춤을 추는 변칙투구의 달인 자니 쿠에토!!!
+							${playerIntroduce.title}
 						</div>
 						<div class="detailContent mt-2">
-							신시내티, 캔자스시티를 거쳐 샌프란시스코로 온 선수.<br>
-							캔자스시티에서 우승반지 획득 후 두번째 우승반지를 노린다.<br>
-							4가지의 변칙투구동작으로 우스꽝스러운 모습을<br> 보일지 몰라도 압도적인 피칭으로 상대팀을 잠재운다.
+							${playerIntroduce.content}
 						</div>
 					</div>
-					<img src="/static/images/posey.png" alt="선수 사진" width="300px" height="230px">
+					<img src="${playerIntroduce.imagePath }" alt="선수 사진" width="300px" height="230px">
 				</div>
 				<div class="d-flex justify-content-center">
 					<table class="playerStatTable text-center">
@@ -40,18 +39,16 @@
 								<th>이닝</th>
 								<th>평균자책점</th>
 								<th>탈삼진</th>
-								<th>WHIP</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>296</td>
-								<td>126</td>
-								<td>87</td>
-								<td>1856 1/3</td>
-								<td>3.35</td>
-								<td>1556</td>
-								<td>1.191</td>
+								<td>${pitcherTotalStat.games}</td>
+								<td>${pitcherTotalStat.wins}</td>
+								<td>${pitcherTotalStat.losses}</td>
+								<td>${pitcherTotalStat.innings_pitched}</td>
+								<td>${pitcherTotalStat.earned_run_average }</td>
+								<td>${pitcherTotalStat.strikeouts }</td>
 							</tr>
 						</tbody>
 					</table>
@@ -60,37 +57,39 @@
 					<table class="playerAnnualStat text-center">
 						<thead>
 							<tr>
-								<td>year</td>
-								<td>team</td>
-								<td>wins</td>
-								<td>losses</td>
-								<td>ERA</td>
-								<td>games</td>
-								<td>GS</td>
-								<td>saves</td>
-								<td>IP</td>
-								<td>hits</td>
-								<td>walks</td>
-								<td>strikeouts</td>
-								<td>whip</td>
+								<th>year</th>
+								<th>team</th>
+								<th>wins</th>
+								<th>losses</th>
+								<th>ERA</th>
+								<th>games</th>
+								<th>GS</th>
+								<th>saves</th>
+								<th>IP</th>
+								<th>hits</th>
+								<th>walks</th>
+								<th>strikeouts</th>
+								<th>whip</th>
 							</tr>
 						</thead>
 						<tbody>
+							<c:forEach var="pitcherStat" items="${pitcherStats }" varStatus="status">
 							<tr>
-								<td>2020</td>
-								<td>SFG</td>
-								<td>100</td>
-								<td>50</td>
-								<td>0.1</td>
-								<td>33</td>
-								<td>33</td>
-								<td>0</td>
-								<td>200</td>
-								<td>50</td>
-								<td>30</td>
-								<td>300</td>
-								<td>0.9</td>
+								<td>${pitcherStat.year}</td>
+								<td>${pitcherStat.team}</td>
+								<td>${pitcherStat.wins }</td>
+								<td>${pitcherStat.losses }</td>
+								<td>${pitcherStat.earned_run_average }</td>
+								<td>${pitcherStat.games }</td>
+								<td>${pitcherStat.game_started }</td>
+								<td>${pitcherStat.saves }</td>
+								<td>${pitcherStat.innings_pitched }</td>
+								<td>${pitcherStat.hits }</td>
+								<td>${pitcherStat.walks }</td>
+								<td>${pitcherStat.strikeouts }</td>
+								<td>${pitcherStat.whip}</td>
 							</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>

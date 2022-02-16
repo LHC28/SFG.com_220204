@@ -23,7 +23,7 @@
 								</tr>
 								<tr>
 									<td>
-										<img src="${pitcher.imagePath}" alt="투수" width="180px;" height="180px;">
+										<a href="/player/player_detail_view?playerId=${pitcher.id}"><img src="${pitcher.imagePath}" alt="투수" width="180px;" height="180px;"></a>
 									</td>
 								</tr>
 								<tr>

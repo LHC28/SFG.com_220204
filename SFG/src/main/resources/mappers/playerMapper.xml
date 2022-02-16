@@ -11,7 +11,6 @@
 			`position`,
 			`birth`,
 			`debut`,
-			`introduce`,
 			`imagePath`,
 			`createdAt`,
 			`updatedAt`
@@ -29,7 +28,6 @@
 			`position`,
 			`birth`,
 			`debut`,
-			`introduce`,
 			`imagePath`,
 			`createdAt`,
 			`updatedAt`
@@ -46,7 +44,6 @@
 			`position`,
 			`birth`,
 			`debut`,
-			`introduce`,
 			`imagePath`,
 			`createdAt`,
 			`updatedAt`
@@ -63,7 +60,6 @@
 			`position`,
 			`birth`,
 			`debut`,
-			`introduce`,
 			`imagePath`,
 			`createdAt`,
 			`updatedAt`
@@ -71,5 +67,57 @@
 			`player`
 		WHERE
 			`position` = "outfielder"
+	</select>
+	<select id="selectPlayer" resultType="com.SFG.player.model.Player">
+		SELECT
+			`id`,
+			`name`,
+			`number`,
+			`position`,
+			`birth`,
+			`debut`,
+			`imagePath`,
+			`createdAt`,
+			`updatedAt`
+		FROM
+			`player`
+		WHERE
+			`id` = #{playerId}
+	</select>
+	<select id="selectPlayerIntroduce" resultType="com.SFG.player.model.PlayerIntroduce">
+		SELECT
+			`id`,
+			`playerId`,
+			`title`,
+			`content`,
+			`imagePath`,
+			`createdAt`,
+			`updatedAt`
+		FROM
+			`player_introduce`
+		WHERE
+			`playerId` = #{playerId}
+	</select>
+	<select id="selectPitcherStat" resultType="com.SFG.player.model.PitcherStat">
+		SELECT
+			`id`,
+			`playerId`,
+			`year`,
+			`team`,
+			`wins`,
+			`losses`,
+			`earned_run_average`,
+			`games`,
+			`game_started`,
+			`saves`,
+			`innings_pitched`,
+			`hits`,
+			`walks`,
+			`strikeouts`,
+			`whip`
+		FROM
+			`pitcher_stat`
+		WHERE
+			`playerId` = #{playerId}
 	</select>
 </mapper>
