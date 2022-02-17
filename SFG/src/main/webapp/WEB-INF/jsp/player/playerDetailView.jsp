@@ -57,19 +57,19 @@
 					<table class="playerAnnualStat text-center">
 						<thead>
 							<tr>
-								<th>year</th>
-								<th>team</th>
-								<th>wins</th>
-								<th>losses</th>
-								<th>ERA</th>
-								<th>games</th>
-								<th>GS</th>
-								<th>saves</th>
-								<th>IP</th>
-								<th>hits</th>
-								<th>walks</th>
-								<th>strikeouts</th>
-								<th>whip</th>
+								<th>연도</th>
+								<th>팀</th>
+								<th>승리</th>
+								<th>패</th>
+								<th>평균자책점</th>
+								<th>경기수</th>
+								<th>선발등판</th>
+								<th>세이브</th>
+								<th>이닝</th>
+								<th>피안타</th>
+								<th>볼넷</th>
+								<th>삼진</th>
+								<th>WHIP</th>
 							</tr>
 						</thead>
 						<tbody>

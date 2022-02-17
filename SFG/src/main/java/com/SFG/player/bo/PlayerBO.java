@@ -63,11 +63,20 @@ public class PlayerBO {
 		double earned_run_average = 0;
 		int strikeouts = 0;
 		for(int i=0; i<pitcherStats.size(); i++) {
+			// 경기수
 			games+=pitcherStats.get(i).getGames();
+			//승
 			wins+=pitcherStats.get(i).getWins();
+			//패
 			losses+=pitcherStats.get(i).getLosses();
-			innings_pitched+=pitcherStats.get(i).getInnings_pitched();
+			//이닝
+			int num = (int)innings_pitched+(int)pitcherStats.get(i).getInnings_pitched();
+			double demical = (innings_pitched-(int)innings_pitched)+(pitcherStats.get(i).getInnings_pitched()-(int)pitcherStats.get(i).getInnings_pitched());
+			innings_pitched=0;
+			innings_pitched=num+(int)(demical/0.3)+(demical%0.3);
+			//평균자책점
 			earned_run_average+=pitcherStats.get(i).getEarned_run_average();
+			//삼진
 			strikeouts+=pitcherStats.get(i).getStrikeouts();
 		}
 		pitcherTotalStat.setGames(games);
