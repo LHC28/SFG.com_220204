@@ -19,11 +19,11 @@
 						<div class="player">
 							<table class="playerTable text-center d-flex justify-content-center align-items-center">
 								<tr>
-									<td>${infielder.position }</td>
+									<td>${infielder.position.substring(10) }</td>
 								</tr>
 								<tr>
 									<td>
-										<img src="${infielder.imagePath }" alt="코치" width="180px;" height="180px;">
+										<a href="/player/player_detail_view?playerId=${infielder.id}"><img src="${infielder.imagePath }" alt="코치" width="180px;" height="180px;"></a>
 									</td>
 								</tr>
 								<tr>

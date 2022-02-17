@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.SFG.player.dao.PlayerDAO;
+import com.SFG.player.model.BatterStat;
+import com.SFG.player.model.BatterTotalStat;
 import com.SFG.player.model.PitcherStat;
 import com.SFG.player.model.PitcherTotalStat;
 import com.SFG.player.model.Player;
@@ -87,6 +89,67 @@ public class PlayerBO {
 		pitcherTotalStat.setStrikeouts(strikeouts);
 		
 		return pitcherTotalStat;
+	}
+
+	// 타자 연도별 기록 가져오기
+	public List<BatterStat> getBatterStats(int playerId){
+		// 비율 스탯 계산하여 넣어줘야 한다.
+		List<BatterStat> batterStats = playerDAO.selectBatterStats(playerId);
+		
+		for(int i=0; i<batterStats.size(); i++) {
+			// 타율
+			double batting_average = (double)batterStats.get(i).getHits()/(double)batterStats.get(i).getAt_bats();
+			// 출루율
+			double on_base_percentage = ((double)batterStats.get(i).getHits()+(double)batterStats.get(i).getBases_on_balls()+(double)batterStats.get(i).getHit_by_pitch())/((double)batterStats.get(i).getAt_bats()+(double)batterStats.get(i).getBases_on_balls()+(double)batterStats.get(i).getHit_by_pitch()+(double)batterStats.get(i).getSacrifice_flys());
+			// 장타율
+			double slugging_percentage = (((double)batterStats.get(i).getHits()-(double)batterStats.get(i).getDoubles()-(double)batterStats.get(i).getTriples()-(double)batterStats.get(i).getHomerun())+(double)batterStats.get(i).getDoubles()*2+(double)batterStats.get(i).getTriples()*3+(double)batterStats.get(i).getHomerun()*4)/(double)batterStats.get(i).getAt_bats();
+			// OPS
+			double on_base_plus_slugging = on_base_percentage + slugging_percentage; 
+			// 소수점 아래 세번째자리까지 남기기
+			batting_average = (double)Math.round(batting_average*1000)/1000;
+			on_base_percentage = (double)Math.round(on_base_percentage*1000)/1000;
+			slugging_percentage = (double)Math.round(slugging_percentage*1000)/1000;
+			on_base_plus_slugging = (double)Math.round(on_base_plus_slugging*1000)/1000;
+			batterStats.get(i).setBatting_average(batting_average);
+			batterStats.get(i).setOn_base_percentage(on_base_percentage);
+			batterStats.get(i).setSlugging_percentage(slugging_percentage);
+			batterStats.get(i).setOn_base_plus_slugging(on_base_plus_slugging);
+		}
+		
+		return batterStats;
+	}
+	
+	// 타자 통산 기록 가져오기
+	// games hits homerun runs_batted_in stolen_bases batting_average
+	public BatterTotalStat getBatterTotalStat(int playerId) {
+		BatterTotalStat batterTotalStat = new BatterTotalStat();
+		//연도별 성적 가져오기
+		List<BatterStat> batterStats = playerDAO.selectBatterStats(playerId);
+		// 필요한 통산기록만 계산하기
+		int games=0; int hits=0; int homerun=0; int runs_batted_in = 0; int stolen_bases=0;
+		// 타율에 필요한 값
+		int at_bats = 0;
+		// 합치기
+		for(int i=0; i<batterStats.size(); i++) {
+			games+= batterStats.get(i).getGames();
+			hits+= batterStats.get(i).getHits();
+			homerun+= batterStats.get(i).getHomerun();
+			runs_batted_in+= batterStats.get(i).getRuns_batted_in();
+			stolen_bases+= batterStats.get(i).getStolen_bases();
+			at_bats+= batterStats.get(i).getAt_bats();
+			System.out.println(batterStats.get(i).getAt_bats());
+		}
+		
+		double batting_average = (double)hits/(double)at_bats;
+		batting_average = (double)Math.round(batting_average*1000)/1000;
+		batterTotalStat.setGames(games);
+		batterTotalStat.setHits(hits);
+		batterTotalStat.setHomerun(homerun);
+		batterTotalStat.setRuns_batted_in(runs_batted_in);
+		batterTotalStat.setStolen_bases(stolen_bases);
+		batterTotalStat.setBatting_average(batting_average);
+		
+		return batterTotalStat;
 	}
 
 }

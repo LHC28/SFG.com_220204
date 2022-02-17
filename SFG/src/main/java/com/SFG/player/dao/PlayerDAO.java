@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.SFG.player.model.BatterStat;
 import com.SFG.player.model.PitcherStat;
 import com.SFG.player.model.Player;
 import com.SFG.player.model.PlayerIntroduce;
@@ -27,4 +28,9 @@ public interface PlayerDAO {
 	
 	// 투수 연도별 성적 가져오기
 	public List<PitcherStat> selectPitcherStat(int playerId);
+	
+	// 타자 연도별 성적 가져오기
+	public List<BatterStat> selectBatterStats(int playerId);
+	
+	
 }

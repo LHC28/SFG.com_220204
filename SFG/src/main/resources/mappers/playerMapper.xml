@@ -50,7 +50,8 @@
 		FROM
 			`player`
 		WHERE
-			`position` = "infielder"
+			`position` like "infielder%"
+			
 	</select>
 	<select id="selectOutfieldList" resultType="com.SFG.player.model.Player">
 		SELECT
@@ -119,5 +120,29 @@
 			`pitcher_stat`
 		WHERE
 			`playerId` = #{playerId}
+	</select>
+	<select id="selectBatterStats" resultType="com.SFG.player.model.BatterStat">
+		SELECT
+			`id`,
+			`playerId`,
+			`year`,
+			`team`,
+			`games`,
+			`at_bats`,
+			`runs`,
+			`hits`,
+			`doubles`,
+			`triples`,
+			`homerun`,
+			`runs_batted_in`,
+			`bases_on_balls`,
+			`strikeouts`,
+			`stolen_bases`,
+			`hit_by_pitch`,
+			`sacrifice_flys`,
+			`createdAt`,
+			`updatedAt`
+		FROM
+			`batter_stat`
 	</select>
 </mapper>

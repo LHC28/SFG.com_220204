@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.SFG.player.bo.PlayerBO;
+import com.SFG.player.model.BatterStat;
+import com.SFG.player.model.BatterTotalStat;
 import com.SFG.player.model.PitcherStat;
 import com.SFG.player.model.PitcherTotalStat;
 import com.SFG.player.model.Player;
@@ -84,6 +86,15 @@ public class PlayerController {
 			List<PitcherStat> pitcherStats =  playerBO.getPitcherStats(playerId);
 			model.addAttribute("pitcherStats", pitcherStats);
 			model.addAttribute("pitcherTotalStat", pitcherTotalStat);
+		}
+		else if(player.getPosition().contains("infielder") || player.getPosition().contains("outfielder")) {
+			// 타자 통산 기록 가져오기
+			BatterTotalStat batterTotalStat = playerBO.getBatterTotalStat(playerId);
+			// 타자 연도별 기록 가져오기
+			List<BatterStat> batterStats = playerBO.getBatterStats(playerId);
+			
+			model.addAttribute("batterTotalStat", batterTotalStat);
+			model.addAttribute("batterStats", batterStats);
 		}
 		
 		model.addAttribute("player", player);

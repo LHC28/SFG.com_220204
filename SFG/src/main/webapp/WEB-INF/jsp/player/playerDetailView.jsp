@@ -8,7 +8,12 @@
 				<div class="d-flex justify-content-center mb-4">
 					<div class="detailTitleBox">
 						<div class="detailTitle d-flex align-items-center justify-content-center">
+							<c:if test="${player.position eq 'pitcher' }">
 							<span>투수</span>
+							</c:if>
+							<c:if test="${player.position.contains('infielder') }">
+							<span>내야수</span>
+							</c:if>
 						</div>
 					</div>
 				</div>
@@ -31,6 +36,7 @@
 				</div>
 				<div class="d-flex justify-content-center">
 					<table class="playerStatTable text-center">
+						<c:if test="${player.position eq 'pitcher' }">
 						<thead>
 							<tr>
 								<th>경기수</th>
@@ -51,10 +57,34 @@
 								<td>${pitcherTotalStat.strikeouts }</td>
 							</tr>
 						</tbody>
+						</c:if>
+						<c:if test="${player.position.contains('catcher') || player.position.contains('infielder') || player.position.contains('outfielder')}">
+						<thead>
+							<tr>
+								<th>경기수</th>
+								<th>안타</th>
+								<th>홈런</th>
+								<th>타점</th>
+								<th>도루</th>
+								<th>타율</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>${batterTotalStat.games }</td>
+								<td>${batterTotalStat.hits }</td>
+								<td>${batterTotalStat.homerun }</td>
+								<td>${batterTotalStat.runs_batted_in }</td>
+								<td>${batterTotalStat.stolen_bases }</td>
+								<td>${batterTotalStat.batting_average }</td>
+							</tr>
+						</tbody>
+						</c:if>
 					</table>
 				</div>
 				<div class="d-flex justify-content-center mt-4">
 					<table class="playerAnnualStat text-center">
+						<c:if test="${player.position eq 'pitcher' }">
 						<thead>
 							<tr>
 								<th>연도</th>
@@ -91,6 +121,43 @@
 							</tr>
 							</c:forEach>
 						</tbody>
+						</c:if>
+						<c:if test="${player.position.contains('infielder') || player.position.contains('outfielder')}">
+						<thead>
+							<tr>
+								<th>경기수</th>
+								<th>안타</th>
+								<th>홈런</th>
+								<th>득점</th>
+								<th>타점</th>
+								<th>도루</th>
+								<th>볼넷</th>
+								<th>삼진</th>
+								<th>타율</th>
+								<th>출루율</th>
+								<th>장타율</th>
+								<th>OPS</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="batterStat" items="${batterStats }" varStatus="status">
+							<tr>
+								<td>${batterStat.games }</td>
+								<td>${batterStat.hits }</td>
+								<td>${batterStat.homerun }</td>
+								<td>${batterStat.runs }</td>
+								<td>${batterStat.runs_batted_in }</td>
+								<td>${batterStat.stolen_bases }</td>
+								<td>${batterStat.bases_on_balls }</td>
+								<td>${batterStat.strikeouts }</td>
+								<td>${batterStat.batting_average }</td>
+								<td>${batterStat.on_base_percentage }</td>
+								<td>${batterStat.slugging_percentage }</td>
+								<td>${batterStat.on_base_plus_slugging }</td>
+							</tr>
+							</c:forEach>
+						</tbody>
+						</c:if>
 					</table>
 				</div>
 			</div>
