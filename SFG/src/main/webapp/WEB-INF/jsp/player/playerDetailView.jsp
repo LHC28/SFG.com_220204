@@ -14,6 +14,9 @@
 							<c:if test="${player.position.contains('infielder') }">
 							<span>내야수</span>
 							</c:if>
+							<c:if test="${player.position.contains('outfielder') }">
+							<span>외야수</span>
+							</c:if>
 						</div>
 					</div>
 				</div>
@@ -36,6 +39,7 @@
 				</div>
 				<div class="d-flex justify-content-center">
 					<table class="playerStatTable text-center">
+						<%-- 해당 선수 포지션이 투수인 경우 --%>
 						<c:if test="${player.position eq 'pitcher' }">
 						<thead>
 							<tr>
@@ -84,6 +88,7 @@
 				</div>
 				<div class="d-flex justify-content-center mt-4">
 					<table class="playerAnnualStat text-center">
+						<%-- 해당 선수 포지션이 내야, 외야수인 경우 --%>
 						<c:if test="${player.position eq 'pitcher' }">
 						<thead>
 							<tr>
@@ -125,6 +130,7 @@
 						<c:if test="${player.position.contains('infielder') || player.position.contains('outfielder')}">
 						<thead>
 							<tr>
+								<th>연도</th>
 								<th>경기수</th>
 								<th>안타</th>
 								<th>홈런</th>
@@ -142,6 +148,7 @@
 						<tbody>
 							<c:forEach var="batterStat" items="${batterStats }" varStatus="status">
 							<tr>
+								<td>${batterStat.year }</td>
 								<td>${batterStat.games }</td>
 								<td>${batterStat.hits }</td>
 								<td>${batterStat.homerun }</td>
