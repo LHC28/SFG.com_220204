@@ -15,11 +15,16 @@ public class BoardController {
 		return "template/layout";
 	}
 	
+//	공지사항 게시판
 //	@RequestMapping("/news_view")
 //	
+//	팬 게시판
 //	@RequestMapping("/fan_view")
 //	
+//	사진 게시판
 //	@RequestMapping("/picture_view")
 //	
+//	건의사항 게시판
 //	@RequestMapping("/suggest_view")
+	
 }

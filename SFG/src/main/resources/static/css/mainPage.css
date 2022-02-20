@@ -106,7 +106,7 @@ body {background-color: #ff4814;}
 .detailPlayerBox2 {width:1050px; height:1150px; background-color: white;}
 .detailPlayerbox3 {width:1000px; height:1100px; background-color: #f2f2f2; border: 1px solid #333333;}
 .detailTitleBox {width: 900px; margin-top: 30px; border-bottom: 1px solid #333333;}
-.detailTitle {width: 80px; border-top: 3px solid #ff7a2f; color: black; font-size: 20px;}
+.detailTitle {width: 120px; border-top: 3px solid #ff7a2f; color: black; font-size: 20px;}
 .detailTitleName {width: 100px; border-top: 3px solid #ff7a2f; color: black; font-size: 20px;}
 .detailContentBox {width: 400px; color: #ff7a2f; font-size: 18px;}
 .detailContent {color: black; font-size: 15px;}

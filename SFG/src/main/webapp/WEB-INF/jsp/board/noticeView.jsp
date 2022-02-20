@@ -7,7 +7,7 @@
 				<div class="d-flex justify-content-center mb-4">
 					<div class="detailTitleBox">
 						<div class="detailTitle d-flex align-items-center justify-content-center">
-							<span>투수</span>
+							<span>공지사항</span>
 						</div>
 					</div>
 				</div>
