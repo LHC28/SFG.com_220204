@@ -11,6 +11,18 @@
 							<when test="${boardId eq 1 }">
 							<span>공지사항 글쓰기</span>
 							</when>
+							<when test="${boardId eq 2 }">
+							<span>구단뉴스 글쓰기</span>
+							</when>
+							<when test="${boardId eq 3 }">
+							<span>팬게시판 글쓰기</span>
+							</when>
+							<when test="${boardId eq 4 }">
+							<span>사진 게시판 글쓰기</span>
+							</when>
+							<when test="${boardId eq 5 }">
+							<span>건의게시판 글쓰기</span>
+							</when>
 						</choose>
 						</div>
 					</div>
