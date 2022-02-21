@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="content">
 	<div class="boardBox1 d-flex align-items-center justify-content-center">
 		<div class="boardBox2 d-flex align-items-center justify-content-center">
@@ -35,10 +36,24 @@
 						</tbody>
 					</table>
 				</div>
+				<%--<c:if test="${loginId ne null}"> --%>
 				<div class="text-right m-3">
-					<input type="button" class="btn writeBtn form-control" value="글쓰기">
+					<a href="/board/create_view?boardId=${boardId }"><button class="btn writeBtn form-control">글쓰기</button></a>
 				</div>
+				<%-- </c:if> --%>
+				<%-- 
+				<c:if test="${loginId eq null}">
+				<div class="text-right m-3">
+					<input type="button" class="btn notWriteBtn form-control" value="로그인 후 글쓰기 가능합니다.">
+				</div>
+				</c:if>
+				--%>
 			</div>
 		</div>
 	</div>
 </div>
+<script>
+	$(document).ready(function(){
+		
+	});
+</script>

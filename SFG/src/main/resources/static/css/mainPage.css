@@ -11,7 +11,7 @@ body {background-color: #ff4814;}
 .subMenu > li > a:hover {text-decoration: none; background-color: #ff7a2f; color: black !important;}
 .subMenu > li > a:visited {text-decoration: none; background-color: #ff7a2f; color: white;}
 .subMenu > li > a:active {text-decoration: none; background-color: #ff7a2f; color: black;}
-.subMenuLast {right:400px;}
+.subMenuLast {right:800px;}
 
 
 .navBox > ul > li > a:link{text-decoration: none; color: white;}
@@ -138,6 +138,16 @@ body {background-color: #ff4814;}
 .boardTable {width:900px; height:400px;}
 .boardTable th, .boardTable td {border: 1px solid black;}
 .writeBtn {width:100px; background-color: #ff7a2f; color: white;}
+.notWriteBtn {width: 250px; background-color: #ff7a2f; color: white;}
+
+/* 게시글 작성 */
+.boardCreateBox1 {width:1110px; height:900px; background-color: #ff7a2f;}
+.boardCreateBox2 {width:1050px; height:850px; background-color: white;}
+.boardCreatebox3 {width:1000px; height:800px; background-color: #f2f2f2; border: 1px solid #333333;}
+.boardCreateTitleBox {width: 900px; margin-top: 30px; border-bottom: 1px solid #333333;}
+.boardCreateTitle {width: 150px; border-top: 3px solid #ff7a2f; color: black; font-size: 20px;}
+#fileName {font-size: 20px;}
+.boardCreateBtn {color: white; background-color: #ff7a2f; margin-top: 100px;}
 
 /* footer */
 footer {height:100px; background-color: #333333;}

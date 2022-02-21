@@ -1,19 +1,19 @@
-package com.SFG.user.model;
+package com.SFG.board.model;
 
 import java.util.Date;
 
 import lombok.Getter;
 import lombok.Setter;
+
 @Getter
 @Setter
-public class User {
+public class Board {
 
 	private int id;
-	private String loginId;
-	private String password;
-	private String name;
-	private String email;
+	private int userId;
+	private String userName;
+	private int boardKind;
+	private String content;
 	private Date createdAt;
 	private Date updatedAt;
-
 }
