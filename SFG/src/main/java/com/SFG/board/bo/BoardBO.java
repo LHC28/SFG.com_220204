@@ -45,11 +45,12 @@ public class BoardBO {
 		}else if(files.size()>1) {
 			try {
 				imagePaths = fileManagerService.saveFiles(userName, files);
+				
 				boardDAO.insertPost(userId, userName, boardKind, content);
 				List<Board> posts = boardDAO.selectPostListByUserId(userId);
 				//file DB에 넣기
 				for(int i=0; i<imagePaths.size(); i++) {
-					boardDAO.insertFile(posts.get(0).getId(), imagePath);
+					boardDAO.insertFile(posts.get(0).getId(), imagePaths.get(i));
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
