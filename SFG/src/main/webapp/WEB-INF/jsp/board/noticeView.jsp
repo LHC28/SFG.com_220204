@@ -25,14 +25,16 @@
 							</tr>
 						</thead>
 						<tbody>
+							<c:forEach var="board" items="${boards }" varStatus="status">
 							<tr>
+								<td>${board.id }</td>
 								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>${board.userName }</td>
+								<td>${board.createdAt }</td>
 								<td></td>
 								<td></td>
 							</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>

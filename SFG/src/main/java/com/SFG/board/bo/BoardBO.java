@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.SFG.board.dao.BoardDAO;
 import com.SFG.board.model.Board;
+import com.SFG.board.model.File;
 import com.SFG.common.FileManagerService;
 
 @Service
@@ -59,7 +60,12 @@ public class BoardBO {
 	}
 	
 //	게시물 가져오기
-	public Board getBoardByBoardKind(int boardKind) {
+	public List<Board> getBoardByBoardKind(int boardKind) {
 		return boardDAO.selectBoardByBoardKind(boardKind);
+	}
+	
+//	게시물 이미지 가져오기
+	public List<File> getFileByBoardId(int boardId){
+		return boardDAO.selectFileByBoardId(boardId);
 	}
 }

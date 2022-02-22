@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.SFG.board.model.Board;
+import com.SFG.board.model.File;
 
 @Repository
 public interface BoardDAO {
@@ -22,5 +23,7 @@ public interface BoardDAO {
 			@Param("boardId") int boardId
 			,@Param("imagePath") String imagePath);
 	
-	public Board selectBoardByBoardKind(int boardKind);
+	public List<Board> selectBoardByBoardKind(int boardKind);
+	
+	public List<File> selectFileByBoardId(int boardId);
 }

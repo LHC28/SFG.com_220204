@@ -1,5 +1,7 @@
 package com.SFG.board;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -32,13 +34,17 @@ public class BoardController {
 		
 		// 공지사항 관련 게시물 가져오기 - 1번
 		int boardKind = 1;
-		Board board = boardBO.getBoardByBoardKind(boardKind);
-//		File file = boardBO.getFileByBoardId(board.getId());
-		
-		// 게시물과 일치하는 이미지 가져오기
+		List<Board> boards = boardBO.getBoardByBoardKind(boardKind);
+		// 게시물 관련 이미지 가져오기
+//		List<File> file = boardBO.getFileByBoardId(board.getId());
 		
 //		게시글 등록시 id값을 활용하여 게시글의 게시판 위치 구분용
 		model.addAttribute("boardId", boardId);
+//		게시물 넘기기
+		model.addAttribute("boards", boards);
+//		게시물 관련 이미지 넘기기
+//		model.addAttribute("images", file);
+		
 //		로그인 유무 확인을 위한 값 넘기기
 		model.addAttribute("loginId", loginId);
 		model.addAttribute("viewName", "board/noticeView");

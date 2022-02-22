@@ -14,4 +14,14 @@
 			#{imagePath}
 		)
 	</insert>
+	<select id="selectFileByBoardId" resultType="com.SFG.board.model.File">
+		SELECT
+			`id`,
+			`boardId`,
+			`imagePath`
+		FROM
+			`file`
+		WHERE
+			`boardId` = #{boardId}
+	</select>
 </mapper>
