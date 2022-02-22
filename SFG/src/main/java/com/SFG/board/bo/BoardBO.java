@@ -56,4 +56,9 @@ public class BoardBO {
 			}
 		}
 	}
+	
+//	게시물 가져오기
+	public Board getBoardByBoardKind(int boardKind) {
+		return boardDAO.selectBoardByBoardKind(boardKind);
+	}
 }

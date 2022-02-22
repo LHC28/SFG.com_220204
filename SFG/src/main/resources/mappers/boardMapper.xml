@@ -37,4 +37,18 @@
 			`userId` = #{userId}
 		ORDER BY `id` DESC
 	</select>
+	<select id="selectBoardByBoardKind" resultType="com.SFG.board.model.Board">
+		SELECT
+			`id`,
+			`userId`,
+			`userName`,
+			`boardKind`,
+			`content`,
+			`createdAt`,
+			`updatedAt`
+		FROM
+			`board`
+		WHERE
+			`boardKind` = #{boardKind}
+	</select>
 </mapper>

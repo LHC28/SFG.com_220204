@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="content">
 	<div class="boardCreateBox1 d-flex align-items-center justify-content-center">
 		<div class="boardCreate2 d-flex align-items-center justify-content-center">
@@ -7,23 +8,23 @@
 				<div class="d-flex justify-content-center mb-4">
 					<div class="boardCreateTitleBox">
 						<div class="boardCreateTitle d-flex align-items-center justify-content-center">
-						<choose>
-							<when test="${boardId eq 1 }">
+						<c:choose>
+							<c:when test="${boardId eq 1 }">
 							<span>공지사항 글쓰기</span>
-							</when>
-							<when test="${boardId eq 2 }">
+							</c:when>
+							<c:when test="${boardId eq 2 }">
 							<span>구단뉴스 글쓰기</span>
-							</when>
-							<when test="${boardId eq 3 }">
+							</c:when>
+							<c:when test="${boardId eq 3 }">
 							<span>팬게시판 글쓰기</span>
-							</when>
-							<when test="${boardId eq 4 }">
+							</c:when>
+							<c:when test="${boardId eq 4 }">
 							<span>사진 게시판 글쓰기</span>
-							</when>
-							<when test="${boardId eq 5 }">
+							</c:when>
+							<c:when test="${boardId eq 5 }">
 							<span>건의게시판 글쓰기</span>
-							</when>
-						</choose>
+							</c:when>
+						</c:choose>
 						</div>
 					</div>
 				</div>

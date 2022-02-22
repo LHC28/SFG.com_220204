@@ -21,4 +21,6 @@ public interface BoardDAO {
 	public void insertFile(
 			@Param("boardId") int boardId
 			,@Param("imagePath") String imagePath);
+	
+	public Board selectBoardByBoardKind(int boardKind);
 }
