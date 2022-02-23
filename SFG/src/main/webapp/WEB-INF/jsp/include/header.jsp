@@ -42,7 +42,7 @@
 					<li class="nav-item"><a href="/board/notice_view" class="nav-link">팬</a>
 						<%-- 마지막 메뉴바 왼쪽으로 땡기기 --%>
 						<ul class="subMenu subMenuLast">
-							<li><a href="/board/notice_view?boardId=1" class="m-3">공지사항</a></li>
+							<li><a href="/board/notice_view?boardKind=1" class="m-3">공지사항</a></li>
 							<li><a href="#" class="m-3">구단뉴스</a></li>
 							<li><a href="#" class="m-3">팬 게시판</a></li>
 							<li><a href="#" class="m-3">사진 게시판</a></li>

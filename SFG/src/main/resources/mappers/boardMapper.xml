@@ -8,6 +8,7 @@
 			`userId`,
 			`userName`,
 			`boardKind`,
+			`title`,
 			`content`,
 			`createdAt`,
 			`updatedAt`
@@ -17,6 +18,7 @@
 			#{userId},
 			#{userName},
 			#{boardKind},
+			#{title},
 			#{content},
 			NOW(),
 			NOW()
@@ -28,7 +30,9 @@
 			`userId`,
 			`userName`,
 			`boardKind`,
+			`title`,
 			`content`,
+			`views`,
 			`createdAt`,
 			`updatedAt`
 		FROM
@@ -43,7 +47,9 @@
 			`userId`,
 			`userName`,
 			`boardKind`,
+			`title`,
 			`content`,
+			`views`,
 			`createdAt`,
 			`updatedAt`
 		FROM

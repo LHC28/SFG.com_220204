@@ -9,19 +9,19 @@
 					<div class="boardCreateTitleBox">
 						<div class="boardCreateTitle d-flex align-items-center justify-content-center">
 						<c:choose>
-							<c:when test="${boardId eq 1 }">
+							<c:when test="${boardKind eq 1 }">
 							<span>공지사항 글쓰기</span>
 							</c:when>
-							<c:when test="${boardId eq 2 }">
+							<c:when test="${boardKind eq 2 }">
 							<span>구단뉴스 글쓰기</span>
 							</c:when>
-							<c:when test="${boardId eq 3 }">
+							<c:when test="${boardKind eq 3 }">
 							<span>팬게시판 글쓰기</span>
 							</c:when>
-							<c:when test="${boardId eq 4 }">
+							<c:when test="${boardKind eq 4 }">
 							<span>사진 게시판 글쓰기</span>
 							</c:when>
-							<c:when test="${boardId eq 5 }">
+							<c:when test="${boardKind eq 5 }">
 							<span>건의게시판 글쓰기</span>
 							</c:when>
 						</c:choose>
@@ -30,7 +30,8 @@
 				</div>
 				<div class="d-flex justify-content-center">
 					<div>
-						<textarea class="form-control" id="uploadContentTextarea" cols="100" rows="15" placeholder="내용을 입력해주세요."></textarea>
+						<textarea class="form-control" id="uploadTitleTextarea" cols="100" rows="1" placeholder="제목을 입력해주세요."></textarea>
+						<textarea class="form-control mt-2" id="uploadContentTextarea" cols="100" rows="15" placeholder="내용을 입력해주세요."></textarea>
 						<div class="d-flex justify-content-end align-items-center">
 							<div id="fileName" class="mr-2"></div>
 							<a href="" class="imageUploadBtn"><img width="50" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-512.png"></a>
@@ -40,7 +41,7 @@
 							<input type="file" name="images" multiple="multiple" class="d-none" accept=".jpg,.jpeg,.png,.gif">
 						</form>
 						<div  class="d-flex justify-content-end">
-							<button type="button" class="btn boardCreateBtn" value="${boardId}">등록하기</button>
+							<button type="button" class="btn boardCreateBtn" value="${boardKind}">등록하기</button>
 						</div>
 					</div>
 				</div>
@@ -106,6 +107,12 @@
 			// 게시판 id값 가져오기
 			let boardKind = $('.boardCreateBtn').val();
 			
+			let title = $('#uploadTitleTextarea').val();
+			if(title==''){
+				alert("제목을 입력해주세요.");
+				return;
+			}
+			
 			let content = $('#uploadContentTextarea').val();
 			if(content==''){
 				alert("내용을 입력해주세요.");
@@ -122,6 +129,9 @@
 				formData.append("images", inputFileList[i]);
 			}
 			
+			// title값
+			formData.append("title", title);
+			
 			// content값
 			formData.append("content",content);
 			
@@ -135,7 +145,7 @@
 				success: function(data){
 					if(data.result=="success"){
 						if(boardKind==1){
-							location.href='/board/notice_view?boardId=1'
+							location.href="/board/notice_view?boardKind=1"
 						}
 					}else{
 						alert("관리자에게 문의해주세요.");

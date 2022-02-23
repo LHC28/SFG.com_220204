@@ -15,6 +15,7 @@ public interface BoardDAO {
 			@Param("userId") int userId
 			,@Param("userName") String userName
 			,@Param("boardKind") int boardKind
+			,@Param("title") String title
 			,@Param("content") String content);
 	
 	public List<Board> selectPostListByUserId(int userId);

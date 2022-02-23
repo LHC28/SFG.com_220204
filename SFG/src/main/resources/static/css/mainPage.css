@@ -11,7 +11,7 @@ body {background-color: #ff4814;}
 .subMenu > li > a:hover {text-decoration: none; background-color: #ff7a2f; color: black !important;}
 .subMenu > li > a:visited {text-decoration: none; background-color: #ff7a2f; color: white;}
 .subMenu > li > a:active {text-decoration: none; background-color: #ff7a2f; color: black;}
-.subMenuLast {right:800px;}
+.subMenuLast {right:500px;}
 
 
 .navBox > ul > li > a:link{text-decoration: none; color: white;}

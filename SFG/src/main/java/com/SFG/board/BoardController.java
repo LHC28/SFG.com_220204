@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.SFG.board.bo.BoardBO;
-import com.SFG.board.model.Board;
-import com.SFG.board.model.File;
+import com.SFG.post.bo.PostBO;
+import com.SFG.post.model.Post;
 
 @RequestMapping("/board")
 @Controller
@@ -22,31 +22,29 @@ public class BoardController {
 	@Autowired
 	private BoardBO boardBO;
 	
+	// 게시물 종합용
+	@Autowired
+	private PostBO postBO;
+	
 	@RequestMapping("/notice_view")
 	public String noticeView(
 			Model model
 			,HttpServletRequest request
-			,@RequestParam("boardId") int boardId
+			,@RequestParam("boardKind") int boardKind
 			) {
 		HttpSession session = request.getSession();
 		// null인지 아닌지 여부에 따른 로그인 유무 확인
 		String loginId = (String)session.getAttribute("loginId");
 		
-		// 공지사항 관련 게시물 가져오기 - 1번
-		int boardKind = 1;
-		List<Board> boards = boardBO.getBoardByBoardKind(boardKind);
-		// 게시물 관련 이미지 가져오기
-//		List<File> file = boardBO.getFileByBoardId(board.getId());
+		// 게시글, 추천수, 이미지 파일 가져오기
+		List<Post> postList = postBO.getPostListByBoardKind(boardKind);
 		
-//		게시글 등록시 id값을 활용하여 게시글의 게시판 위치 구분용
-		model.addAttribute("boardId", boardId);
-//		게시물 넘기기
-		model.addAttribute("boards", boards);
-//		게시물 관련 이미지 넘기기
-//		model.addAttribute("images", file);
-		
+//		boardKind 넘기기
+		model.addAttribute("boardKind", boardKind);
 //		로그인 유무 확인을 위한 값 넘기기
 		model.addAttribute("loginId", loginId);
+//		게시글 리스트 넘기기
+		model.addAttribute("postList", postList);
 		model.addAttribute("viewName", "board/noticeView");
 		return "template/layout";
 	}
@@ -68,13 +66,13 @@ public class BoardController {
 	public String boardCreate(
 			HttpServletRequest request,
 			Model model
-			,@RequestParam("boardId") int boardId
+			,@RequestParam("boardKind") int boardKind
 			) {
 		HttpSession session = request.getSession();
 		String name = (String)session.getAttribute("name");
 		
 		// 게시판 번호를 활용하여 DB에 저장하기 위한 값 넘기기
-		model.addAttribute("boardId", boardId);
+		model.addAttribute("boardKind", boardKind);
 		
 		model.addAttribute("viewName", "board/boardCreate");
 		model.addAttribute("name", name);

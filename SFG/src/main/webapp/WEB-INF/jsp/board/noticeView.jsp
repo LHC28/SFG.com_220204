@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div class="content">
 	<div class="boardBox1 d-flex align-items-center justify-content-center">
 		<div class="boardBox2 d-flex align-items-center justify-content-center">
@@ -25,14 +26,15 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="board" items="${boards }" varStatus="status">
+							<c:forEach var="post" items="${postList }" varStatus="status">
 							<tr>
-								<td>${board.id }</td>
-								<td></td>
-								<td>${board.userName }</td>
-								<td>${board.createdAt }</td>
-								<td></td>
-								<td></td>
+								<td>${post.board.id }</td>
+								<td>${post.board.title }</td>
+								<td>${post.board.userName }</td>
+								<%-- jstl을 활용하여 변경 예정 --%>
+								<td><fmt:formatDate value="${post.board.createdAt }" pattern="yyyy.MM.dd."/></td>
+								<td>${post.board.views }</td>
+								<td>${post.recommend }</td>
 							</tr>
 							</c:forEach>
 						</tbody>
@@ -40,7 +42,7 @@
 				</div>
 				<%--<c:if test="${loginId ne null}"> --%>
 				<div class="text-right m-3">
-					<a href="/board/create_view?boardId=${boardId }"><button class="btn writeBtn form-control">글쓰기</button></a>
+					<a href="/board/create_view?boardKind=${boardKind }"><button class="btn writeBtn form-control">글쓰기</button></a>
 				</div>
 				<%-- </c:if> --%>
 				<%-- 

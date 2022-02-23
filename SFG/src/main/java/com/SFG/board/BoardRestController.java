@@ -26,6 +26,7 @@ public class BoardRestController {
 	public Map<String, String> uploadPost(
 			@RequestParam("boardKind") int boardKind,
 			@RequestParam(value="images", required=false) List<MultipartFile> files,
+			@RequestParam("title") String title,
 			@RequestParam("content") String content,
 			HttpServletRequest request
 			){
@@ -34,7 +35,7 @@ public class BoardRestController {
 		Integer userId = (Integer)session.getAttribute("userId");
 		String userName = (String)session.getAttribute("name");
 		
-		boardBO.postCreate(userId, userName, boardKind, content, files);
+		boardBO.postCreate(userId, userName, boardKind, title, content, files);
 		
 		Map<String, String> result = new HashMap<>();
 		result.put("result", "success");
