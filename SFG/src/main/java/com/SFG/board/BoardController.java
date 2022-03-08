@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -76,6 +77,21 @@ public class BoardController {
 		
 		model.addAttribute("viewName", "board/boardCreate");
 		model.addAttribute("name", name);
+		return "template/layout";
+	}
+	
+//	게시물 보기
+	@GetMapping("/board_view")
+	public String boardView(
+			@RequestParam("boardId") int boardId
+			,Model model
+			) {
+		// 게시글 관련 가져오기
+		Post post = postBO.getPostByBoardId(boardId);
+		
+		model.addAttribute("post", post);
+		model.addAttribute("viewName", "board/boardView");
+		
 		return "template/layout";
 	}
 }

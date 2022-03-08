@@ -135,10 +135,14 @@ body {background-color: #ff4814;}
 .boardBox1 {width:1110px; height:750px; background-color: #ff7a2f;}
 .boardBox2 {width:1050px; height:700px; background-color: white;}
 .boardbox3 {width:1000px; height:650px; background-color: #f2f2f2; border: 1px solid #333333;}
-.boardTable {width:900px; height:400px;}
+.boardTable {width:900px;}
 .boardTable th, .boardTable td {border: 1px solid black;}
+.boardTableSize {height: 50px;}
 .writeBtn {width:100px; background-color: #ff7a2f; color: white;}
 .notWriteBtn {width: 250px; background-color: #ff7a2f; color: white;}
+.boardTitle:link {text-decoration: none; color: black;}
+.boardTitle:visited {text-decoration: none; color: black;}
+.boardTitle:active {text-decoration: none; color: black;}
 
 /* 게시글 작성 */
 .boardCreateBox1 {width:1110px; height:900px; background-color: #ff7a2f;}
@@ -148,6 +152,20 @@ body {background-color: #ff4814;}
 .boardCreateTitle {width: 150px; border-top: 3px solid #ff7a2f; color: black; font-size: 20px;}
 #fileName {font-size: 20px;}
 .boardCreateBtn {color: white; background-color: #ff7a2f; margin-top: 100px;}
+
+/* 게시글 보기 */
+.boardviewBox1 {width:1110px; height:900px; background-color: #ff7a2f;}
+.boardviewBox2 {width:1050px; height:850px; background-color: white;}
+.boardviewbox3 {width:1000px; height:800px; background-color: #f2f2f2; border: 1px solid #333333;}
+.boardViewTitleBox {width: 900px; margin-top: 30px; border-bottom: 1px solid #333333;}
+.boardViewTitle {width: 100px; border-top: 3px solid #ff7a2f; color: black; font-size: 20px;}
+.boardViewContentBox {width:900px; height: 680px;}
+.boardViewHead {height: 50px; border-bottom: 1px solid black; background-color: #fff;}
+.boardViewHeadUserName {width: 20%;}
+.boardViewHeadTitle{width: 50%;}
+.boardViewHeadViews{width: 15%;}
+.boardViewHeadRecommend{width: 15%;}
+.boardViewContent {font-size: 20px; font-weight: 200;}
 
 /* footer */
 footer {height:100px; background-color: #333333;}

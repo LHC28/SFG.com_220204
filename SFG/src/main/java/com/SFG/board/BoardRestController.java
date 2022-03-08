@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.SFG.board.bo.BoardBO;
+import com.SFG.board.model.Board;
 
 @RequestMapping("/board")
 @RestController
@@ -42,4 +43,6 @@ public class BoardRestController {
 		
 		return result;
 	}
+	
+
 }

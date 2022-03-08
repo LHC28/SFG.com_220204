@@ -22,7 +22,7 @@ public class PostBO {
 	@Autowired
 	private RecommendBO recommendBO;
 	
-//	게시물 + 추천수 + 이미지 합쳐서 보내기
+//	게시물 + 추천수 + 이미지 합쳐서 보내기 (리스트로 여러 개)
 	public List<Post> getPostListByBoardKind(int boardKind){
 		
 		List<Post> postList = new ArrayList<>();
@@ -45,7 +45,27 @@ public class PostBO {
 			postList.add(post);
 		}
 		
-		
 		return postList;
+	}
+	
+//	게시물 + 추천수 + 이미지 합쳐서 보내기 (1개)
+	public Post getPostByBoardId(int boardId) {
+		Post post = new Post();
+		
+		// 게시물 가져오기
+		Board board = boardBO.getBoardByBoardId(boardId);
+		post.setBoard(board);
+		// 이미지파일 가져오기
+		List<File> fileList = boardBO.getFileByBoardId(boardId);
+		post.setFileList(fileList);
+		// 추천수 가져오기
+		List<Recommend> recommendList = recommendBO.getRecommendByBoardId(boardId);
+		if(recommendList==null) {
+			post.setRecommend(0);
+		}else {
+			post.setRecommend(recommendList.size());
+		}
+		
+		return post;
 	}
 }

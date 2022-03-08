@@ -27,11 +27,10 @@
 						</thead>
 						<tbody>
 							<c:forEach var="post" items="${postList }" varStatus="status">
-							<tr>
+							<tr class="boardTableSize">
 								<td>${post.board.id }</td>
-								<td>${post.board.title }</td>
+								<td><a href="/board/board_view?boardId=${post.board.id }" class="boardTitle">${post.board.title }</a></td>
 								<td>${post.board.userName }</td>
-								<%-- jstl을 활용하여 변경 예정 --%>
 								<td><fmt:formatDate value="${post.board.createdAt }" pattern="yyyy.MM.dd."/></td>
 								<td>${post.board.views }</td>
 								<td>${post.recommend }</td>

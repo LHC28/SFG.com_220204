@@ -73,5 +73,10 @@ public class BoardBO {
 		return boardDAO.selectFileByBoardId(boardId);
 	}
 	
+//	게시물 있는지 확인
+	public Board getBoardByBoardId(int boardId) {
+		return boardDAO.selectBoardByBoardId(boardId);
+	}
+	
 
 }

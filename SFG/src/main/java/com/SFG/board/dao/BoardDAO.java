@@ -27,4 +27,6 @@ public interface BoardDAO {
 	public List<Board> selectBoardByBoardKind(int boardKind);
 	
 	public List<File> selectFileByBoardId(int boardId);
+	
+	public Board selectBoardByBoardId(int boardId);
 }
