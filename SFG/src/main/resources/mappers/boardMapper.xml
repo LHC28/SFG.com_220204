@@ -74,4 +74,11 @@
 		WHERE
 			`id` = #{boardId}
 	</select>
+	<update id="updateViews" parameterType="int">
+		UPDATE `board`
+		SET
+			`views` = `views`+1
+		WHERE
+			`id` = #{boardId}
+	</update>
 </mapper>

@@ -44,5 +44,16 @@ public class BoardRestController {
 		return result;
 	}
 	
-
+//	조회수 증가
+	@RequestMapping("/add_views")
+	public Map<String, String> addViews(
+			@RequestParam("boardId") int boardId
+			){
+		
+		boardBO.addViews(boardId);
+		
+		Map<String, String> result = new HashMap<>();
+		result.put("result", "success");
+		return result;
+	}
 }

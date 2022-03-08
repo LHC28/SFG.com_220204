@@ -29,7 +29,7 @@
 							<c:forEach var="post" items="${postList }" varStatus="status">
 							<tr class="boardTableSize">
 								<td>${post.board.id }</td>
-								<td><a href="/board/board_view?boardId=${post.board.id }" class="boardTitle">${post.board.title }</a></td>
+								<td><a href="/board/board_view?boardId=${post.board.id }" class="boardTitle" data-board-id="${post.board.id }">${post.board.title }</a></td>
 								<td>${post.board.userName }</td>
 								<td><fmt:formatDate value="${post.board.createdAt }" pattern="yyyy.MM.dd."/></td>
 								<td>${post.board.views }</td>
@@ -57,6 +57,21 @@
 </div>
 <script>
 	$(document).ready(function(){
-		
+		$('.boardTitle').on('click', function(e){
+			let boardId = $(this).data('board-id');
+			
+			$.ajax({
+				type: 'post'
+				,url: '/board/add_views'
+				,data: {"boardId":boardId}
+				,success: function(data){
+					if(data.result=="false"){
+						alert("조회수 관련 에러가 발생하였습니다. 관리자에게 문의해주세요.");
+					}
+				},error: function(e){
+					alert("error : "+e);
+				}
+			});
+		});
 	});
 </script>

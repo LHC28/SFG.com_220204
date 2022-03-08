@@ -78,5 +78,8 @@ public class BoardBO {
 		return boardDAO.selectBoardByBoardId(boardId);
 	}
 	
-
+//	조회수 증가
+	public void addViews(int boardId) {
+		boardDAO.updateViews(boardId);
+	}
 }
