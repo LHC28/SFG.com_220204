@@ -22,7 +22,10 @@
 							<%-- 조회수 --%>
 							<div class="boardViewHeadViews d-flex align-items-center justify-content-center">조회수 : ${post.board.views }</div>
 							<%-- 추천수 --%>
-							<div class="boardViewHeadRecommend d-flex align-items-center justify-content-center">추천수 : ${post.recommend }</div>
+							<div class="boardViewHeadRecommend d-flex align-items-center justify-content-between">
+								<span>추천수 : ${post.recommend }</span>
+								<img src="/static/images/button/smile.png" alt="추천 버튼" width="30px" height="30px" class="mr-2">
+							</div>
 						</div>
 						<div class="mt-3">
 							<div class="d-flex flex-wrap justify-content-between">
