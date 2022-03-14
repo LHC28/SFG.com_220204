@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.SFG.board.bo.BoardBO;
 import com.SFG.post.bo.PostBO;
 import com.SFG.post.model.Post;
+import com.SFG.recommend.bo.RecommendBO;
+import com.SFG.recommend.model.Recommend;
 
 @RequestMapping("/board")
 @Controller
@@ -22,6 +24,9 @@ public class BoardController {
 
 	@Autowired
 	private BoardBO boardBO;
+	
+	@Autowired
+	private RecommendBO recommendBO;
 	
 	// 게시물 종합용
 	@Autowired
@@ -85,10 +90,30 @@ public class BoardController {
 	public String boardView(
 			@RequestParam("boardId") int boardId
 			,Model model
+			,HttpServletRequest request
 			) {
+		// 로그인 정보 가져오기
+		HttpSession session = request.getSession();
+		Integer userId = (Integer)session.getAttribute("userId");
+		
 		// 게시글 관련 가져오기
 		Post post = postBO.getPostByBoardId(boardId);
 		
+		// 로그인 한 사람이 해당 게시물에 로그인을 눌렀는지 여부 확인
+		Recommend recommend;
+		if(userId != null) {
+			recommend = recommendBO.getRecommendByUserId(userId, boardId);
+			boolean recommendCheck;
+			if(recommend==null) {
+				recommendCheck = false;
+			}else {
+				recommendCheck = true;
+			}
+			
+			model.addAttribute("recommendCheck", recommendCheck);
+		}
+		
+		model.addAttribute("userId", userId);
 		model.addAttribute("post", post);
 		model.addAttribute("viewName", "board/boardView");
 		

@@ -18,4 +18,16 @@ public class RecommendBO {
 		return recommendDAO.selectRecommendByBoardId(boardId);
 	}
 	
+	public Recommend getRecommendByUserId(int userId, int boardId) {
+		return recommendDAO.selectRecommendByUserId(userId, boardId);
+	}
+	
+	public void addRecommend(int userId, int boardId) {
+		recommendDAO.insertRecommend(userId, boardId);
+	}
+	
+	public void deleteRecommend(int userId, int boardId) {
+		recommendDAO.deleteRecommend(userId, boardId);
+	}
+	
 }

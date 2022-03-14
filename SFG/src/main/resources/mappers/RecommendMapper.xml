@@ -2,6 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.SFG.recommend.dao.RecommendDAO">
+	<insert id="insertRecommend">
+		INSERT `recommend`
+		(
+			`userId`,
+			`boardId`
+		)
+		VALUE
+		(
+			#{userId}
+			,#{boardId}
+		)
+	</insert>
 	<select id="selectRecommendByBoardId" resultType="com.SFG.recommend.model.Recommend">
 		SELECT
 			`id`,
@@ -12,4 +24,24 @@
 		WHERE
 			`boardId` = #{boardId}
 	</select>
+	<select id="selectRecommendByUserId" resultType="com.SFG.recommend.model.Recommend">
+		SELECT
+			`id`,
+			`userId`,
+			`boardId`
+		FROM
+			`recommend`
+		WHERE
+			`userId` = #{userId}
+			and `boardId` = #{boardId}
+	</select>
+
+	<delete id="deleteRecommend">
+		DELETE
+		FROM
+			`recommend`
+		WHERE
+			`userId` = #{userId}
+			and `boardId` = #{boardId}
+	</delete>
 </mapper>

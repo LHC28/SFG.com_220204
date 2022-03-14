@@ -24,7 +24,15 @@
 							<%-- 추천수 --%>
 							<div class="boardViewHeadRecommend d-flex align-items-center justify-content-between">
 								<span>추천수 : ${post.recommend }</span>
-								<img src="/static/images/button/smile.png" alt="추천 버튼" width="30px" height="30px" class="mr-2">
+								<c:if test="${userId eq null }">
+								<a href="" onclick="return false" class="recommendBtn" data-user-id="${userId }" data-board-id="${post.board.id}"><img src="/static/images/button/smile.png" alt="추천 버튼" width="30px" height="30px" class="mr-2"></a>
+								</c:if>
+								<c:if test="${recommendCheck eq false}">
+								<a href="" onclick="return false" class="recommendBtn" data-user-id="${userId }" data-board-id="${post.board.id}"><img src="/static/images/button/smile.png" alt="추천 버튼" width="30px" height="30px" class="mr-2"></a>
+								</c:if>
+								<c:if test="${recommendCheck eq true }">
+								<a href="" onclick="return false" class="recommendBtn" data-user-id="${userId }" data-board-id="${post.board.id}"><img src="/static/images/button/grin.png" alt="추천 버튼" width="30px" height="30px" class="mr-2"></a>
+								</c:if>
 							</div>
 						</div>
 						<div class="mt-3">
@@ -41,3 +49,30 @@
 		</div>
 	</div>
 </div>
+<script>
+	$(document).ready(function(){
+		$('.recommendBtn').on('click', function(e){
+			let userId = $(this).data("user-id");
+			let boardId = $(this).data("board-id");
+			
+			<%-- 비로그인 상태인 경우 --%>
+			if(userId==""){
+				alert("로그인 후 추천 버튼을 눌러주세요.");
+				return;
+			}
+			
+			$.ajax({
+				type: "post"
+				,url: "/recommend/recommend_click"
+				,data: {"userId":userId, "boardId":boardId}
+				,success: function(data){
+					if(data.result=="success"){
+						location.reload();
+					}
+				},error: function(e){
+					alert("error : "+e);
+				}
+			});
+		});
+	});
+</script>
