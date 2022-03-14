@@ -33,33 +33,37 @@ public class BoardBO {
 		// 이미지 2개 이상
 		List<String> imagePaths = null;
 		
-		// 게시글 파일이 1개일 때
-		if(files.size()==1) {
-			try {
-				imagePath = fileManagerService.saveFile(userName, files.get(0));
-//				board DB에 넣기
-				boardDAO.insertPost(userId, userName, boardKind, title, content);
-				List<Board> posts = boardDAO.selectPostListByUserId(userId);
-				
-//				file DB에 넣기
-				boardDAO.insertFile(posts.get(0).getId(), imagePath);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-//		게시글 파일이 2개일 때
-		}else if(files.size()>1) {
-			try {
-				imagePaths = fileManagerService.saveFiles(userName, files);
-				
-				boardDAO.insertPost(userId, userName, boardKind, title, content);
-				List<Board> posts = boardDAO.selectPostListByUserId(userId);
-				//file DB에 넣기
-				for(int i=0; i<imagePaths.size(); i++) {
-					boardDAO.insertFile(posts.get(0).getId(), imagePaths.get(i));
+		if(files != null) {
+			// 게시글 파일이 1개일 때
+			if(files.size()==1) {
+				try {
+					imagePath = fileManagerService.saveFile(userName, files.get(0));
+//					board DB에 넣기
+					boardDAO.insertPost(userId, userName, boardKind, title, content);
+					List<Board> posts = boardDAO.selectPostListByUserId(userId);
+					
+//					file DB에 넣기
+					boardDAO.insertFile(posts.get(0).getId(), imagePath);
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
-			} catch (IOException e) {
-				e.printStackTrace();
+//			게시글 파일이 2개일 때
+			}else if(files.size()>1) {
+				try {
+					imagePaths = fileManagerService.saveFiles(userName, files);
+					
+					boardDAO.insertPost(userId, userName, boardKind, title, content);
+					List<Board> posts = boardDAO.selectPostListByUserId(userId);
+					//file DB에 넣기
+					for(int i=0; i<imagePaths.size(); i++) {
+						boardDAO.insertFile(posts.get(0).getId(), imagePaths.get(i));
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
+		}else if(files == null) {
+			boardDAO.insertPost(userId, userName, boardKind, title, content);
 		}
 	}
 	
