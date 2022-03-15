@@ -37,6 +37,8 @@ public class BoardController {
 			Model model
 			,HttpServletRequest request
 			,@RequestParam("boardKind") int boardKind
+			,@RequestParam(value="prevId", required=false) Integer prevIdParam
+			,@RequestParam(value="nextId", required=false) Integer nextIdParam
 			) {
 		HttpSession session = request.getSession();
 		// null인지 아닌지 여부에 따른 로그인 유무 확인
@@ -52,6 +54,7 @@ public class BoardController {
 //		게시글 리스트 넘기기
 		model.addAttribute("postList", postList);
 		model.addAttribute("viewName", "board/noticeView");
+		
 		return "template/layout";
 	}
 	

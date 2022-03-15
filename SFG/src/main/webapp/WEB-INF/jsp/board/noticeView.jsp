@@ -39,11 +39,17 @@
 						</tbody>
 					</table>
 				</div>
-				<%--<c:if test="${loginId ne null}"> --%>
 				<div class="text-right m-3">
 					<a href="/board/create_view?boardKind=${boardKind }"><button class="btn writeBtn form-control">글쓰기</button></a>
 				</div>
-				<%-- </c:if> --%>
+				<div class="d-flex justify-content-center">
+					<c:if test="${prevId ne 0 }">
+					<a href="/board/notice_view?prevId=${prevId }">&lt;&lt; 이전</a>
+					</c:if>
+					<c:if test="${nextId ne 0 }">
+					<a href="/board/notice_view?nextId=${nextId }">다음 &gt;&gt;</a>
+					</c:if>
+				</div>
 				<%-- 
 				<c:if test="${loginId eq null}">
 				<div class="text-right m-3">
