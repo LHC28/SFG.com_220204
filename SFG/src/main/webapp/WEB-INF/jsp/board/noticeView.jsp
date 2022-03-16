@@ -44,10 +44,10 @@
 				</div>
 				<div class="d-flex justify-content-center">
 					<c:if test="${prevId ne 0 }">
-					<a href="/board/notice_view?prevId=${prevId }">&lt;&lt; 이전</a>
+					<a href="/board/notice_view?prevId=${prevId }"><button class="btn prevAndNextBtn">이전</button></a>
 					</c:if>
 					<c:if test="${nextId ne 0 }">
-					<a href="/board/notice_view?nextId=${nextId }">다음 &gt;&gt;</a>
+					<a href="/board/notice_view?nextId=${nextId }"><button class="btn prevAndNextBtn">다음</button></a>
 					</c:if>
 				</div>
 				<%-- 

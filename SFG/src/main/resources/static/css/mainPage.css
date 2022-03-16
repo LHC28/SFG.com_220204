@@ -139,6 +139,7 @@ body {background-color: #ff4814;}
 .boardTable th, .boardTable td {border: 1px solid black;}
 .boardTableSize {height: 50px;}
 .writeBtn {width:100px; background-color: #ff7a2f; color: white;}
+.prevAndNextBtn {width:60px; height: 40px; background-color: #ff7a2f; font-size:15px; color: white;}
 .notWriteBtn {width: 250px; background-color: #ff7a2f; color: white;}
 .boardTitle:link {text-decoration: none; color: black;}
 .boardTitle:visited {text-decoration: none; color: black;}

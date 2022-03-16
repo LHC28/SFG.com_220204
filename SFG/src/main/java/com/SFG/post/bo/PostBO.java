@@ -23,7 +23,8 @@ public class PostBO {
 	@Autowired
 	private RecommendBO recommendBO;
 	
-	private static final int POST_MAX_SIZE = 5;
+//	한 페이지에 나오는 게시글 갯수
+	private static final int POST_MAX_SIZE = 8;
 	
 //	게시물 + 추천수 + 이미지 합쳐서 보내기 (리스트로 여러 개)
 	public List<Post> getPostListByBoardKind(int boardKind, Integer prevId, Integer nextId){
