@@ -36,16 +36,32 @@ public class BoardController {
 	public String noticeView(
 			Model model
 			,HttpServletRequest request
-			,@RequestParam("boardKind") int boardKind
 			,@RequestParam(value="prevId", required=false) Integer prevIdParam
 			,@RequestParam(value="nextId", required=false) Integer nextIdParam
 			) {
 		HttpSession session = request.getSession();
 		// null인지 아닌지 여부에 따른 로그인 유무 확인
 		String loginId = (String)session.getAttribute("loginId");
+
+		Integer boardKind = 1;
 		
 		// 게시글, 추천수, 이미지 파일 가져오기
-		List<Post> postList = postBO.getPostListByBoardKind(boardKind);
+		List<Post> postList = postBO.getPostListByBoardKind(boardKind, prevIdParam, nextIdParam);
+		int nextId = 0;
+		int prevId = 0;
+		if(postList.isEmpty()==false) {
+			prevId = postList.get(0).getBoard().getId();
+			nextId = postList.get(postList.size()-1).getBoard().getId();
+			
+			if(postBO.isLastPage(boardKind, nextId, "ASC")) {
+				nextId = 0;
+			}
+			
+			if(postBO.isFirstPage(boardKind, prevId, "DESC")) {
+				prevId = 0;
+			}
+			
+		}
 		
 //		boardKind 넘기기
 		model.addAttribute("boardKind", boardKind);
@@ -54,6 +70,9 @@ public class BoardController {
 //		게시글 리스트 넘기기
 		model.addAttribute("postList", postList);
 		model.addAttribute("viewName", "board/noticeView");
+		
+		model.addAttribute("prevId", prevId);
+		model.addAttribute("nextId", nextId);
 		
 		return "template/layout";
 	}

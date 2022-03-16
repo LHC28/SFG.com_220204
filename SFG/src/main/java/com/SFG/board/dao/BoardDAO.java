@@ -24,11 +24,20 @@ public interface BoardDAO {
 			@Param("boardId") int boardId
 			,@Param("imagePath") String imagePath);
 	
-	public List<Board> selectBoardByBoardKind(int boardKind);
+	public List<Board> selectBoardByBoardKind(
+			@Param("boardKind") int boardKind
+			,@Param("direction") String direction
+			,@Param("standardId") Integer standardId
+			,@Param("limit") int limit);
 	
 	public List<File> selectFileByBoardId(int boardId);
 	
 	public Board selectBoardByBoardId(int boardId);
 	
 	public void updateViews(int boardId);
+	
+	public int selectPostIdByBoardKindAndSort(
+			@Param("boardKind") int boardKind
+			,@Param("sort") String sort
+			);
 }

@@ -56,7 +56,35 @@
 			`board`
 		WHERE
 			`boardKind` = #{boardKind}
+			<!-- 처음 진입시... -->
+			<if test="direction == null">
 		ORDER BY `id` DESC
+			</if>
+			<!-- 이전 클릭한 경우 -->
+			<if test="direction == 'prev'">
+			<![CDATA[
+		AND `id` > #{standardId}
+			]]>
+		ORDER BY `id` ASC
+			</if>
+			<!-- 다음 클릭한 경우 -->
+			<if test="direction == 'next'">
+			<![CDATA[
+		AND `id` < #{standardId}
+			]]>
+		ORDER BY `id` DESC
+			</if>
+		LIMIT ${limit}
+	</select>
+	<select id="selectPostIdByBoardKindAndSort" parameterType="map" resultType="int">
+		SELECT
+			`id`
+		FROM
+			`board`
+		WHERE
+			`boardKind` = #{boardKind}
+		ORDER BY `id` ${sort}
+		LIMIT 1
 	</select>
 	<select id="selectBoardByBoardId" resultType="com.SFG.board.model.Board">
 		SELECT

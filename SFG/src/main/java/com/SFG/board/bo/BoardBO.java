@@ -68,8 +68,8 @@ public class BoardBO {
 	}
 	
 //	게시물 가져오기
-	public List<Board> getBoardByBoardKind(int boardKind) {
-		return boardDAO.selectBoardByBoardKind(boardKind);
+	public List<Board> getBoardByBoardKind(int boardKind, String direction, Integer standardId, int limit) {
+		return boardDAO.selectBoardByBoardKind(boardKind, direction, standardId, limit);
 	}
 	
 //	게시물 이미지 가져오기
@@ -85,5 +85,9 @@ public class BoardBO {
 //	조회수 증가
 	public void addViews(int boardId) {
 		boardDAO.updateViews(boardId);
+	}
+	
+	public int selectPostIdByBoardKindAndSort(int boardKind, String sort) {
+		return boardDAO.selectPostIdByBoardKindAndSort(boardKind, sort);
 	}
 }
