@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <div class="content">
 	<div class="boardBox1 d-flex align-items-center justify-content-center">
 		<div class="boardBox2 d-flex align-items-center justify-content-center">
@@ -9,7 +10,21 @@
 				<div class="d-flex justify-content-center mb-4">
 					<div class="detailTitleBox">
 						<div class="detailTitle d-flex align-items-center justify-content-center">
+							<c:if test="${boardKind eq 1 }">
 							<span>공지사항</span>
+							</c:if>
+							<c:if test="${boardKind eq 2 }">
+							<span>구단뉴스</span>
+							</c:if>
+							<c:if test="${boardKind eq 3 }">
+							<span>팬 게시판</span>
+							</c:if>
+							<c:if test="${boardKind eq 4 }">
+							<span>사진 게시판</span>
+							</c:if>
+							<c:if test="${boardKind eq 5 }">
+							<span>건의사항 게시판</span>
+							</c:if>
 						</div>
 					</div>
 				</div>
@@ -28,7 +43,7 @@
 						<tbody>
 							<c:forEach var="post" items="${postList }" varStatus="status">
 							<tr class="boardTableSize">
-								<td>${post.board.id }</td>
+								<td>${fn:length(postList) - status.index }</td>
 								<td><a href="/board/board_view?boardId=${post.board.id }" class="boardTitle" data-board-id="${post.board.id }">${post.board.title }</a></td>
 								<td>${post.board.userName }</td>
 								<td><fmt:formatDate value="${post.board.createdAt }" pattern="yyyy.MM.dd."/></td>
@@ -40,7 +55,7 @@
 					</table>
 				</div>
 				<div class="text-right m-3">
-					<a href="/board/create_view?boardKind=${boardKind }"><button class="btn writeBtn form-control">글쓰기</button></a>
+					<button class="btn writeBtn form-control" data-login-id="${loginId }" data-board-kind="${boardKind }">글쓰기</button>
 				</div>
 				<div class="d-flex justify-content-center">
 					<c:if test="${prevId ne 0 }">
@@ -63,6 +78,7 @@
 </div>
 <script>
 	$(document).ready(function(){
+		<%-- 조회수 증가 기능 --%>
 		$('.boardTitle').on('click', function(e){
 			let boardId = $(this).data('board-id');
 			
@@ -78,6 +94,17 @@
 					alert("error : "+e);
 				}
 			});
+		});
+		
+		<%-- 글쓰기 클릭시 로그인 여부 확인 --%>
+		$('.writeBtn').on('click', function(e){
+			let loginId = $(this).data('login-id');
+			let boardKind = $(this).data('board-kind');
+			if(loginId==''){
+				alert("로그인을 해주세요.");
+				return;
+			}
+			location.href="/board/create_view?boardKind="+boardKind;
 		});
 	});
 </script>

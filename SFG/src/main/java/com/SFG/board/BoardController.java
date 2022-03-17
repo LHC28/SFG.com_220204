@@ -69,7 +69,7 @@ public class BoardController {
 		model.addAttribute("loginId", loginId);
 //		게시글 리스트 넘기기
 		model.addAttribute("postList", postList);
-		model.addAttribute("viewName", "board/noticeView");
+		model.addAttribute("viewName", "board/boardListView");
 		
 		model.addAttribute("prevId", prevId);
 		model.addAttribute("nextId", nextId);
@@ -77,17 +77,189 @@ public class BoardController {
 		return "template/layout";
 	}
 	
-//	공지사항 게시판
-//	@RequestMapping("/news_view")
+//	구단뉴스 게시판
+	@RequestMapping("/news_view")
+	public String newsView(
+			Model model
+			,HttpServletRequest request
+			,@RequestParam(value="prevId", required=false) Integer prevIdParam
+			,@RequestParam(value="nextId", required=false) Integer nextIdParam
+			) {
+		HttpSession session = request.getSession();
+		// null인지 아닌지 여부에 따른 로그인 유무 확인
+		String loginId = (String)session.getAttribute("loginId");
+
+		Integer boardKind = 2;
+		
+		// 게시글, 추천수, 이미지 파일 가져오기
+		List<Post> postList = postBO.getPostListByBoardKind(boardKind, prevIdParam, nextIdParam);
+		int nextId = 0;
+		int prevId = 0;
+		if(postList.isEmpty()==false) {
+			prevId = postList.get(0).getBoard().getId();
+			nextId = postList.get(postList.size()-1).getBoard().getId();
+			
+			if(postBO.isLastPage(boardKind, nextId, "ASC")) {
+				nextId = 0;
+			}
+			
+			if(postBO.isFirstPage(boardKind, prevId, "DESC")) {
+				prevId = 0;
+			}
+			
+		}
+		
+//		boardKind 넘기기
+		model.addAttribute("boardKind", boardKind);
+//		로그인 유무 확인을 위한 값 넘기기
+		model.addAttribute("loginId", loginId);
+//		게시글 리스트 넘기기
+		model.addAttribute("postList", postList);
+		model.addAttribute("viewName", "board/boardListView");
+		
+		model.addAttribute("prevId", prevId);
+		model.addAttribute("nextId", nextId);
+		
+		return "template/layout";
+	}
 //	
 //	팬 게시판
-//	@RequestMapping("/fan_view")
-//	
+	@RequestMapping("/fan_view")
+	public String fanView(
+			Model model
+			,HttpServletRequest request
+			,@RequestParam(value="prevId", required=false) Integer prevIdParam
+			,@RequestParam(value="nextId", required=false) Integer nextIdParam
+			) {
+		HttpSession session = request.getSession();
+		// null인지 아닌지 여부에 따른 로그인 유무 확인
+		String loginId = (String)session.getAttribute("loginId");
+
+		Integer boardKind = 3;
+		
+		// 게시글, 추천수, 이미지 파일 가져오기
+		List<Post> postList = postBO.getPostListByBoardKind(boardKind, prevIdParam, nextIdParam);
+		int nextId = 0;
+		int prevId = 0;
+		if(postList.isEmpty()==false) {
+			prevId = postList.get(0).getBoard().getId();
+			nextId = postList.get(postList.size()-1).getBoard().getId();
+			
+			if(postBO.isLastPage(boardKind, nextId, "ASC")) {
+				nextId = 0;
+			}
+			
+			if(postBO.isFirstPage(boardKind, prevId, "DESC")) {
+				prevId = 0;
+			}
+			
+		}
+		
+//		boardKind 넘기기
+		model.addAttribute("boardKind", boardKind);
+//		로그인 유무 확인을 위한 값 넘기기
+		model.addAttribute("loginId", loginId);
+//		게시글 리스트 넘기기
+		model.addAttribute("postList", postList);
+		model.addAttribute("viewName", "board/boardListView");
+		
+		model.addAttribute("prevId", prevId);
+		model.addAttribute("nextId", nextId);
+		
+		return "template/layout";
+	}
+	
 //	사진 게시판
-//	@RequestMapping("/picture_view")
-//	
+	@RequestMapping("/picture_view")
+	public String pictureView(
+			Model model
+			,HttpServletRequest request
+			,@RequestParam(value="prevId", required=false) Integer prevIdParam
+			,@RequestParam(value="nextId", required=false) Integer nextIdParam
+			) {
+		HttpSession session = request.getSession();
+		// null인지 아닌지 여부에 따른 로그인 유무 확인
+		String loginId = (String)session.getAttribute("loginId");
+
+		Integer boardKind = 4;
+		
+		// 게시글, 추천수, 이미지 파일 가져오기
+		List<Post> postList = postBO.getPostListByBoardKind(boardKind, prevIdParam, nextIdParam);
+		int nextId = 0;
+		int prevId = 0;
+		if(postList.isEmpty()==false) {
+			prevId = postList.get(0).getBoard().getId();
+			nextId = postList.get(postList.size()-1).getBoard().getId();
+			
+			if(postBO.isLastPage(boardKind, nextId, "ASC")) {
+				nextId = 0;
+			}
+			
+			if(postBO.isFirstPage(boardKind, prevId, "DESC")) {
+				prevId = 0;
+			}
+			
+		}
+		
+//		boardKind 넘기기
+		model.addAttribute("boardKind", boardKind);
+//		로그인 유무 확인을 위한 값 넘기기
+		model.addAttribute("loginId", loginId);
+//		게시글 리스트 넘기기
+		model.addAttribute("postList", postList);
+		model.addAttribute("viewName", "board/boardListView");
+		
+		model.addAttribute("prevId", prevId);
+		model.addAttribute("nextId", nextId);
+		
+		return "template/layout";
+	}
+	
 //	건의사항 게시판
-//	@RequestMapping("/suggest_view")
+	@RequestMapping("/suggest_view")
+	public String suggestView(
+			Model model
+			,HttpServletRequest request
+			,@RequestParam(value="prevId", required=false) Integer prevIdParam
+			,@RequestParam(value="nextId", required=false) Integer nextIdParam
+			) {
+		HttpSession session = request.getSession();
+		// null인지 아닌지 여부에 따른 로그인 유무 확인
+		String loginId = (String)session.getAttribute("loginId");
+
+		Integer boardKind = 5;
+		
+		// 게시글, 추천수, 이미지 파일 가져오기
+		List<Post> postList = postBO.getPostListByBoardKind(boardKind, prevIdParam, nextIdParam);
+		int nextId = 0;
+		int prevId = 0;
+		if(postList.isEmpty()==false) {
+			prevId = postList.get(0).getBoard().getId();
+			nextId = postList.get(postList.size()-1).getBoard().getId();
+			
+			if(postBO.isLastPage(boardKind, nextId, "ASC")) {
+				nextId = 0;
+			}
+			
+			if(postBO.isFirstPage(boardKind, prevId, "DESC")) {
+				prevId = 0;
+			}
+			
+		}
+		
+//		boardKind 넘기기
+		model.addAttribute("boardKind", boardKind);
+//		로그인 유무 확인을 위한 값 넘기기
+		model.addAttribute("loginId", loginId);
+//		게시글 리스트 넘기기
+		model.addAttribute("postList", postList);
+		model.addAttribute("viewName", "board/boardListView");
+		
+		model.addAttribute("prevId", prevId);
+		model.addAttribute("nextId", nextId);
+		
+		return "template/layout";
+	}
 	
 //	게시글 쓰기
 	@RequestMapping("/create_view")

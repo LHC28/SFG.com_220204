@@ -43,10 +43,10 @@
 						<%-- 마지막 메뉴바 왼쪽으로 땡기기 --%>
 						<ul class="subMenu subMenuLast">
 							<li><a href="/board/notice_view" class="m-3">공지사항</a></li>
-							<li><a href="#" class="m-3">구단뉴스</a></li>
-							<li><a href="#" class="m-3">팬 게시판</a></li>
-							<li><a href="#" class="m-3">사진 게시판</a></li>
-							<li><a href="#" class="m-3">건의사항</a></li>
+							<li><a href="/board/news_view" class="m-3">구단뉴스</a></li>
+							<li><a href="/board/fan_view" class="m-3">팬 게시판</a></li>
+							<li><a href="/board/picture_view" class="m-3">사진 게시판</a></li>
+							<li><a href="/board/suggest_view" class="m-3">건의사항</a></li>
 						</ul>
 					</li>
 				</ul>

@@ -144,8 +144,17 @@
 				contentType: false,
 				success: function(data){
 					if(data.result=="success"){
+						<%-- 글쓰기 직전 게시판의 boarKind를 활용하여 페이지 이동 --%>
 						if(boardKind==1){
-							location.href="/board/notice_view?boardKind=1"
+							location.href="/board/notice_view"
+						}else if(boardKind==2){
+							location.href="/board/news_view"
+						}else if(boardKind==3){
+							location.href="/board/fan_view"
+						}else if(boardKind==4){
+							location.href="/board/picture_view"
+						}else if(boardKind==5){
+							location.href="/board/suggest_view"
 						}
 					}else{
 						alert("관리자에게 문의해주세요.");
