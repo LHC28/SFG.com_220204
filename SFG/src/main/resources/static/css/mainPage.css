@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* header */
-header {height:100px; background-color: #333333;}
+#mainHeader {height:100px; background-color: #333333;}
 body {background-color: #ff4814;}
 #mainLogo{width:100px; height:100px;}
 .navBox{width:500px; height:50px; font-weight: bold;}
@@ -13,6 +13,8 @@ body {background-color: #ff4814;}
 .subMenu > li > a:active {text-decoration: none; background-color: #ff7a2f; color: black;}
 .subMenuLast {right: 40%;} /* 800 */
 
+/* adminHeader */
+#adminHeader {height:100px; background-color: #c8c8c8;}
 
 .navBox > ul > li > a:link{text-decoration: none; color: white;}
 .navBox > ul > li > a:visited{text-decoration: none; color: white;}
@@ -167,6 +169,27 @@ body {background-color: #ff4814;}
 .boardViewHeadViews{width: 15%;}
 .boardViewHeadRecommend{width: 15%;}
 .boardViewContent {font-size: 20px; font-weight: 200;}
+
+/* adminMain */
+.adminNav {width: 200px;; height: 800px; background-color: #a9a9a9;}
+.adminNavFont {color: white; font-size: 20px; font-weight: bold;}
+.adminNavFont > a:link {text-decoration: none; color: white;}
+.adminNavFont > a:hover {text-decoration: none;; color: white !important;}
+.adminNavFont > a:visited {text-decoration: none; color: white;}
+.adminNavFont > a:active {text-decoration: none; color: white;}
+/* 하위 메뉴 관련 */
+.dropbtn {color: white; padding: 16px; font-size: 16px;}
+.dropdown {position: relative; display: inline-block;}
+.dropdown-content {display: none; position: absolute; background-color: #f1f1f1; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1;}
+.dropdown-content a {color: black; padding: 12px 16px; text-decoration: none; display: block;}
+.dropdown-content a:hover {background-color: #ddd;}
+/* 하위 메뉴가 자리를 차지하여 나오도록 */
+.dropdown:hover .dropdown-content {display: block;}
+/* 메뉴 hover시 배경색 설정 */
+.dropdown:hover .dropbtn {}
+
+
+.adminSection {width: 910px; height: 800px;}
 
 /* footer */
 footer {height:100px; background-color: #333333;}
