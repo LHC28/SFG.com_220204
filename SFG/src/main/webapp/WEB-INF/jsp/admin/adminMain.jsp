@@ -47,6 +47,7 @@
 	$(document).ready(function(){
 		// 이전에 만든 것 없애고 다시 그리기 위한 기능
 		$("#userList").DataTable().destroy();
+		
 		$("#userList").DataTable({
 			responsive: false,  //반응형 설정
 	          pageLength: 10,     //페이지 당 글 개수 설정
@@ -105,6 +106,22 @@
 	        	{data:"name"},
 	        	{data:"email"},
 	        	{data:"createdAt"}
+	        ],
+	        "columnDefs": [
+	        	{
+	        		"type" : 'datetime',
+	        		"render": function(data, type, rows){
+	        			if(type==="sort" || type === "type"){
+	        				return data;
+	        			}
+	        			var createdAt = "";
+	        			if(data!=null){
+	        				createdAt = moment(data).format("YYYY-MM-DD HH:mm:ss")
+	        			}
+	        			return createdAt;
+	        		},
+	        		"targets":3
+	        	}
 	        ]
 		});
 	});
