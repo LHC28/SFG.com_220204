@@ -15,7 +15,7 @@
 
 <%-- datatable CDN --%>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
 
 <%-- 외부 스타일 시트 --%>
 <link rel="stylesheet" href="/static/css/mainPage.css">

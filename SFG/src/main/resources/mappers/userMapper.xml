@@ -55,4 +55,17 @@
 			AND
 			password = #{password}
 	</select>
+	<select id="selectUserList" resultType="com.SFG.user.model.User">
+		SELECT
+			`id`
+			,`loginId`
+			,`password`
+			,`name`
+			,`email`
+			,`imagePath`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`user`
+	</select>
 </mapper>

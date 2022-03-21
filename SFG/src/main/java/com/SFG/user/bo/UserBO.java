@@ -1,5 +1,7 @@
 package com.SFG.user.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +24,10 @@ public class UserBO {
 	
 	public User selectUserByLoginIdAndPassword(String loginId, String password) {
 		return userDAO.selectUserByLoginIdAndPassword(loginId, password);
+	}
+	
+//	유저리스트 가져오기
+	public List<User> getUserList(){
+		return userDAO.selectUserList();
 	}
 }
