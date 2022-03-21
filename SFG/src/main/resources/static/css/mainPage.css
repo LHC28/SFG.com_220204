@@ -171,25 +171,28 @@ body {background-color: #ff4814;}
 .boardViewContent {font-size: 20px; font-weight: 200;}
 
 /* adminMain */
-.adminNav {width: 200px;; height: 800px; background-color: #a9a9a9;}
-.adminNavFont {color: white; font-size: 20px; font-weight: bold;}
+.adminNav {width: 220px; height: 800px; background-color: #a9a9a9;}
+.adminNavFont {color: white; font-size: 18px;}
 .adminNavFont > a:link {text-decoration: none; color: white;}
 .adminNavFont > a:hover {text-decoration: none;; color: white !important;}
 .adminNavFont > a:visited {text-decoration: none; color: white;}
 .adminNavFont > a:active {text-decoration: none; color: white;}
 /* 하위 메뉴 관련 */
-.dropbtn {color: white; padding: 16px; font-size: 16px;}
+.dropbtn {color: white;}
 .dropdown {position: relative; display: inline-block;}
-.dropdown-content {display: none; position: absolute; background-color: #f1f1f1; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1;}
-.dropdown-content a {color: black; padding: 12px 16px; text-decoration: none; display: block;}
+.dropdown-content {display: none; position: absolute; margin-left:20px; background-color: #f1f1f1; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1;}
+.dropdown-content a {color: black; padding: 12px; text-decoration: none; display: block;}
 .dropdown-content a:hover {background-color: #ddd;}
 /* 하위 메뉴가 자리를 차지하여 나오도록 */
 .dropdown:hover .dropdown-content {display: block;}
-/* 메뉴 hover시 배경색 설정 */
+/* 메뉴 hover시 글자색 설정 */
 .dropdown:hover .dropbtn {}
+.dropdown > a:link{text-decoration: none; color: white;}
+.dropdown > a:visited{text-decoration: none; color: white;}
+.dropdown > a:active{text-decoration: none; color: white;}
+.dropdown > a:hover{text-decoration: none; color: white;}
 
-
-.adminSection {width: 910px; height: 800px;}
+.adminSection {width: 890px; height: 800px; background-color: white;}
 
 /* footer */
 footer {height:100px; background-color: #333333;}

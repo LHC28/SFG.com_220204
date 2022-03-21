@@ -1,29 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<body>
-	<div class="d-flex">
-		<nav class="adminNav">
-			<ul class="nav flex-column">
-				<li class="nav-item adminNavFont"><a href="#" class="nav-link">회원정보</a></li>
-				<li class="nav-item">
-					<div class="dropdown">
-						<a href="#" class="dropbtn">드롭다운 메뉴</a>
-						<div class="dropdown-content">
-						    <a href="#">홈</a>
-						    <a href="#">회사소개</a>
-						    <a href="#">제품소개</a>
-						    <a href="#">오시는길</a>
-						</div>
+<div class="d-flex">
+	<nav class="adminNav">
+		<ul class="nav flex-column">
+			<li class="nav-item adminNavFont p-2"><a href="#" class="nav-link">회원정보</a></li>
+			<li class="nav-item adminNavFont p-2">
+				<div class="dropdown">
+					<a href="#" class="dropbtn nav-link">메인 페이지 관리</a>
+					<div class="dropdown-content">
+					    <a href="#">메인 배너</a>
+					    <a href="#">다음 경기</a>
+					    <a href="#">팀성적</a>
 					</div>
-				</li>
-				<div class="dropdown-content">
-					<a href="#">1</a>
-					<a href="#">1</a>
-					<a href="#">1</a>
-					<a href="#">1</a>
 				</div>
-			</ul>
-		</nav>
-		<section class="adminSection bg-success"></section>
-	</div>
-</body>
+			</li>
+			<li class="nav-item adminNavFont p-2">
+				<div class="dropdown">
+					<a href="#" class="dropbtn nav-link">구단 페이지 관리</a>
+					<div class="dropdown-content">
+					    <a href="#">구단소개</a>
+					    <a href="#">대표 선수</a>
+					    <a href="#">로고 및 마스코트</a>
+					    <a href="#">구장</a>
+					</div>
+				</div>
+			</li>
+			<li class="nav-item adminNavFont p-2"><a href="#" class="nav-link">선수단 페이지 관리</a></li>
+			<li class="nav-item adminNavFont p-2"><a href="#" class="nav-link">경기정보 페이지 관리</a></li>
+			<li class="nav-item adminNavFont p-2"><a href="#" class="nav-link">팬 페이지 관리</a></li>
+		</ul>
+	</nav>
+	<section class="adminSection">
+		<table id="userList">
+			<thead>
+				<tr>
+					<th>loginId</th>
+					<th>name</th>
+					<th>email</th>
+					<th>createdAt</th>
+				</tr>
+			</thead>
+		</table>
+	</section>
+</div>
+<script>
+	$(document).ready(function(){
+		
+		$('#userList').DataTable({
+			
+		}
+	});
+</script>
