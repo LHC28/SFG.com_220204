@@ -107,5 +107,14 @@ public class UserRestController {
 		
 		return userList;
 	}
+	
+	@RequestMapping("/delete_user")
+	public Map<String, String> deleteUser(
+			
+			){
+		
+		Map<String, String> result = new HashMap<>();
+		return result;
+	}
 
 }
