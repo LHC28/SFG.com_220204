@@ -19,8 +19,17 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
 
+<%-- datatable library --%>
+<link rel="stylesheet" type="text/css" href="/static/css/datatableEditor/editor.bootstrap.css">
+ 
+<script type="text/javascript" src="/static/js/datatableEditor/dataTables.editor.js"></script>
+<script type="text/javascript" src="/static/js/datatableEditor/editor.bootstrap.js"></script>
+
 <%-- moment CDN --%>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
+
+<%-- font awesome CDN --%>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <%-- 외부 스타일 시트 --%>
 <link rel="stylesheet" href="/static/css/mainPage.css">
