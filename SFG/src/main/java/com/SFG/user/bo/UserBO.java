@@ -30,4 +30,8 @@ public class UserBO {
 	public List<User> getUserList(){
 		return userDAO.selectUserList();
 	}
+	
+	public void deleteUserById(int id) {
+		userDAO.deleteUserById(id);
+	}
 }

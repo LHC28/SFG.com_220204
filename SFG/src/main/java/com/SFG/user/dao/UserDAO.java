@@ -24,4 +24,6 @@ public interface UserDAO {
 	
 //	유저 리스트 가져오기
 	public List<User> selectUserList();
+	
+	public void deleteUserById(int id);
 }

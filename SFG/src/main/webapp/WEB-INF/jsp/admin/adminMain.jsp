@@ -32,97 +32,6 @@
 <script>
 var editor;
 $(document).ready(function(){
-	editor = new $.fn.dataTable.Editor({
-		ajax: "/user/get_all_user",
-		table: "#userList",
-		// idSrc가 없으면 해당 row의 식별자가 없기 때문에 수정 및 삭제 버튼 클릭시 에러가 발생한다.
-		idSrc:  'id',
-		fields: [
-			{
-				label: "아이디",
-				name: "loginId"
-			},{
-				label: "이름",
-				name: "name"
-			},{
-				label: "이메일",
-				name: "email"
-			},{
-				label: "생성일",
-				name: "createdAt",
-			}
-		]
-	});
-	
-	editorDelete = new $.fn.dataTable.Editor({
-		ajax: "/user/delete_user",
-		table: "#userList",
-		// idSrc가 없으면 해당 row의 식별자가 없기 때문에 수정 및 삭제 버튼 클릭시 에러가 발생한다.
-		idSrc:  'id',
-		data: [
-			{
-				label: "아이디",
-				name: "loginId"
-			},{
-				label: "이름",
-				name: "name"
-			},{
-				label: "이메일",
-				name: "email"
-			},{
-				label: "생성일",
-				name: "createdAt",
-			}
-		],
-		fields: [
-			{
-				label: "아이디",
-				name: "loginId"
-			},{
-				label: "이름",
-				name: "name"
-			},{
-				label: "이메일",
-				name: "email"
-			},{
-				label: "생성일",
-				name: "createdAt",
-			}
-		]
-	});
-	
-
-	$('a.editor-create').on('click', function (e) {
-        e.preventDefault();
- 
-        editor.create( {
-            title: 'Create new record',
-            buttons: 'Add'
-        } );
-    } );
-	
-	// Edit record
-    $('#userList').on('click', 'td.editor-edit', function (e) {
-        e.preventDefault();
-        editor.edit( $(this).closest('tr'), {
-            title: 'Edit record',
-            buttons: 'Update'
-        } );
-    } );
- 
-    // Delete a record
-    $('#userList').on('click', 'td.editor-delete', function (e) {
-        e.preventDefault();
- 		
-        editorDelete.remove( $(this).closest('tr'), {
-            title: 'Delete record',
-            message: 'Are you sure you wish to remove this record?',
-            buttons: 'Delete'
-        } );
-    } );
-    
-	// 이전에 만든 것 없애고 다시 그리기 위한 기능
-	// $("#userList").DataTable().destroy();
 	
 	var userList = $("#userList").DataTable({
 		responsive: false,  //반응형 설정
@@ -192,6 +101,102 @@ $(document).ready(function(){
         	}
         ]
 	});
+	
+	$('a.editor-create').on('click', function (e) {
+        e.preventDefault();
+ 
+        editor.create( {
+            title: 'Create new record',
+            buttons: 'Add'
+        } );
+    } );
+	
+	// Edit record
+    $('#userList').on('click', 'td.editor-edit', function (e) {
+        e.preventDefault();
+        editor.edit( $(this).closest('tr'), {
+            title: 'Edit record',
+            buttons: 'Update'
+        } );
+    } );
+ 	
+    // Delete a record
+    $('#userList').on('click', 'td.editor-delete', function (e) {
+        e.preventDefault();
+		
+        var id = userList.row(this).data().id;
+        
+        editor.remove( $(this).closest('tr'), {
+            title: 'Delete record',
+            message: '삭제되었습니다.',
+            buttons: '확인'
+        } );
+        
+        $.ajax({
+        	type: "post"
+        	,url: "/user/delete_user"
+        	,data: {"id":id}
+        	,success: function(data){
+        		alert("성공");
+        	},error: function(e){
+        		alert("에러");
+        	}
+        });
+        
+    } );
+	
+	editor = new $.fn.dataTable.Editor({
+		ajax: "/user/get_all_user",
+		table: "#userList",
+		// idSrc가 없으면 해당 row의 식별자가 없기 때문에 수정 및 삭제 버튼 클릭시 에러가 발생한다.
+		idSrc:  'id',
+		fields: [
+			{
+				label: "아이디",
+				name: "loginId"
+			},{
+				label: "이름",
+				name: "name"
+			},{
+				label: "이메일",
+				name: "email"
+			},{
+				label: "생성일",
+				name: "createdAt",
+			}
+		]
+	});
+	
+	/*
+	editorDelete = new $.fn.dataTable.Editor({
+		ajax: "/user/get_all_user",
+		table: "#userList",
+		// idSrc가 없으면 해당 row의 식별자가 없기 때문에 수정 및 삭제 버튼 클릭시 에러가 발생한다.
+		idSrc:  'id',
+		fields: [
+			{
+				label: "아이디",
+				name: "loginId"
+			},{
+				label: "이름",
+				name: "name"
+			},{
+				label: "이메일",
+				name: "email"
+			},{
+				label: "생성일",
+				name: "createdAt",
+			}
+		]
+	});
+	*/
+
+
+    
+	// 이전에 만든 것 없애고 다시 그리기 위한 기능
+	// $("#userList").DataTable().destroy();
+	
+
 	
 });
 </script>
