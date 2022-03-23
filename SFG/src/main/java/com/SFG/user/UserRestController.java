@@ -108,12 +108,14 @@ public class UserRestController {
 		return userList;
 	}
 	
+//	유저 정보 삭제
 	@PostMapping("/delete_user")
 	public Map<String, String> deleteUser(
 			@RequestParam("id") Object userId
 			){
 		int id = Integer.parseInt(userId.toString());
 		
+		// id를 활용하여 user 정보 삭제
 		userBO.deleteUserById(id);
 		
 		Map<String, String> result = new HashMap<>();
