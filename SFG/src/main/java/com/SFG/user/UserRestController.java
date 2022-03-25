@@ -118,6 +118,7 @@ public class UserRestController {
 		// id를 활용하여 user 정보 삭제
 		userBO.deleteUserById(id);
 		
+		
 		Map<String, String> result = new HashMap<>();
 		return result;
 	}
