@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.SFG.match.dao.MatchDAO">
+	<select id="scheduleByMonth" resultType="com.SFG.match.model.MatchSchedule">
+		SELECT
+			`id`
+			,`yyyymmdd`
+			,`homeTeamId`
+			,`awayTeamId`
+			,`homeScore`
+			,`awayScore`
+			,`result`
+		FROM
+			`game_schedule`
+		WHERE
+		<!-- #대신 $를 써야 된다. -->
+			`yyyymmdd` like '${month}%'
+		
+	</select>
+</mapper>
