@@ -68,12 +68,15 @@ public class MatchBO {
 		for(int i=1; i<dayOfWeek; i++) {
 			matchSchedule.add(null);
 		}
-		
-		List<MatchSchedule> monthSchedule = matchDAO.scheduleByMonth(year+"-"+month);
-		for(int i=0; i<monthSchedule.size(); i++) {
-			matchSchedule.add(monthSchedule.get(i));
+		for(int i=firstDay; i<=lastDay; i++) {
+			MatchSchedule matchDay = matchDAO.selectMatchScheduleByMonthAndDay(month, i);
+			if(matchDay==null) {
+				matchSchedule.add(null);
+			}else {
+				matchSchedule.add(matchDay);
+			}
 		}
 		
-		return monthSchedule;
+		return matchSchedule;
 	}
 }

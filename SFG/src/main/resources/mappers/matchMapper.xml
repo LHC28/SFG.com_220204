@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.SFG.match.dao.MatchDAO">
-	<select id="scheduleByMonth" resultType="com.SFG.match.model.MatchSchedule">
+	<select id="selectMatchScheduleByMonthAndDay" resultType="com.SFG.match.model.MatchSchedule">
 		SELECT
 			`id`
 			,`yyyymmdd`
@@ -11,11 +11,12 @@
 			,`homeScore`
 			,`awayScore`
 			,`result`
+			,`time`
 		FROM
 			`game_schedule`
 		WHERE
-		<!-- #대신 $를 써야 된다. -->
-			`yyyymmdd` like '${month}%'
+		<!-- #대신 $를 써야 된다 -->
+			`yyyymmdd` like "%${month}-${day}"
 		
 	</select>
 </mapper>

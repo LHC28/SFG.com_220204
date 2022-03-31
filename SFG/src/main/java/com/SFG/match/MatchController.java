@@ -29,8 +29,7 @@ public class MatchController {
 //		일자를 맞춰 가져오도록 할 예정(LocalDate 활용)
 		List<MatchSchedule> matchSchedule = matchBO.getMatchSchedule(inputMonth);
 		
-		
-		
+		model.addAttribute("matchSchedule", matchSchedule);
 		model.addAttribute("viewName", "match/resultView");
 		return "template/layout";
 	}

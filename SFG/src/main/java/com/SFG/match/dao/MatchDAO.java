@@ -1,7 +1,6 @@
 package com.SFG.match.dao;
 
-import java.util.List;
-
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.SFG.match.model.MatchSchedule;
@@ -9,5 +8,7 @@ import com.SFG.match.model.MatchSchedule;
 @Repository
 public interface MatchDAO {
 	
-	public List<MatchSchedule> scheduleByMonth(String month);
+	public MatchSchedule selectMatchScheduleByMonthAndDay(
+			@Param("month") String month
+			,@Param("day") int day);
 }

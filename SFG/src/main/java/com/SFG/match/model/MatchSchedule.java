@@ -16,4 +16,5 @@ public class MatchSchedule {
 	private Integer homeScore;
 	private Integer awayScore;
 	private String result;
+	private String time;
 }
