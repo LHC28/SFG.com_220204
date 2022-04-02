@@ -36,7 +36,7 @@
 								</thead>
 								<tbody>
 									<c:forEach var="game" items="${matchSchedule }" varStatus = "status">
-									<%--  --%>
+									<%-- 월요일 및 경기 없는 경우 --%>
 									<c:if test="${status.count%7 ==1 && game ne null}">
 									<tr>
 										<td>
