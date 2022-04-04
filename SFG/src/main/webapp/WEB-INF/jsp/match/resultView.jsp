@@ -38,11 +38,11 @@
 								<tbody>
 									<c:forEach var="game" items="${matchSchedule }" varStatus = "status">
 									<%-- 월요일 및 경기 없는 경우 --%>
-									<c:if test="${status.count%7 ==1 && game ne null}">
+									<c:if test="${status.count%7 ==1 && game.id ne 0 && game.yyyymmdd ne null}">
 									<tr>
 										<td>
 											<span class="dateFont d-flex justify-content-end mr-2">
-												${status.count }
+												${game.day}
 											</span>
 											<div class="mt-3">
 												<div class="d-flex justify-content-center">
@@ -62,19 +62,28 @@
 										</td>
 									</c:if>
 									
-									<c:if test="${status.count%7==1 && game eq null }">
+									<c:if test="${status.count%7 ==1 && game.id ne 0 && game.yyyymmdd eq null}">
 									<tr>
 										<td>
 											<span class="dateFont d-flex justify-content-end mr-2">
-												${status.count }
+												${game.day}
 											</span>
 										</td>
 									</c:if>
 									
-									<c:if test="${status.count%7>1 && status.count%7<=6 && game ne null}">
+									<c:if test="${status.count%7==1 && game.id eq 0}">
+									<tr>
 										<td>
 											<span class="dateFont d-flex justify-content-end mr-2">
-												${status.count }
+												${game.day}
+											</span>
+										</td>
+									</c:if>
+									
+									<c:if test="${status.count%7>1 && status.count%7<=6 && game.id ne 0 && game.yyyymmdd ne null}">
+										<td>
+											<span class="dateFont d-flex justify-content-end mr-2">
+												${game.day}
 											</span>
 											<div class="mt-3">
 												<div class="d-flex justify-content-center">
@@ -93,20 +102,21 @@
 											</div>
 										</td>
 									</c:if>
-									<c:if test="${status.count%7>1 && status.count%7<=6 && game eq null}">
+									
+									<c:if test="${status.count%7>1 && status.count%7<=6 && game.yyyymmdd eq null}">
 										<td>
 											<span class="dateFont d-flex justify-content-end mr-2">
-												${status.count }
+												${game.day}
 											</span>
 										</td>
 									</c:if>
 									
-									<c:if test="${status.count%7==0 && game ne null }">
+									<c:if test="${status.count%7==0 && game.id ne 0}">
 										<td>
 											<span class="dateFont text-danger font-weight-bold d-flex justify-content-end mr-2">
-												${status.count }
+												${game.day}
 											</span>
-											<div>
+											<div class="mt-3">
 												<div class="d-flex justify-content-center">
 													<img src="/static/images/sfglogo.png" alt="구단로고" width="50px" height="50px">
 												</div>
@@ -125,10 +135,10 @@
 									</tr>
 									</c:if>
 									
-									<c:if test="${status.count%7==0 && game eq null }">
+									<c:if test="${status.count%7==0 && game.id eq 0 }">
 										<td>
 											<span class="dateFont text-danger font-weight-bold d-flex justify-content-end mr-2">
-												${status.count }
+												${game.day}
 											</span>
 										</td>
 									</tr>

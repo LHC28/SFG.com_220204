@@ -71,8 +71,11 @@ public class MatchBO {
 		for(int i=firstDay; i<=lastDay; i++) {
 			MatchSchedule matchDay = matchDAO.selectMatchScheduleByMonthAndDay(month, i);
 			if(matchDay==null) {
-				matchSchedule.add(null);
+				MatchSchedule nullMatchDay = new MatchSchedule();
+				nullMatchDay.setDay(i);
+				matchSchedule.add(nullMatchDay);
 			}else {
+				matchDay.setDay(i);
 				matchSchedule.add(matchDay);
 			}
 		}

@@ -104,9 +104,9 @@ body {background-color: #ff4814;}
 .player {width: 200px; height: 250px; border: 1px solid #333333;}
 
 /* 선수 세부사항 페이지 */
-.detailPlayerBox1 {width:1110px; height:1200px; background-color: #ff7a2f;}
-.detailPlayerBox2 {width:1050px; height:1150px; background-color: white;}
-.detailPlayerbox3 {width:1000px; height:1100px; background-color: #f2f2f2; border: 1px solid #333333;}
+.detailPlayerBox1 {width:1110px; height:1350px; background-color: #ff7a2f;}
+.detailPlayerBox2 {width:1050px; height:1300px; background-color: white;}
+.detailPlayerbox3 {width:1000px; height:1250px; background-color: #f2f2f2; border: 1px solid #333333;}
 .detailTitleBox {width: 900px; margin-top: 30px; border-bottom: 1px solid #333333;}
 .detailTitle {width: 120px; border-top: 3px solid #ff7a2f; color: black; font-size: 20px;}
 .detailTitleName {width: 100px; border-top: 3px solid #ff7a2f; color: black; font-size: 20px;}

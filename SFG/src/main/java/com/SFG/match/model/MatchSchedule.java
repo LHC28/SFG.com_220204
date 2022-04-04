@@ -11,6 +11,7 @@ public class MatchSchedule {
 
 	private int id;
 	private Date yyyymmdd;
+	private int day;
 	private int homeTeamId;
 	private int awayTeamId;
 	private Integer homeScore;
