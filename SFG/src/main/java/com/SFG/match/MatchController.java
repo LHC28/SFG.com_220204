@@ -29,6 +29,17 @@ public class MatchController {
 //		일자를 맞춰 가져오도록 할 예정(LocalDate 활용)
 		List<MatchSchedule> matchSchedule = matchBO.getMatchSchedule(inputMonth);
 		
+		// 날짜 전달용
+		Integer month = null;
+		if(inputMonth==null) {
+			LocalDate curDate = LocalDate.now();
+			DateTimeFormatter MonthFormatter = DateTimeFormatter.ofPattern("MM");
+			month = Integer.valueOf(curDate.format(MonthFormatter));
+		}else {
+			month = inputMonth;
+		}
+		
+		model.addAttribute("month", month);
 		model.addAttribute("matchSchedule", matchSchedule);
 		model.addAttribute("viewName", "match/resultView");
 		return "template/layout";
