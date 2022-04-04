@@ -31,7 +31,11 @@ body {background-color: #ff4814;}
 .loginBox a:hover{text-decoration: none; color: white;}
 .signOutBtn {font-size: 10px; color: white; background-color: #ff7a2f;}
 
-.content {width:1110px; background-color: white;}
+.content {width:1110px; height: 900px; background-color: white;}
+
+/* mainPage */
+#slideBanner {height:450px;}
+#matchSchedule {height: 450px; background-color: blue;}
 
 /* signInView */
 #loginPage {width: 1110px; height: 600px; background-color: #ff7a2f;}
