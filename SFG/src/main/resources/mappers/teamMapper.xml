@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.SFG.team.dao.TeamDAO">
+	<select id="selectTeamLogoByTeamId" resultType="com.SFG.team.model.Team">
+		SELECT
+			`id`
+			,`nameEng`
+			,`nameKor`
+			,`abbreviationName`
+			,`logo`
+			,`stadium`
+		FROM
+			`team`
+		WHERE
+			`id` = #{teamId}
+	</select>
+</mapper>

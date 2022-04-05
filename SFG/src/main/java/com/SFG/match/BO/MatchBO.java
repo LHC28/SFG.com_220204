@@ -11,12 +11,17 @@ import org.springframework.stereotype.Service;
 
 import com.SFG.match.dao.MatchDAO;
 import com.SFG.match.model.MatchSchedule;
+import com.SFG.team.dao.TeamDAO;
+import com.SFG.team.model.Team;
 
 @Service
 public class MatchBO {
 	
 	@Autowired
 	private MatchDAO matchDAO;
+	
+	@Autowired
+	private TeamDAO teamDAO;
 	
 	public List getMatchSchedule(Integer inputMonth) {
 		
@@ -76,6 +81,11 @@ public class MatchBO {
 				matchSchedule.add(nullMatchDay);
 			}else {
 				matchDay.setDay(i);
+				Team homeTeam = teamDAO.selectTeamLogoByTeamId(matchDay.getHomeTeamId());
+				Team awayTeam = teamDAO.selectTeamLogoByTeamId(matchDay.getAwayTeamId());
+				matchDay.setHomeTeamLogo(homeTeam.getLogo());
+				matchDay.setAwayTeamLogo(awayTeam.getLogo());
+				matchDay.setStadium(homeTeam.getStadium());
 				matchSchedule.add(matchDay);
 			}
 		}

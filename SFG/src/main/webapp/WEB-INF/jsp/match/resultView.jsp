@@ -46,7 +46,12 @@
 											</span>
 											<div class="mt-3">
 												<div class="d-flex justify-content-center">
-													<img src="/static/images/sfglogo.png" alt="구단로고" width="50px" height="50px">
+													<c:if test="${game.homeTeamId ne 15 }">
+													<img src="${game.homeTeamLogo }" alt="구단로고" width="50px" height="50px">
+													</c:if>
+													<c:if test="${game.awayTeamId ne 15 }">
+													<img src="${game.awayTeamLogo }" alt="구단로고" width="50px" height="50px">
+													</c:if>
 												</div>
 												<c:if test="${game.time ne null }">
 												<div class="text-center mt-2">${game.time }</div>
@@ -57,6 +62,7 @@
 												<c:if test="${game.homeScore ne null && game.awayScore ne null }">
 												<div class="text-center">${game.result} ${game.homeScore }:${game.awayScore }</div>
 												</c:if>
+												<div class="text-center mt-2">${game.stadium}</div>
 												<br>
 											</div>
 										</td>
@@ -87,7 +93,12 @@
 											</span>
 											<div class="mt-3">
 												<div class="d-flex justify-content-center">
-													<img src="/static/images/sfglogo.png" alt="구단로고" width="50px" height="50px">
+													<c:if test="${game.homeTeamId ne 15 }">
+													<img src="${game.homeTeamLogo }" alt="구단로고" width="50px" height="50px">
+													</c:if>
+													<c:if test="${game.awayTeamId ne 15 }">
+													<img src="${game.awayTeamLogo }" alt="구단로고" width="50px" height="50px">
+													</c:if>
 												</div>
 												<c:if test="${game.time ne null }">
 												<div class="text-center mt-2">${game.time }</div>
@@ -98,6 +109,7 @@
 												<c:if test="${game.homeScore ne null && game.awayScore ne null }">
 												<div class="text-center">${game.result} ${game.homeScore }:${game.awayScore }</div>
 												</c:if>
+												<div class="text-center mt-2">${game.stadium}</div>
 												<br>
 											</div>
 										</td>
@@ -118,7 +130,12 @@
 											</span>
 											<div class="mt-3">
 												<div class="d-flex justify-content-center">
-													<img src="/static/images/sfglogo.png" alt="구단로고" width="50px" height="50px">
+													<c:if test="${game.homeTeamId ne 15 }">
+													<img src="${game.homeTeamLogo }" alt="구단로고" width="50px" height="50px">
+													</c:if>
+													<c:if test="${game.awayTeamId ne 15 }">
+													<img src="${game.awayTeamLogo }" alt="구단로고" width="50px" height="50px">
+													</c:if>
 												</div>
 												<c:if test="${game.time ne null }">
 												<div class="text-center mt-2">${game.time }</div>
@@ -129,6 +146,7 @@
 												<c:if test="${game.homeScore ne null && game.awayScore ne null }">
 												<div class="text-center">${game.result} ${game.homeScore }:${game.awayScore }</div>
 												</c:if>
+												<div class="text-center mt-2">${game.stadium}</div>
 												<br>
 											</div>
 										</td>

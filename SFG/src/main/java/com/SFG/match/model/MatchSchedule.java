@@ -13,7 +13,10 @@ public class MatchSchedule {
 	private Date yyyymmdd;
 	private int day;
 	private int homeTeamId;
+	private String homeTeamLogo;
 	private int awayTeamId;
+	private String awayTeamLogo;
+	private String stadium;
 	private Integer homeScore;
 	private Integer awayScore;
 	private String result;
