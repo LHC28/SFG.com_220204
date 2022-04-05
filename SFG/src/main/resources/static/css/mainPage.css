@@ -41,6 +41,12 @@ body {background-color: #ff4814;}
 #bannerContent {height: 40px; color: white; font-size: 15px;}
 #bannerBtn {color: white; background-color: #ff7a2f; font-size: 20px; padding:5px; margin: 10px;}
 #matchSchedule {height: 450px; background-color: blue;}
+#matchImage {filter: brightness(50%); position: relative;} /* 밝기 조절 */
+#matchScheduleContent {position: relative; width: 800px; height: 450px; background-color: red; top:-450px; left: 155px; text-align: center;}
+#matchScheduleContentBox{position: relative; top:15%;}
+#matchScheduleContentTitle{width: 60%; height: 100px; background-color: black; display: inline-block; color: white; font-size: 25px; font-weight:bold;}
+#matchScheduleContentTeam{width: 80%; height: 100px; background-color: blue; display: inline-block;}
+#matchScheduleContentDate{width: 30%; height: 100px; background-color: green; display: inline-block;}
 
 /* signInView */
 #loginPage {width: 1110px; height: 600px; background-color: #ff7a2f;}

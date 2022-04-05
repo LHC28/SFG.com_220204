@@ -9,7 +9,24 @@
 			<a href="#" id="bannerBtn">Read more</a>
 		</div>
 	</div>
-	<div id="matchSchedule"></div>
+	<div id="matchSchedule">
+		<img id="matchImage" src="/static/images/mainpage/matchImage.png" alt="경기일정 배경사진" width="1110px" height="450px">
+		<div id="matchScheduleContent">
+			<div id="matchScheduleContentBox">
+				<div id="matchScheduleContentTitle">
+					[메이저리그 네셔널리그 서부지구]<br>다음 경기
+				</div>
+				<div id="matchScheduleContentTeam">
+					<span></span>
+					<img src="${match.homeTeamLogo }" alt="" width="80px" height="80px">
+					<span>vs</span>
+					<img src="${match.awayTeamLogo }" alt="" width="80px" height="80px">
+					<span></span>
+				</div>
+				<div id="matchScheduleContentDate"></div>
+			</div>
+		</div>
+	</div>
 </div>
 
 
