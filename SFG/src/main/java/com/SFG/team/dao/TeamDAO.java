@@ -7,5 +7,5 @@ import com.SFG.team.model.Team;
 @Repository
 public interface TeamDAO {
 
-	public Team selectTeamLogoByTeamId(int teamId);
+	public Team selectTeamByTeamId(int teamId);
 }

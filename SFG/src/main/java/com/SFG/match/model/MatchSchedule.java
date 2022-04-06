@@ -16,10 +16,14 @@ public class MatchSchedule {
 	private int day;
 	// 홈팀 id
 	private int homeTeamId;
+	// 홈팀 이름
+	private String homeTeamName;
 	// 홈팀 로고
 	private String homeTeamLogo;
 	// 원정팀 id
 	private int awayTeamId;
+	// 원정팀 이름
+	private String awayTeamName;
 	// 원정팀 로고
 	private String awayTeamLogo;
 	// 경기장

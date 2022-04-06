@@ -81,10 +81,12 @@ public class MatchBO {
 				matchSchedule.add(nullMatchDay);
 			}else {
 				matchDay.setDay(i);
-				Team homeTeam = teamDAO.selectTeamLogoByTeamId(matchDay.getHomeTeamId());
-				Team awayTeam = teamDAO.selectTeamLogoByTeamId(matchDay.getAwayTeamId());
+				Team homeTeam = teamDAO.selectTeamByTeamId(matchDay.getHomeTeamId());
+				Team awayTeam = teamDAO.selectTeamByTeamId(matchDay.getAwayTeamId());
 				matchDay.setHomeTeamLogo(homeTeam.getLogo());
 				matchDay.setAwayTeamLogo(awayTeam.getLogo());
+				matchDay.setHomeTeamName(homeTeam.getNameKor());
+				matchDay.setAwayTeamName(awayTeam.getNameKor());
 				matchDay.setStadium(homeTeam.getStadium());
 				matchSchedule.add(matchDay);
 			}

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div class="content">
 	<div id="slideBanner">
 		<img id="banner" src="/static/images/ace.jpg" alt="" width="1110px;" height="450px;">
@@ -16,16 +19,30 @@
 				<div id="matchScheduleContentTitle">
 					[메이저리그 네셔널리그 서부지구]<br>다음 경기
 				</div>
-				<div id="matchScheduleContentTeam">
-					<span></span>
-					<img src="${match.homeTeamLogo }" alt="" width="80px" height="80px">
-					<span>vs</span>
-					<img src="${match.awayTeamLogo }" alt="" width="80px" height="80px">
-					<span></span>
+				<div id="matchScheduleContentTeam" class="d-flex justify-content-center align-items-center">
+					<c:set var="name" value="${fn:split(match.awayTeamName,' ')}" />
+					<div class="matchScheduleContentTeamFont2 m-2">${name[0] }<br>${name[1] }</div>
+					<img src="${match.awayTeamLogo }" alt="" width="100px" height="100px">
+					<div id="matchScheduleContentTeamFont1">vs</div>
+					<img src="${match.homeTeamLogo }" alt="" width="100px" height="100px">
+					<c:set var="name" value="${fn:split(match.homeTeamName, ' ')}" />
+					<div class="matchScheduleContentTeamFont2 m-2">${name[0] }<br>${name[1] }</div>
 				</div>
-				<div id="matchScheduleContentDate"></div>
+				<div id="matchScheduleContentDate">
+					<div><fmt:formatDate value="${match.yyyymmdd }" pattern="yyyy.MM.dd" /></div>
+					<c:if test="${match.time eq null }">
+					<div>시간 미정</div>
+					</c:if>
+					<c:if test="${match.time ne null }">
+					<div>${match.time }</div>
+					</c:if>
+					<div>${match.stadium }</div>
+				</div>
 			</div>
 		</div>
+	</div>
+	<div id="recentBoard">
+		<div id="recentBoardTitle">Giants News</div>
 	</div>
 </div>
 
