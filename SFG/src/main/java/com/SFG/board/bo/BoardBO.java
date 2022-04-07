@@ -67,9 +67,14 @@ public class BoardBO {
 		}
 	}
 	
-//	게시물 가져오기
-	public List<Board> getBoardByBoardKind(int boardKind, String direction, Integer standardId, int limit) {
-		return boardDAO.selectBoardByBoardKind(boardKind, direction, standardId, limit);
+//	게시물 가져오기 (페이징 용)
+	public List<Board> getBoardByBoardKindForPaging(int boardKind, String direction, Integer standardId, int limit) {
+		return boardDAO.selectBoardByBoardKindForPaging(boardKind, direction, standardId, limit);
+	}
+	
+//	게시물 가져오기 (게시판 종류에 따라)
+	public List<Board> getBoardByBoardKindforMain(int boardKind){
+		return boardDAO.selectBoardByBoardKindforMain(boardKind);
 	}
 	
 //	게시물 이미지 가져오기

@@ -20,10 +20,12 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
 
 <%-- datatable library --%>
+<%-- 
 <link rel="stylesheet" type="text/css" href="/static/css/datatableEditor/editor.bootstrap.css">
  
 <script type="text/javascript" src="/static/js/datatableEditor/dataTables.editor.js"></script>
 <script type="text/javascript" src="/static/js/datatableEditor/editor.bootstrap.js"></script>
+--%>
 
 <%-- moment CDN --%>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>

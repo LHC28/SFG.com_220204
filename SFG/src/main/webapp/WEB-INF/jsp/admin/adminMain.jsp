@@ -32,7 +32,7 @@
 <script>
 var editor;
 $(document).ready(function(){
-	
+	/*
 	var userList = $("#userList").DataTable({
 		responsive: false,  //반응형 설정
         pageLength: 10,     //페이지 당 글 개수 설정
@@ -166,7 +166,7 @@ $(document).ready(function(){
 			}
 		]
 	});
-	
+	*/
 	/*
 	editorDelete = new $.fn.dataTable.Editor({
 		ajax: "/user/get_all_user",

@@ -9,8 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.SFG.board.bo.BoardBO;
 import com.SFG.match.BO.MatchBO;
 import com.SFG.match.model.MatchSchedule;
+import com.SFG.post.bo.PostBO;
+import com.SFG.post.model.Post;
 
 @RequestMapping("/main")
 @Controller
@@ -18,6 +21,12 @@ public class MainController {
 
 	@Autowired
 	private MatchBO matchBO;
+	
+	@Autowired
+	private BoardBO boardBO;
+	
+	@Autowired
+	private PostBO postBO;
 	
 	@RequestMapping("/entrance")
 	public String entrance() {
@@ -27,6 +36,7 @@ public class MainController {
 	@RequestMapping("/main_page")
 	public String mainPage(Model model) {
 		
+		// 구단 다음 경기 가져오기
 		MatchSchedule match = new MatchSchedule();
 		
 		// 오늘 날짜 가져오기 (월, 일 별개로)
@@ -65,7 +75,11 @@ public class MainController {
 			}
 		}
 		
+		// 구단 뉴스 가져오기 (boardKind = 2)
+		int boardKind = 2;
+		List<Post> postList = postBO.getPostListByBoardKindForMain(boardKind);
 		
+		model.addAttribute("newsList", postList);
 		model.addAttribute("match", match);
 		model.addAttribute("viewName", "include/mainPage");
 		return "template/layout";

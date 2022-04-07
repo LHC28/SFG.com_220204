@@ -41,7 +41,7 @@
 			`userId` = #{userId}
 		ORDER BY `id` DESC
 	</select>
-	<select id="selectBoardByBoardKind" resultType="com.SFG.board.model.Board">
+	<select id="selectBoardByBoardKindForPaging" resultType="com.SFG.board.model.Board">
 		SELECT
 			`id`,
 			`userId`,
@@ -75,6 +75,24 @@
 		ORDER BY `id` DESC
 			</if>
 		LIMIT ${limit}
+	</select>
+	<select id="selectBoardByBoardKindforMain" resultType="com.SFG.board.model.Board">
+		SELECT
+			`id`,
+			`userId`,
+			`userName`,
+			`boardKind`,
+			`title`,
+			`content`,
+			`views`,
+			`createdAt`,
+			`updatedAt`
+		FROM
+			`board`
+		WHERE
+			`boardKind` = 2
+		ORDER BY `id` DESC
+		limit 5
 	</select>
 	<select id="selectPostIdByBoardKindAndSort" parameterType="map" resultType="int">
 		SELECT

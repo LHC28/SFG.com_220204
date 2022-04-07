@@ -41,8 +41,117 @@
 			</div>
 		</div>
 	</div>
-	<div id="recentBoard">
-		<div id="recentBoardTitle">Giants News</div>
+	<div id="recentBoardBox">
+		<div id="recentBoardTitle" class="d-flex justify-content-center">Giants News</div>
+		<div class="mt-3 d-flex justify-content-center">
+			<div id="recentBoardContentBox" class="d-flex">
+				<%-- 반복문 활용 --%>
+				<c:forEach var="news" items="${newsList }" varStatus="status">
+				<c:if test="${status.count eq 1 }">
+				<div class="recentBoardContent1 d-flex align-items-center justify-content-center">
+					<div id="recentBoard1">
+						<a href="/board/board_view?boardId=${news.board.id }">
+						<div id="recentBoard1Title">
+							<c:forEach var="image" items="${news.fileList }" varStatus="status">
+							<c:if test="${status.first}">
+							<img id="recentBoardNews1" src="${image.imagePath}" alt="뉴스 사진" width="100%" height="100%">
+							</c:if>
+							</c:forEach>
+						</div>
+						<div id="recentBoard1Content">
+							<div id="recentBoard1ContentTitle" class="d-flex justify-content-center p-2">${news.board.title }</div>
+							<div class="d-flex justify-content-end mr-3"><fmt:formatDate value="${news.board.createdAt}" pattern="yyyy.MM.dd" /></div>
+						</div>
+						</a>
+					</div>
+				</div>
+				</c:if>
+				<%-- flex-column을 활용할 수도 있을듯 --%>
+				<c:if test="${status.count eq 2 }">
+				<div class="recentBoardContent2">
+					<div class="recentBoardContent3 d-flex">
+						<div class="recentBoardContent4 d-flex align-items-center justify-content-center">
+							<div class="recentBoard2">
+							<a href="/board/board_view?boardId=${news.board.id }">
+								<div class="recentBoard2Title">
+									<c:forEach var="image" items="${news.fileList }" varStatus="status">
+									<c:if test="${status.first}">
+									<img id="recentBoardNews1" src="${image.imagePath}" alt="뉴스 사진" width="100%" height="100%">
+									</c:if>
+									</c:forEach>
+								</div>
+								<div class="recentBoard2Content">
+									<div class="recentBoard2ContentTitle d-flex justify-content-center pt-2">${news.board.title }</div>
+									<div class="recentBoard2Contentcontent d-flex justify-content-end mr-3"><fmt:formatDate value="${news.board.createdAt}" pattern="yyyy.MM.dd" /></div>
+								</div>
+							</a>
+							</div>
+						</div>
+				</c:if>
+				<c:if test="${status.count eq 3 }">
+						<div class="recentBoardContent4 d-flex align-items-center justify-content-center">
+							<div class="recentBoard2">
+							<a href="/board/board_view?boardId=${news.board.id }">
+								<div class="recentBoard2Title">
+									<c:forEach var="image" items="${news.fileList }" varStatus="status">
+									<c:if test="${status.first}">
+									<img id="recentBoardNews1" src="${image.imagePath}" alt="뉴스 사진" width="100%" height="100%">
+									</c:if>
+									</c:forEach>
+								</div>
+								<div class="recentBoard2Content">
+									<div class="recentBoard2ContentTitle d-flex justify-content-center pt-2">${news.board.title }</div>
+									<div class="recentBoard2Contentcontent d-flex justify-content-end mr-3"><fmt:formatDate value="${news.board.createdAt}" pattern="yyyy.MM.dd" /></div>
+								</div>
+							</a>
+							</div>
+						</div>
+					</div>
+				</c:if>
+				<c:if test="${status.count eq 4 }">
+					<div class="recentBoardContent3 d-flex">
+						<div class="recentBoardContent4 d-flex align-items-center justify-content-center">
+							<div class="recentBoard2">
+							<a href="/board/board_view?boardId=${news.board.id }">
+								<div class="recentBoard2Title">
+									<c:forEach var="image" items="${news.fileList }" varStatus="status">
+									<c:if test="${status.first}">
+									<img id="recentBoardNews1" src="${image.imagePath}" alt="뉴스 사진" width="100%" height="100%">
+									</c:if>
+									</c:forEach>
+								</div>
+								<div class="recentBoard2Content">
+									<div class="recentBoard2ContentTitle d-flex justify-content-center pt-2">${news.board.title }</div>
+									<div class="recentBoard2Contentcontent d-flex justify-content-end mr-3"><fmt:formatDate value="${news.board.createdAt}" pattern="yyyy.MM.dd" /></div>
+								</div>
+							</a>
+							</div>
+						</div>
+				</c:if>
+				<c:if test="${status.count eq 5 }">
+						<div class="recentBoardContent4 d-flex align-items-center justify-content-center">
+							<div class="recentBoard2">
+							<a href="/board/board_view?boardId=${news.board.id }">
+								<div class="recentBoard2Title">
+									<c:forEach var="image" items="${news.fileList }" varStatus="status">
+									<c:if test="${status.first}">
+									<img id="recentBoardNews1" src="${image.imagePath}" alt="뉴스 사진" width="100%" height="100%">
+									</c:if>
+									</c:forEach>
+								</div>
+								<div class="recentBoard2Content">
+									<div class="recentBoard2ContentTitle d-flex justify-content-center pt-2">${news.board.title }</div>
+									<div class="recentBoard2Contentcontent d-flex justify-content-end mr-3"><fmt:formatDate value="${news.board.createdAt}" pattern="yyyy.MM.dd" /></div>
+								</div>
+							</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				</c:if>
+				</c:forEach>
+			</div>
+		</div>
 	</div>
 </div>
 

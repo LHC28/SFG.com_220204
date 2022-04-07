@@ -50,8 +50,28 @@ body {background-color: #ff4814;}
 .matchScheduleContentTeamFont2{font-size: 20px; font-weight: bold;}
 #matchScheduleContentDate{width: 30%; height: 100px; display: inline-block; color: white; font-size: 20px;}
 /* 메인 페이지게시판 부분 */
-#recentBoard {height: 400px; background-color: red;}
-#recentBoardTitle {}
+#recentBoardBox {height: 450px; background-color: rgb(255,122,47);}
+#recentBoardTitle {font-size: 40px; color: white;}
+#recentBoardContentBox {width: 80%; height: 350px;}
+.recentBoardContent1 {width: 45%; height: 100%;}
+.recentBoardContent2 {width: 55%; height: 100%;}
+.recentBoardContent3 {width: 100%; height: 50%;}
+.recentBoardContent4 {width: 50%; height: 100%;}
+#recentBoard1 {width: 90%; height: 90%;}
+#recentBoard1Title {height: 75%; background-color: yellow; border-radius: 20px 20px 0 0;}
+#recentBoard1Content {height: 25%; background-color: white; border-radius: 0 0 20px 20px;}
+#recentBoard1ContentTitle{font-size: 20px;}
+.recentBoard2 {width: 90%; height: 90%;}
+.recentBoard2Title {height: 70%; background-color: yellow; border-radius: 20px 20px 0 0;}
+.recentBoard2Content {height: 30%; background-color: white; border-radius: 0 0 20px 20px;}
+.recentBoard2ContentTitle{font-size: 12px;}
+.recentBoard2Contentcontent {font-size: 8px;}
+#recentBoardNews1 {border-radius: 20px 20px 0 0;}
+
+#recentBoardBox a:link {text-decoration: none; color: black;}
+#recentBoardBox a:visited {text-decoration: none; color: black;}
+#recentBoardBox a:active {text-decoration: none; color: black;}
+#recentBoardBox a:hover {text-decoration: none; color: black;}
 
 /* signInView */
 #loginPage {width: 1110px; height: 600px; background-color: #ff7a2f;}

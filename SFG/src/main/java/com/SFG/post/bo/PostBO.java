@@ -35,7 +35,7 @@ public class PostBO {
 			direction = "prev";
 			standardId = prevId;
 			
-			List<Board> boardList = boardBO.getBoardByBoardKind(boardKind, direction, standardId, POST_MAX_SIZE);
+			List<Board> boardList = boardBO.getBoardByBoardKindForPaging(boardKind, direction, standardId, POST_MAX_SIZE);
 			Collections.reverse(boardList);
 			
 			List<Post> postList = new ArrayList<>();
@@ -61,7 +61,7 @@ public class PostBO {
 			standardId = nextId;
 		}
 		// 조건식 활용으로 인해 else if에 들어가면 에러가 발생하게 됨으로 밖으로 빠짐
-		List<Board> boardList = boardBO.getBoardByBoardKind(boardKind, direction, standardId, POST_MAX_SIZE);
+		List<Board> boardList = boardBO.getBoardByBoardKindForPaging(boardKind, direction, standardId, POST_MAX_SIZE);
 		
 		List<Post> postList = new ArrayList<>();
 		
@@ -109,5 +109,22 @@ public class PostBO {
 		}
 		
 		return post;
+	}
+	
+//	게시물 + 이미지 합쳐서 보내기 (여러 개)
+	public List<Post> getPostListByBoardKindForMain(int boardKind){
+		List<Post> postList = new ArrayList<>();
+		
+		List<Board> boardList = boardBO.getBoardByBoardKindforMain(boardKind);
+
+		for(int i=0; i<boardList.size(); i++) {
+			Post post = new Post();
+			List<File> fileList = boardBO.getFileByBoardId(boardList.get(i).getId());
+			post.setBoard(boardList.get(i));
+			post.setFileList(fileList);
+			postList.add(post);
+		}
+		
+		return postList;
 	}
 }
