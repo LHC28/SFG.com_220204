@@ -153,6 +153,10 @@
 			</div>
 		</div>
 	</div>
+	<div id="etcBox" class="d-flex justify-content-center">
+		<div id="etcBoxTeamSnsBox"></div>
+		<div id="etcBoxBoardBox"></div>
+	</div>
 </div>
 
 
