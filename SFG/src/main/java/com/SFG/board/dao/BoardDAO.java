@@ -30,7 +30,9 @@ public interface BoardDAO {
 			,@Param("standardId") Integer standardId
 			,@Param("limit") int limit);
 	
-	public List<Board> selectBoardByBoardKindforMain(int boardKind);
+	public List<Board> selectBoardByBoardKind(
+			@Param("boardKind") int boardKind
+			,@Param("limit") int limit);
 	
 	public List<File> selectFileByBoardId(int boardId);
 	

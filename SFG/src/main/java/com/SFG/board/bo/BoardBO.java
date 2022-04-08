@@ -73,8 +73,8 @@ public class BoardBO {
 	}
 	
 //	게시물 가져오기 (게시판 종류에 따라)
-	public List<Board> getBoardByBoardKindforMain(int boardKind){
-		return boardDAO.selectBoardByBoardKindforMain(boardKind);
+	public List<Board> getBoardByBoardKind(int boardKind, int limit){
+		return boardDAO.selectBoardByBoardKind(boardKind, limit);
 	}
 	
 //	게시물 이미지 가져오기

@@ -76,7 +76,7 @@
 			</if>
 		LIMIT ${limit}
 	</select>
-	<select id="selectBoardByBoardKindforMain" resultType="com.SFG.board.model.Board">
+	<select id="selectBoardByBoardKind" parameterType="map" resultType="com.SFG.board.model.Board">
 		SELECT
 			`id`,
 			`userId`,
@@ -90,9 +90,9 @@
 		FROM
 			`board`
 		WHERE
-			`boardKind` = 2
+			`boardKind` = #{boardKind}
 		ORDER BY `id` DESC
-		limit 5
+		limit #{limit}
 	</select>
 	<select id="selectPostIdByBoardKindAndSort" parameterType="map" resultType="int">
 		SELECT

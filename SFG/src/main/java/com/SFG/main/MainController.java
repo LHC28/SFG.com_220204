@@ -78,14 +78,21 @@ public class MainController {
 			}
 		}
 		
-		// 구단 뉴스 가져오기 (boardKind = 2)
+		// 구단 뉴스 가져오기 (boardKind = 2, limit = 5)
 		int boardKind = 2;
-		List<Post> postList = postBO.getPostListByBoardKindForMain(boardKind);
+		int limit = 5;
+		List<Post> postList = postBO.getPostListByBoardKind(boardKind, limit);
 		
-		// 트위터 가져오기
-
+		// 공지사항 및 팬게시판 가져오기 (1, 3)
+		boardKind = 1;
+		limit = 3;
+		List<Post> noticeList = postBO.getPostListByBoardKind(boardKind, limit);
+		boardKind = 3;
+		List<Post> fanList = postBO.getPostListByBoardKind(boardKind, limit);
 		
 		model.addAttribute("newsList", postList);
+		model.addAttribute("noticeList", noticeList);
+		model.addAttribute("fanList", fanList);
 		model.addAttribute("match", match);
 		model.addAttribute("viewName", "include/mainPage");
 		return "template/layout";

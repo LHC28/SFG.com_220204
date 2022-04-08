@@ -154,8 +154,51 @@
 		</div>
 	</div>
 	<div id="etcBox" class="d-flex justify-content-center">
-		<div id="etcBoxTeamSnsBox"></div>
-		<div id="etcBoxBoardBox"></div>
+		<div id="etcBoxTeamSnsBox">
+			<div class="tableTitle">
+				<div class="d-flex align-items-center justify-content-center">
+					
+				</div>
+			</div>
+			
+		</div>
+		<div id="etcBoxBoardBox">
+			<div class="tableTitle"></div>
+			<div class="d-flex justify-content-center mt-5">
+				<table class="etcBoxBoardTable text-center">
+					<tr>
+						<th>공지사항</th>
+						<th></th>
+						<th><a class="etcBoxBoardTableMoreBtn" href="#">더보기+</a></th>
+					</tr>
+					<%-- 3번 반복 --%>
+					<c:forEach var="notice" items="${noticeList }" varStatus="status">
+					<tr>
+						<td class="etcBoxBoardTableId">${notice.board.id }</td>
+						<td class="etcBoxBoardTableTitle"><a class="boardTitle" data-board-id=${notice.board.id }  href="/board/board_view?boardId=${notice.board.id }">${notice.board.title }</a></td>
+						<td class="etcBoxBoardTableName">${notice.board.userName }</td>
+					</tr>
+					</c:forEach>
+				</table>
+			</div>
+			<div class="d-flex justify-content-center mt-4">
+				<table class="etcBoxBoardTable text-center">
+					<tr>
+						<th>팬게시판</th>
+						<td></td>
+						<td><a class="etcBoxBoardTableMoreBtn" href="#">더보기+</a></td>
+					</tr>
+					<%-- 3번 반복 --%>
+					<c:forEach var="fan" items="${fanList }" varStatus="status">
+					<tr>
+						<td class="etcBoxBoardTableId">${fan.board.id }</td>
+						<td class="etcBoxBoardTableTitle"><a class="boardTitle" data-board-id=${fan.board.id } href="/board/board_view?boardId=${fan.board.id }">${fan.board.title }</a></td>
+						<td class="etcBoxBoardTableName">${fan.board.userName }</td>
+					</tr>
+					</c:forEach>
+				</table>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -205,5 +248,23 @@
 		}
 		// 3초마다 함수 실행
 		setInterval(changeBanner, 3000);
+		
+		<%-- 조회수 증가 기능 --%>
+		$('.boardTitle').on('click', function(e){
+			let boardId = $(this).data('board-id');
+			
+			$.ajax({
+				type: 'post'
+				,url: '/board/add_views'
+				,data: {"boardId":boardId}
+				,success: function(data){
+					if(data.result=="false"){
+						alert("조회수 관련 에러가 발생하였습니다. 관리자에게 문의해주세요.");
+					}
+				},error: function(e){
+					alert("error : "+e);
+				}
+			});
+		});
 	});
 </script>

@@ -112,10 +112,10 @@ public class PostBO {
 	}
 	
 //	게시물 + 이미지 합쳐서 보내기 (여러 개)
-	public List<Post> getPostListByBoardKindForMain(int boardKind){
+	public List<Post> getPostListByBoardKind(int boardKind, int limit){
 		List<Post> postList = new ArrayList<>();
 		
-		List<Board> boardList = boardBO.getBoardByBoardKindforMain(boardKind);
+		List<Board> boardList = boardBO.getBoardByBoardKind(boardKind, limit);
 
 		for(int i=0; i<boardList.size(); i++) {
 			Post post = new Post();

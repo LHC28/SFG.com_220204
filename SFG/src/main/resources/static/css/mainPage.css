@@ -75,8 +75,21 @@ body {background-color: #ff4814;}
 
 /* 메인페이지 etc부분 */
 #etcBox {height: 400px; background-color: #fee3c6;}
-#etcBoxTeamSnsBox {width: 40%; height: 100%; background-color: yellow;}
-#etcBoxBoardBox {width: 40%; height: 100%; background-color: green;}
+#etcBoxTeamSnsBox {width: 40%; height: 100%;}
+
+#etcBoxBoardBox {width: 40%; height: 100%;}
+.tableTitle {width: 100%; height:20%; background-color: red;} 
+.etcBoxBoardTable{width: 70%; height: 30%; border: 1px solid #cec7c0;}
+.etcBoxBoardTable td {font-size: 13px; border: 1px solid #cec7c0;}
+.etcBoxBoardTable a:link {text-decoration: none; color: black;}
+.etcBoxBoardTable a:visited {text-decoration: none; color: black;}
+.etcBoxBoardTable a:active {text-decoration: none; color: black;}
+.etcBoxBoardTable a:hover {text-decoration: none; color: black;}
+.etcBoxBoardTableMoreBtn {font-size: 10px;}
+.etcBoxBoardTableId {width: 25%;}
+.etcBoxBoardTableTitle {width: 55%;}
+.etcBoxBoardTableName {width: 20%;}
+
 
 /* signInView */
 #loginPage {width: 1110px; height: 600px; background-color: #ff7a2f;}
