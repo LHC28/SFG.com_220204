@@ -155,12 +155,10 @@
 	</div>
 	<div id="etcBox" class="d-flex justify-content-center">
 		<div id="etcBoxTeamSnsBox">
-			<div class="tableTitle">
-				<div class="d-flex align-items-center justify-content-center">
-					
-				</div>
+			<div class="tableTitle d-flex align-items-end justify-content-center">
+				<div>구단 SNS</div>
 			</div>
-			
+			<div id="snsBox" class="d-flex justify-content-center align-items-center">준비중...</div>
 		</div>
 		<div id="etcBoxBoardBox">
 			<div class="tableTitle"></div>

@@ -76,9 +76,9 @@ body {background-color: #ff4814;}
 /* 메인페이지 etc부분 */
 #etcBox {height: 400px; background-color: #fee3c6;}
 #etcBoxTeamSnsBox {width: 40%; height: 100%;}
-
+#snsBox {width:100%; height: 70%; color: blue; font-size: 20px;}
 #etcBoxBoardBox {width: 40%; height: 100%;}
-.tableTitle {width: 100%; height:20%; background-color: red;} 
+.tableTitle {width: 100%; height:20%; color: rgb(255,122,47); font-size: 30px;} 
 .etcBoxBoardTable{width: 70%; height: 30%; border: 1px solid #cec7c0;}
 .etcBoxBoardTable td {font-size: 13px; border: 1px solid #cec7c0;}
 .etcBoxBoardTable a:link {text-decoration: none; color: black;}
