@@ -15,17 +15,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<%-- datatable CDN --%>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
-
-<%-- datatable library --%>
-<%-- 
-<link rel="stylesheet" type="text/css" href="/static/css/datatableEditor/editor.bootstrap.css">
- 
-<script type="text/javascript" src="/static/js/datatableEditor/dataTables.editor.js"></script>
-<script type="text/javascript" src="/static/js/datatableEditor/editor.bootstrap.js"></script>
---%>
+<%-- jqGrid --%>
+<script type="/static/js/i18n/grid.locale-kr.js" type="text-javascript"></script>
+<script type="/static/js/minified/jquery.jqGrid.min.js" type="text-javascript"></script>
 
 <%-- moment CDN --%>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
