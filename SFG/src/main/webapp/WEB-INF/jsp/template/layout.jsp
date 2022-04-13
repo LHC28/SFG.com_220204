@@ -14,9 +14,11 @@
 <script type="text/javascript" src="/static/bootstrap-4.3.1-dist/js/bootstrap.js"></script>
 
 <%-- jqGrid --%>
-<script src="/static/jqGrid-4.7.1/js/jquery.jqGrid.js"></script>
-<script src="/static/jqGrid-4.7.1/js/i18n/grid.locale-kr.js"></script>
-<link rel="stylesheet" href="/static/jqGrid-4.7.1/css/ui.jqgrid.css">
+<link rel="stylesheet" href="/static/jqGrid/css/jquery-ui.min.css">
+<link rel="stylesheet" href="/static/jqGrid/css/trirand/ui.jqgrid.css">
+<script type="text/javascript" src="/static/jqGrid/js/trirand/i18n/grid.locale-kr.js"></script>
+<script type="text/javascript" src="/static/jqGrid/js/trirand/jquery.jqGrid.min.js"></script>
+
 
 <%-- moment CDN --%>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>

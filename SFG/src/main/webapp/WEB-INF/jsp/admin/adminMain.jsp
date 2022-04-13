@@ -18,14 +18,15 @@
 $(document).ready(function(){
 	$('#jqGrid').jqGrid({
 		url: "/user/get_all_user"
+		,mtype: "post"
 		,datatype: "json"
 		,colNames: ['id','아이디','이름','이메일','생성일']
 		,colModel: [
-			{name: 'id', index: 'id', width: 150, align: "center"}
-			,{name: 'loginId', index: 'loginId', width: 150, align: "center"}
-			,{name: 'name', index: 'name', width: 150, align: "center"}
-			,{name: 'email', index: 'email', width: 150, align: "center"}
-			,{name: 'createdAt', index: 'createdAt', width: 150, align: "center", formatter: "date", formatoptions: {newformat: "Y.m.d"}}
+			{label: 'id', name: 'id', width: 150, key: true, editable: false, editrules: {required: true}, align: "center"}
+			,{label: 'loginId', name: 'loginId', width: 150, key: true, editable: true, editrules: {required: true}, align: "center"}
+			,{label: 'name', name: 'name', width: 150, key: true, editable: true, editrules: {required: true}, align: "center"}
+			,{label: 'email', name: 'email', width: 150, key: true, editable: true, editrules: {required: true}, align: "center"}
+			,{label: 'createdAt', name: 'createdAt', width: 150, key: true, editable: true, editrules: {required: true}, align: "center", formatter: "date", formatoptions: {newformat: "Y.m.d"}}
 		]
 		,height: 300
 		,width: 600
@@ -36,11 +37,10 @@ $(document).ready(function(){
 		,rownumbers: true // 각 row의 맨 앞줄 각 행의 번호가 자동으로 부여되도록 설정
 		,caption: "유저 정보"
 		// 다시 확인
-		,sortname: "id" // 처음 그리드를 불러올 때 정렬에 사용할 기준 컬럼
-		,sortorder: "desc" // 정렬 기준
+		,sortname: 'id' // 처음 그리드를 불러올 때 정렬에 사용할 기준 컬럼
+		,sortorder: 'desc' // 정렬 기준
 		,multiselect: true // 선택박스 추가
 		,emptyrecode: "정보가 없습니다." // 데이터가 없는 경우 보여줄 문자열
-		
 		// rowData 가져오기
 		,onSelectRow: function(rowId, status, e){
 			// 같은 기능
@@ -48,6 +48,35 @@ $(document).ready(function(){
 			//$('#jqGrid').getRowData(rowId);
 		}
 	});
+	
+	$('#jqGrid').navGrid('#jqGridPager',
+            // the buttons to appear on the toolbar of the grid
+            { edit: true, add: true, del: true, search: false, refresh: false, view: false, position: "left", cloneToTop: false },
+            // options for the Edit Dialog
+            {
+                editCaption: "The Edit Dialog",
+                recreateForm: true,
+				checkOnUpdate : true,
+				checkOnSubmit : true,
+                closeAfterEdit: true,
+                errorTextFormat: function (data) {
+                    return 'Error: ' + data.responseText
+                }
+            },
+            // options for the Add Dialog
+            {
+                closeAfterAdd: true,
+                recreateForm: true,
+                errorTextFormat: function (data) {
+                    return 'Error: ' + data.responseText
+                }
+            },
+            // options for the Delete Dailog
+            {
+                errorTextFormat: function (data) {
+                    return 'Error: ' + data.responseText
+                }
+            });
 	
 	
 });
