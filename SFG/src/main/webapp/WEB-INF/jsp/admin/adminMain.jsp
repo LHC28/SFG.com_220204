@@ -23,10 +23,10 @@ $(document).ready(function(){
 		,colNames: ['id','아이디','이름','이메일','생성일']
 		,colModel: [
 			{label: 'id', name: 'id', width: 150, key: true, editable: false, editrules: {required: true}, align: "center"}
-			,{label: 'loginId', name: 'loginId', width: 150, key: true, editable: true, editrules: {required: true}, align: "center"}
-			,{label: 'name', name: 'name', width: 150, key: true, editable: true, editrules: {required: true}, align: "center"}
-			,{label: 'email', name: 'email', width: 150, key: true, editable: true, editrules: {required: true}, align: "center"}
-			,{label: 'createdAt', name: 'createdAt', width: 150, key: true, editable: true, editrules: {required: true}, align: "center", formatter: "date", formatoptions: {newformat: "Y.m.d"}}
+			,{label: 'loginId', name: 'loginId', width: 150, editable: true, editrules: {required: true}, align: "center"}
+			,{label: 'name', name: 'name', width: 150, editable: true, editrules: {required: true}, align: "center"}
+			,{label: 'email', name: 'email', width: 150, editable: true, editrules: {required: true}, align: "center"}
+			,{label: 'createdAt', name: 'createdAt', width: 150, editable: true, editrules: {required: true}, align: "center", formatter: "date", formatoptions: {newformat: "Y.m.d"}}
 		]
 		,height: 300
 		,width: 600
@@ -38,7 +38,7 @@ $(document).ready(function(){
 		,caption: "유저 정보"
 		// 다시 확인
 		,sortname: 'id' // 처음 그리드를 불러올 때 정렬에 사용할 기준 컬럼
-		,sortorder: 'desc' // 정렬 기준
+		,sortorder: 'desc' // 정렬 기준 - 먹히지 않는 것으로 보임
 		,multiselect: true // 선택박스 추가
 		,emptyrecode: "정보가 없습니다." // 데이터가 없는 경우 보여줄 문자열
 		// rowData 가져오기
@@ -51,7 +51,7 @@ $(document).ready(function(){
 	
 	$('#jqGrid').navGrid('#jqGridPager',
             // the buttons to appear on the toolbar of the grid
-            { edit: true, add: true, del: true, search: false, refresh: false, view: false, position: "left", cloneToTop: false },
+            { edit: true, add: false, del: true, search: false, refresh: false, view: false, position: "left", cloneToTop: false },
             // options for the Edit Dialog
             {
                 editCaption: "The Edit Dialog",
@@ -61,22 +61,44 @@ $(document).ready(function(){
                 closeAfterEdit: true,
                 errorTextFormat: function (data) {
                     return 'Error: ' + data.responseText
-                }
+                },
+                reloadAfterSubmit: true
             },
             // options for the Add Dialog
             {
                 closeAfterAdd: true,
                 recreateForm: true,
+                // 추가할 일이 있는 경우 활용
+                onclickSubmit: function(data){
+                	
+                },
                 errorTextFormat: function (data) {
                     return 'Error: ' + data.responseText
-                }
+                },
+                reloadAfterSubmit: true
             },
             // options for the Delete Dailog
             {
-                errorTextFormat: function (data) {
+            	mtype:"post"
+            	,closeAfterDel: true
+            	,reloadAfterSubmit: true
+            	,url: '/user/delete_user'
+            	,delData:{
+            		accrount:function(){
+            			var id = $( "#jqGrid" ).jqGrid('getGridParam', "selarrrow" );
+    					//var rowval = $("#jqGrid").jqGrid('getRowData',sel);
+    					//var id = rowval.id;
+            		}
+            	}
+                ,errorTextFormat: function (data) {
                     return 'Error: ' + data.responseText
-                }
-            });
+                },
+				onclickSubmit: function(data){
+					//var sels = $( "#jqGrid" ).jqGrid("getGridParam", "selarrrow");
+					//var rowval = $("#jqGrid").jqGrid('getRowData',sel);
+                },
+                reloadAfterSubmit: true
+			});
 	
 	
 });
