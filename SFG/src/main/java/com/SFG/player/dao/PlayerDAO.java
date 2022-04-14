@@ -2,6 +2,7 @@ package com.SFG.player.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.SFG.player.model.BatterStat;
@@ -11,7 +12,21 @@ import com.SFG.player.model.PlayerIntroduce;
 
 @Repository
 public interface PlayerDAO {
+	
+//	insert
+	
+	public void insertPlayer(
+			@Param("name") String name
+			,@Param("number") String number
+			,@Param("position") String position
+			,@Param("birth") String birth
+			,@Param("debut") String debut
+			,@Param("imagePath") String imagePath);
 
+//	select
+	
+	public List<Player> selectAllPlayerList();
+	
 	public List<Player> selectCoachList();
 	
 	public List<Player> selectPitcherList();

@@ -19,6 +19,14 @@ public class PlayerBO {
 	@Autowired
 	private PlayerDAO playerDAO;
 	
+	public void addPlayer(String name, String number, String position, String birth, String debut, String imagePath) {
+		playerDAO.insertPlayer(name, number, position, birth, debut, imagePath);
+	}
+	
+	public List<Player> getAllPlayerList(){
+		return playerDAO.selectAllPlayerList();
+	}
+	
 	public List<Player> getCoachList(){
 		return playerDAO.selectCoachList();
 	}

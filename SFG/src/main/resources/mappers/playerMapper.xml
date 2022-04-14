@@ -1,8 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
 <mapper namespace="com.SFG.player.dao.PlayerDAO">
+	<insert id="insertPlayer" parameterType="map">
+		INSERT INTO `player`
+		(
+			`name`
+			,`number`
+			,`position`
+			,`birth`
+			,`debut`
+			,`imagePath`
+			,`createdAt`
+			,`updatedAt`
+		)
+		VALUE
+		(
+			#{name}
+			,#{number}
+			,#{position}
+			,#{birth}
+			,#{debut}
+			,#{imagePath}
+			,now()
+			,now()
+		)
+		
+	</insert>
+	<select id="selectAllPlayerList" resultType="com.SFG.player.model.Player">
+		SELECT
+			`id`,
+			`name`,
+			`number`,
+			`position`,
+			`birth`,
+			`debut`,
+			`imagePath`,
+			`createdAt`,
+			`updatedAt`
+		FROM
+			`player`
+	</select>
 	<select id="selectCoachList" resultType="com.SFG.player.model.Player">
 		SELECT
 			`id`,

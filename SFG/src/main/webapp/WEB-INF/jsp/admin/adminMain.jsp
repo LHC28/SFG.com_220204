@@ -54,7 +54,15 @@ $(document).ready(function(){
             { edit: true, add: false, del: true, search: false, refresh: false, view: false, position: "left", cloneToTop: false },
             // options for the Edit Dialog
             {
-                editCaption: "The Edit Dialog",
+            	mtype: "post"
+               	,url: ""
+               	,editData: {
+               		account: function(){
+               			var id = $( "#jqGrid" ).jqGrid('getGridParam', "selarrrow" );
+               			var rowval = $("#jqGrid").jqGrid('getRowData',id);
+               		}
+               	}
+                ,editCaption: "The Edit Dialog",
                 recreateForm: true,
 				checkOnUpdate : true,
 				checkOnSubmit : true,
@@ -66,7 +74,7 @@ $(document).ready(function(){
             },
             // options for the Add Dialog
             {
-                closeAfterAdd: true,
+            	closeAfterAdd: true,
                 recreateForm: true,
                 // 추가할 일이 있는 경우 활용
                 onclickSubmit: function(data){
@@ -84,7 +92,7 @@ $(document).ready(function(){
             	,reloadAfterSubmit: true
             	,url: '/user/delete_user'
             	,delData:{
-            		accrount:function(){
+            		account:function(){
             			var id = $( "#jqGrid" ).jqGrid('getGridParam', "selarrrow" );
     					//var rowval = $("#jqGrid").jqGrid('getRowData',sel);
     					//var id = rowval.id;
@@ -93,9 +101,8 @@ $(document).ready(function(){
                 ,errorTextFormat: function (data) {
                     return 'Error: ' + data.responseText
                 },
-				onclickSubmit: function(data){
-					//var sels = $( "#jqGrid" ).jqGrid("getGridParam", "selarrrow");
-					//var rowval = $("#jqGrid").jqGrid('getRowData',sel);
+				onclickSubmit: function(data){ // 확인 클릭시 이벤트
+					
                 },
                 reloadAfterSubmit: true
 			});

@@ -245,7 +245,7 @@ body {background-color: #ff4814;}
 /* 하위 메뉴가 자리를 차지하여 나오도록 */
 .dropdown:hover .dropdown-content {display: block;}
 /* 메뉴 hover시 글자색 설정 */
-.dropdown:hover .dropbtn {}
+/*.dropdown:hover .dropbtn {}*/
 .dropdown > a:link{text-decoration: none; color: white;}
 .dropdown > a:visited{text-decoration: none; color: white;}
 .dropdown > a:active{text-decoration: none; color: white;}

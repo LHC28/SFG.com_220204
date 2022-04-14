@@ -18,6 +18,16 @@ public class AdminController {
 		return "template/layout";
 	}
 	
+//	선수단 정보 관련
+	@RequestMapping("/player_info")
+	public String playerInfo(
+			Model model
+			) {
+		
+		model.addAttribute("viewName", "admin/playerInfo");
+		return "template/layout";
+	}
+	
 //	회원정보
 //	@RequestMapping("/user_info")
 	
