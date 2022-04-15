@@ -36,7 +36,7 @@
 			,rowNum: 10
 			,pager: '#jqGridPager'
 			,viewrecords: true // 페이지 네비게이터 우측 영역 표시 여부
-			,loadonce: true // 로딩 중 화면 표시
+			,loadonce: false // 로딩 중 화면 표시
 			,rownumbers: true // 각 row의 맨 앞줄 각 행의 번호가 자동으로 부여되도록 설정
 			,caption: "유저 정보"
 			// 다시 확인
@@ -93,7 +93,9 @@
 	                recreateForm: true,
 	                // 추가할 일이 있는 경우 활용
 	                onclickSubmit: function(data){
-	                	
+	                	// 추가시 새로고침
+	                	jQuery("#jqGrid").trigger("reloadGrid");
+	                	// 위 코드가 먹히기 위해서는 loadonce: false여야 한다.
 	                },
 	                errorTextFormat: function (data) {
 	                    return 'Error: ' + data.responseText

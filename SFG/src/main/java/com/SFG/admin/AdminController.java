@@ -1,13 +1,22 @@
 package com.SFG.admin;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.SFG.player.bo.PlayerBO;
+import com.SFG.player.model.Player;
 
 @RequestMapping("/admin")
 @Controller
 public class AdminController {
 
+	@Autowired
+	private PlayerBO playerBO;
+	
 //	admin 메인 페이지
 	@RequestMapping("/main")
 	public String main(
@@ -18,13 +27,27 @@ public class AdminController {
 		return "template/layout";
 	}
 	
-//	선수단 정보 관련
+//	선수 및 코칭스태프 등록
 	@RequestMapping("/player_info")
 	public String playerInfo(
 			Model model
 			) {
 		
 		model.addAttribute("viewName", "admin/playerInfo");
+		return "template/layout";
+	}
+	
+//	타자 기록 등록
+	@RequestMapping("/batter_info")
+	public String batterInfo(
+			Model model
+			) {
+		
+		// 셀렉트 박스에 들어갈 선수 명단
+		List<Player> batterList = playerBO.getAllBatterList();
+				
+		model.addAttribute("batterList", batterList);
+		model.addAttribute("viewName", "admin/batterInfo");
 		return "template/layout";
 	}
 	

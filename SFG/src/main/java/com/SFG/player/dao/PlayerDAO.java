@@ -22,6 +22,25 @@ public interface PlayerDAO {
 			,@Param("birth") String birth
 			,@Param("debut") String debut
 			,@Param("imagePath") String imagePath);
+	
+	public void insertBatterStatByPlayerId(
+			@Param("playerId") int playerId
+			,@Param("year") int year
+			,@Param("team") String team
+			,@Param("games") int games
+			,@Param("at_bats") int at_bats
+			,@Param("runs") int runs
+			,@Param("hits") int hits
+			,@Param("doubles") int doubles
+			,@Param("triples") int triples
+			,@Param("homerun") int homerun
+			,@Param("runs_batted_in") int runs_batted_in
+			,@Param("bases_on_balls") int bases_on_balls
+			,@Param("strikeouts") int strikeouts
+			,@Param("stolen_bases") int stolen_bases
+			,@Param("hit_by_pitch") int hit_by_pitch
+			,@Param("sacrifice_flys") int sacrifice_flys
+			);
 
 //	select
 	
@@ -38,6 +57,8 @@ public interface PlayerDAO {
 	// 선수 정보 가져오기
 	public Player selectPlayer(int playerId);
 	
+	// 
+	
 	// 선수 소개 가져오기
 	public PlayerIntroduce selectPlayerIntroduce(int playerId);
 	
@@ -46,6 +67,9 @@ public interface PlayerDAO {
 	
 	// 타자 연도별 성적 가져오기
 	public List<BatterStat> selectBatterStats(int playerId);
+	
+	// 타자 특정 선수 성적 리스트 가져오기
+	public List<BatterStat> selectBatterStatListByPlayerId(int playerId);
 	
 	
 }

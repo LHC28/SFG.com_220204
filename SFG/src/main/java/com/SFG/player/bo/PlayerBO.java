@@ -1,5 +1,6 @@
 package com.SFG.player.bo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,9 +49,36 @@ public class PlayerBO {
 		return playerDAO.selectPlayer(playerId);
 	}
 	
+//	선수 리스트 가져오기(타자)
+	public List<Player> getAllBatterList(){
+		
+		List<Player> infielderList = playerDAO.selectInfieldList();
+		List<Player> outfielderList = playerDAO.selectOutfieldList();
+		
+		List<Player> batterList = new ArrayList<>();
+		for(int i=0; i<infielderList.size(); i++) {
+			batterList.add(infielderList.get(i));
+		}
+		for(int i=0; i<outfielderList.size(); i++) {
+			batterList.add(outfielderList.get(i));
+		}
+		
+		return batterList;
+	}
+	
 	// 선수 소개 가져오기
 	public PlayerIntroduce getPlayerIntroduce(int playerId) {
 		return playerDAO.selectPlayerIntroduce(playerId);
+	}
+	
+//	타자 선수 기록 가져오기
+	public List<BatterStat> getBatterStatListByPlayerId(int playerId){
+		return playerDAO.selectBatterStatListByPlayerId(playerId);
+	}
+	
+//	타자 기록 추가
+	public void addBatterStatByPlayerId(int playerId, int year, String team, int games, int at_bats, int runs, int hits, int doubles, int triples, int homerun, int runs_batted_in, int bases_on_balls, int strikeouts, int stolen_bases, int hit_by_pitch, int sacrifice_flys) {
+		playerDAO.insertBatterStatByPlayerId(playerId, year, team, games, at_bats, runs, hits, doubles, triples, homerun, runs_batted_in, bases_on_balls, strikeouts, stolen_bases, hit_by_pitch, sacrifice_flys);
 	}
 	
 	// 투수 관련
