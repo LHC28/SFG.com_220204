@@ -89,25 +89,24 @@
 	            // options for the Edit Dialog
 	            {
 	            	mtype: "post"
-	               	,url: "/player/edit_batter_stat"
+	               	,url: "/player/edit_pitcher_stat"
 	               	,editData: {
 	               		account: function(){
-	               			var playerId = $("playerId").val();
+	               			var playerId = $("#playerId").val();
 		               		var year = $("#year").val();
 		               		var team = $("#team").val();
+		               		var wins = $("#wins").val();
+		               		var losses = $("#losses").val();
+		               		var earned_run_average = $("#earned_run_average").val();
 		               		var games = $("#games").val();
-		               		var at_bats = $("#at_bats").val();
-		               		var runs = $("#runs").val();
+		               		var game_started = $("#game_started").val();
+		               		var saves = $("#saves").val();
+		               		var hold = $("#hold").val();
+		               		var innings_pitched = $("#innings_pitched").val();
 		               		var hits = $("#hits").val();
-		               		var doubles = $("#doubles").val();
-		               		var triples = $("#triples").val();
-		               		var homerun = $("#homerun").val();
-		               		var runs_batted_in = $("#runs_batted_in").val();
-		               		var bases_on_balls = $("#bases_on_balls").val();
+		               		var walks = $("#walks").val();
 		               		var strikeouts = $("#strikeouts").val();
-		               		var stolen_bases = $("#stolen_bases").val();
-		               		var hit_by_pitch = $("#hit_by_pitch").val();
-		               		var sacrifice_flys = $("#sacrifice_flys").val();
+		               		var whip = $("#whip").val();
 	               		}
 	               	}
 	                ,editCaption: "The Edit Dialog",

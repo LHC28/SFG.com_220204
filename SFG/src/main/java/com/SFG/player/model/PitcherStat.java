@@ -17,6 +17,7 @@ public class PitcherStat {
 	private int games;
 	private int game_started;
 	private int saves;
+	private int hold;
 	private double innings_pitched;
 	private int hits;
 	private int walks;

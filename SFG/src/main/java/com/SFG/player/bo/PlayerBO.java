@@ -110,6 +110,11 @@ public class PlayerBO {
 		playerDAO.insertPitcherStatByPlayerId(playerId, year, team, wins, losses, earned_run_average, games, game_started, saves, hold, innings_pitched, hits, walks, strikeouts, whip);
 	}
 	
+//	투수 기록 수정
+	public void editPitcherStatByPlayerId(int playerId, int year, String team, int wins, int losses, double earned_run_average, int games, int game_started, int saves, int hold, double innings_pitched, int hits, int walks, int strikeouts, double whip) {
+		playerDAO.updatePitcherStatByPlayerId(playerId, year, team, wins, losses, earned_run_average, games, game_started, saves, hold, innings_pitched, hits, walks, strikeouts, whip);
+	}
+	
 	// 투수 통산 기록 가져오기
 	public PitcherTotalStat getpitcherTotalStat(int playerId) {
 		// 해당 투수 모든 기록 가져오기

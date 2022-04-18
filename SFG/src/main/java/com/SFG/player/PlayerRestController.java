@@ -225,6 +225,47 @@ public class PlayerRestController {
 		return result;
 	}
 	
+	@RequestMapping("/edit_pitcher_stat")
+	public Map<String, String> editPitcherStat(
+			@RequestParam("playerId") String SplayerId
+			,@RequestParam("year") String Syear
+			,@RequestParam("team") String team
+			,@RequestParam("wins") String Swins
+			,@RequestParam("losses") String Slosses
+			,@RequestParam("earned_run_average") String Searned_run_average
+			,@RequestParam("games") String Sgames
+			,@RequestParam("game_started") String Sgame_started
+			,@RequestParam("saves") String Ssaves
+			,@RequestParam("hold") String Shold
+			,@RequestParam("innings_pitched") String Sinnings_pitched
+			,@RequestParam("hits") String Shits
+			,@RequestParam("walks") String Swalks
+			,@RequestParam("strikeouts") String Sstrikeouts
+			,@RequestParam("whip") String Swhip
+			){
+		
+		int playerId = Integer.valueOf(SplayerId);
+		int year = Integer.valueOf(Syear);
+		int wins = Integer.valueOf(Syear);
+		int losses = Integer.valueOf(Slosses);
+		double earned_run_average = Double.valueOf(Searned_run_average);
+		int games = Integer.valueOf(Sgames);
+		int game_started = Integer.valueOf(Sgame_started);
+		int saves = Integer.valueOf(Ssaves);
+		int hold = Integer.valueOf(Shold);
+		double innings_pitched = Double.valueOf(Sinnings_pitched);
+		int hits = Integer.valueOf(Shits);
+		int walks = Integer.valueOf(Swalks);
+		int strikeouts = Integer.valueOf(Sstrikeouts);
+		double whip = Double.valueOf(Swhip);
+		System.out.println(hold);
+		playerBO.editPitcherStatByPlayerId(playerId, year, team, wins, losses, earned_run_average, games, game_started, saves, hold, innings_pitched, hits, walks, strikeouts, whip);
+		
+		Map<String, String> result = new HashMap<>();
+		result.put("result", "success");
+		return result;
+	}
+	
 //	타자 기록 삭제
 	@PostMapping("/delete_batter_stat")
 	public Map<String, String> deleteBatterStat(

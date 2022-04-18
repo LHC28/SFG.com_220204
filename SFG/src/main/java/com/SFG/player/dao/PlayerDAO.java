@@ -111,6 +111,25 @@ public interface PlayerDAO {
 			,@Param("sacrifice_flys") int sacrifice_flys
 			);
 	
+//	투수 기록 수정
+	public void updatePitcherStatByPlayerId(
+			@Param("playerId") int playerId
+			,@Param("year") int year
+			,@Param("team") String team
+			,@Param("wins") int wins
+			,@Param("losses") int losses
+			,@Param("earned_run_average") double earned_run_average
+			,@Param("games") int games
+			,@Param("game_started") int game_started
+			,@Param("saves") int saves
+			,@Param("hold") int hold
+			,@Param("innings_pitched") double innings_pitched
+			,@Param("hits") int hits
+			,@Param("walks") int walks
+			,@Param("strikeouts") int striketous
+			,@Param("whip") double whip
+			);
+	
 //	delete
 	
 //	타자 기록 삭제

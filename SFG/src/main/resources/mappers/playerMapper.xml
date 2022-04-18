@@ -314,6 +314,26 @@
 		WHERE
 			`playerId` = #{playerId}
 	</update>
+	<update id="updatePitcherStatByPlayerId" parameterType="map">
+		UPDATE `pitcher_stat`
+		SET
+			`year` = #{year}
+			,`team` = #{team}
+			,`wins` = #{wins}
+			,`losses` = #{losses}
+			,`earned_run_average` = #{earned_run_average}
+			,`games` = #{games}
+			,`game_started` = #{game_started}
+			,`saves` = #{saves}
+			,`hold` = #{hold}
+			,`innings_pitched` = #{innings_pitched}
+			,`hits` = #{hits}
+			,`walks` = #{walks}
+			,`strikeouts` = #{strikeouts}
+			,`whip` = #{whip}
+		WHERE
+			`playerId` = #{playerId}
+	</update>
 	<delete id="deleteBatterStatById" parameterType="int">
 		DELETE
 		FROM `batter_stat`
