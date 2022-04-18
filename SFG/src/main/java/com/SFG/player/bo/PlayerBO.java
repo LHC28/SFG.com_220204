@@ -86,6 +86,11 @@ public class PlayerBO {
 		playerDAO.updateBatterStatByPlayerId(playerId, year, team, games, at_bats, runs, hits, doubles, triples, homerun, runs_batted_in, bases_on_balls, strikeouts, stolen_bases, hit_by_pitch, sacrifice_flys);
 	}
 	
+//	타자 기록 삭제
+	public void deleteBatterStatById(int id) {
+		playerDAO.deleteBatterStatById(id);
+	}
+	
 	// 투수 관련
 	
 	// 투수 연도별 기록 가져오기

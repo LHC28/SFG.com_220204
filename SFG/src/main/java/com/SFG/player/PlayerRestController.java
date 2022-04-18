@@ -163,4 +163,19 @@ public class PlayerRestController {
 		
 		return result;
 	}
+	
+//	타자 기록 삭제
+	@PostMapping("/delete_batter_stat")
+	public Map<String, String> deleteBatterStat(
+			@RequestParam("account") int id
+			){
+		
+		//int id = Integer.parseInt(statId);
+		System.out.println(id);
+		playerBO.deleteBatterStatById(id);
+		
+		Map<String, String> result = new HashMap<>();
+		result.put("result", "success");
+		return result;
+	}
 }

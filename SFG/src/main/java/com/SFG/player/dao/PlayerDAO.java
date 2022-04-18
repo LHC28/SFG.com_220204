@@ -42,24 +42,6 @@ public interface PlayerDAO {
 			,@Param("sacrifice_flys") int sacrifice_flys
 			);
 	
-	public void updateBatterStatByPlayerId(
-			@Param("playerId") int playerId
-			,@Param("year") int year
-			,@Param("team") String team
-			,@Param("games") int games
-			,@Param("at_bats") int at_bats
-			,@Param("runs") int runs
-			,@Param("hits") int hits
-			,@Param("doubles") int doubles
-			,@Param("triples") int triples
-			,@Param("homerun") int homerun
-			,@Param("runs_batted_in") int runs_batted_in
-			,@Param("bases_on_balls") int bases_on_balls
-			,@Param("strikeouts") int strikeouts
-			,@Param("stolen_bases") int stolen_bases
-			,@Param("hit_by_pitch") int hit_by_pitch
-			,@Param("sacrifice_flys") int sacrifice_flys
-			);
 
 //	select
 	
@@ -90,5 +72,31 @@ public interface PlayerDAO {
 	// 타자 특정 선수 성적 리스트 가져오기
 	public List<BatterStat> selectBatterStatListByPlayerId(int playerId);
 	
+//	update
+	
+//	타자 기록 수정
+	public void updateBatterStatByPlayerId(
+			@Param("playerId") int playerId
+			,@Param("year") int year
+			,@Param("team") String team
+			,@Param("games") int games
+			,@Param("at_bats") int at_bats
+			,@Param("runs") int runs
+			,@Param("hits") int hits
+			,@Param("doubles") int doubles
+			,@Param("triples") int triples
+			,@Param("homerun") int homerun
+			,@Param("runs_batted_in") int runs_batted_in
+			,@Param("bases_on_balls") int bases_on_balls
+			,@Param("strikeouts") int strikeouts
+			,@Param("stolen_bases") int stolen_bases
+			,@Param("hit_by_pitch") int hit_by_pitch
+			,@Param("sacrifice_flys") int sacrifice_flys
+			);
+	
+//	delete
+	
+//	타자 기록 삭제
+	public void deleteBatterStatById(int id);
 	
 }

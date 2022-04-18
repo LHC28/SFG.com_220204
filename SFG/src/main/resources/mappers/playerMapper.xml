@@ -275,4 +275,10 @@
 		WHERE
 			`playerId` = #{playerId}
 	</update>
+	<delete id="deleteBatterStatById" parameterType="int">
+		DELETE
+		FROM `batter_stat`
+		WHERE
+			`id` = #{id}
+	</delete>
 </mapper>

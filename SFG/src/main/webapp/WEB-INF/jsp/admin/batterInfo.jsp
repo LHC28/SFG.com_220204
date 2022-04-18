@@ -80,6 +80,7 @@
 				// 같은 기능
 				//$("#jqGrid").jqGrid("getRowDate",rowId);
 				//$('#jqGrid').getRowData(rowId);
+				
 			}
 		});
 		
@@ -164,11 +165,12 @@
 	            	mtype:"post"
 	            	,closeAfterDel: true
 	            	,reloadAfterSubmit: true
-	            	,url: ''
+	            	,url: '/player/delete_batter_stat'
 	            	,delData:{
 	            		account:function(){
-	            			
-	            		}
+	            			var statId = $( "#jqGrid" ).jqGrid('getGridParam', "selarrrow" );
+	            			return statId
+	            		},
 	            	}
 	                ,errorTextFormat: function (data) {
 	                    return 'Error: ' + data.responseText
