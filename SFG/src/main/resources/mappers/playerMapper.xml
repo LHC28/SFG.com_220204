@@ -253,4 +253,26 @@
 		WHERE
 			`playerId` = #{playerId}
 	</select>
+	<update id="updateBatterStatByPlayerId" parameterType="map">
+		UPDATE `batter_stat`
+		SET
+			`year` = #{year},
+			`team` = #{team},
+			`games` = #{games},
+			`at_bats` = #{at_bats},
+			`runs` = #{runs},
+			`hits` = #{hits},
+			`doubles` = #{doubles},
+			`triples` = #{triples},
+			`homerun` = #{homerun},
+			`runs_batted_in` = #{runs_batted_in},
+			`bases_on_balls` = #{bases_on_balls},
+			`strikeouts` = #{strikeouts},
+			`stolen_bases` = #{stolen_bases},
+			`hit_by_pitch` = #{hit_by_pitch},
+			`sacrifice_flys` = #{sacrifice_flys},
+			`updatedAt` = now()
+		WHERE
+			`playerId` = #{playerId}
+	</update>
 </mapper>

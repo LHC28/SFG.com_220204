@@ -119,4 +119,48 @@ public class PlayerRestController {
 		result.put("result", "success");
 		return result;
 	}
+	
+//	타자 스탯 수정
+	@PostMapping("/edit_batter_stat")
+	public Map<String, String> editBatterStat(
+			@RequestParam("playerId") String SplayerId
+			,@RequestParam("year") String Syear
+			,@RequestParam("team") String team
+			,@RequestParam("games") String Sgames
+			,@RequestParam("at_bats") String Sat_bats
+			,@RequestParam("runs") String Sruns
+			,@RequestParam("hits") String Shits
+			,@RequestParam("doubles") String Sdoubles
+			,@RequestParam("triples") String Striples
+			,@RequestParam("homerun") String Shomerun
+			,@RequestParam("runs_batted_in") String Sruns_batted_in
+			,@RequestParam("bases_on_balls") String Sbases_on_balls
+			,@RequestParam("strikeouts") String Sstrikeouts
+			,@RequestParam("stolen_bases") String Sstolen_bases
+			,@RequestParam("hit_by_pitch") String Shit_by_pitch
+			,@RequestParam("sacrifice_flys") String Ssacrifice_flys
+			){
+		
+		int playerId = Integer.valueOf(SplayerId);
+		int year = Integer.valueOf(Syear);
+		int games = Integer.valueOf(Sgames);
+		int at_bats = Integer.valueOf(Sat_bats);
+		int runs = Integer.valueOf(Sruns);
+		int hits = Integer.valueOf(Shits);
+		int doubles = Integer.valueOf(Sdoubles);
+		int triples = Integer.valueOf(Striples);
+		int homerun = Integer.valueOf(Shomerun);
+		int runs_batted_in = Integer.valueOf(Sruns_batted_in);
+		int bases_on_balls = Integer.valueOf(Sbases_on_balls);
+		int strikeouts = Integer.valueOf(Sstrikeouts);
+		int stolen_bases = Integer.valueOf(Sstolen_bases);
+		int hit_by_pitch = Integer.valueOf(Shit_by_pitch);
+		int sacrifice_flys = Integer.valueOf(Ssacrifice_flys);
+		
+		playerBO.editBatterStatByPlayerId(playerId, year, team, games, at_bats, runs, hits, doubles, triples, homerun, runs_batted_in, bases_on_balls, strikeouts, stolen_bases, hit_by_pitch, sacrifice_flys);
+		
+		Map<String, String> result = new HashMap<>();
+		
+		return result;
+	}
 }

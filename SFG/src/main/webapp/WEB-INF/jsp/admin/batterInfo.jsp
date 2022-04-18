@@ -71,7 +71,7 @@
 			,rownumbers: true // 각 row의 맨 앞줄 각 행의 번호가 자동으로 부여되도록 설정
 			,caption: "타자 기록 정보"
 			// 다시 확인
-			,sortname: 'id' // 처음 그리드를 불러올 때 정렬에 사용할 기준 컬럼
+			,sortname: 'year' // 처음 그리드를 불러올 때 정렬에 사용할 기준 컬럼
 			,sortorder: 'desc' // 정렬 기준 - 먹히지 않는 것으로 보임
 			,multiselect: true // 선택박스 추가
 			,emptyrecode: "정보가 없습니다." // 데이터가 없는 경우 보여줄 문자열
@@ -89,11 +89,25 @@
 	            // options for the Edit Dialog
 	            {
 	            	mtype: "post"
-	               	,url: ""
+	               	,url: "/player/edit_batter_stat"
 	               	,editData: {
 	               		account: function(){
-	               			//var id = $( "#jqGrid" ).jqGrid('getGridParam', "selarrrow" );
-	               			//var rowval = $("#jqGrid").jqGrid('getRowData',id);
+	               			var playerId = $("playerId").val();
+		               		var year = $("#year").val();
+		               		var team = $("#team").val();
+		               		var games = $("#games").val();
+		               		var at_bats = $("#at_bats").val();
+		               		var runs = $("#runs").val();
+		               		var hits = $("#hits").val();
+		               		var doubles = $("#doubles").val();
+		               		var triples = $("#triples").val();
+		               		var homerun = $("#homerun").val();
+		               		var runs_batted_in = $("#runs_batted_in").val();
+		               		var bases_on_balls = $("#bases_on_balls").val();
+		               		var strikeouts = $("#strikeouts").val();
+		               		var stolen_bases = $("#stolen_bases").val();
+		               		var hit_by_pitch = $("#hit_by_pitch").val();
+		               		var sacrifice_flys = $("#sacrifice_flys").val();
 	               		}
 	               	}
 	                ,editCaption: "The Edit Dialog",
@@ -142,9 +156,6 @@
 	                },
 	                errorTextFormat: function (data) {
 	                    return 'Error: ' + data.responseText
-	                },
-					onclickSubmit: function(data){ // 확인 클릭시 이벤트
-						alert(playerId);
 	                },
 	                reloadAfterSubmit: true
 	            },

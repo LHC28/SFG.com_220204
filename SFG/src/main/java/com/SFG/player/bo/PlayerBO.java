@@ -81,6 +81,11 @@ public class PlayerBO {
 		playerDAO.insertBatterStatByPlayerId(playerId, year, team, games, at_bats, runs, hits, doubles, triples, homerun, runs_batted_in, bases_on_balls, strikeouts, stolen_bases, hit_by_pitch, sacrifice_flys);
 	}
 	
+//	타자 기록 수정
+	public void editBatterStatByPlayerId(int playerId, int year, String team, int games, int at_bats, int runs, int hits, int doubles, int triples, int homerun, int runs_batted_in, int bases_on_balls, int strikeouts, int stolen_bases, int hit_by_pitch, int sacrifice_flys) {
+		playerDAO.updateBatterStatByPlayerId(playerId, year, team, games, at_bats, runs, hits, doubles, triples, homerun, runs_batted_in, bases_on_balls, strikeouts, stolen_bases, hit_by_pitch, sacrifice_flys);
+	}
+	
 	// 투수 관련
 	
 	// 투수 연도별 기록 가져오기
