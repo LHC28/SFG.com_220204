@@ -44,6 +44,7 @@ public class PlayerBO {
 		return playerDAO.selectOutfieldList();
 	}
 	
+	
 	//선수 정보 가져오기
 	public Player getPlayer(int playerId) {
 		return playerDAO.selectPlayer(playerId);
@@ -91,11 +92,22 @@ public class PlayerBO {
 		playerDAO.deleteBatterStatById(id);
 	}
 	
+	
 	// 투수 관련
+	
+//	선수 리스트 가져오기(투수)
+	public List<Player> getAllPitcherList(){
+		return playerDAO.selectPitcherList();
+	}
 	
 	// 투수 연도별 기록 가져오기
 	public List<PitcherStat> getPitcherStats(int playerId){
 		return playerDAO.selectPitcherStat(playerId);
+	}
+	
+//	투수 기록 추가
+	public void addPitcherStatByPlayerId(int playerId, int year, String team, int wins, int losses, double earned_run_average, int games, int game_started, int saves, int hold, double innings_pitched, int hits, int walks, int strikeouts, double whip) {
+		playerDAO.insertPitcherStatByPlayerId(playerId, year, team, wins, losses, earned_run_average, games, game_started, saves, hold, innings_pitched, hits, walks, strikeouts, whip);
 	}
 	
 	// 투수 통산 기록 가져오기

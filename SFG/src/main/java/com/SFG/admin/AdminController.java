@@ -43,11 +43,25 @@ public class AdminController {
 			Model model
 			) {
 		
-		// 셀렉트 박스에 들어갈 선수 명단
+		// 셀렉트 박스에 들어갈 타자 명단
 		List<Player> batterList = playerBO.getAllBatterList();
 				
 		model.addAttribute("batterList", batterList);
 		model.addAttribute("viewName", "admin/batterInfo");
+		return "template/layout";
+	}
+	
+//	투수 기록 등록
+	@RequestMapping("/pitcher_info")
+	public String pitcherInfo(
+			Model model
+			) {
+		
+		// 셀렉트 박스에 들어갈 투수 명단
+		List<Player> pitcherList = playerBO.getAllPitcherList();
+		
+		model.addAttribute("pitcherList", pitcherList);
+		model.addAttribute("viewName", "admin/pitcherInfo");
 		return "template/layout";
 	}
 	

@@ -71,6 +71,44 @@
 			now()
 			)
 	</insert>
+	<insert id="insertPitcherStatByPlayerId" parameterType="map">
+		INSERT INTO `pitcher_stat`
+			(
+			`playerId`
+			,`year`
+			,`team`
+			,`wins`
+			,`losses`
+			,`earned_run_average`
+			,`games`
+			,`game_started`
+			,`saves`
+			,`hold`
+			,`innings_pitched`
+			,`hits`
+			,`walks`
+			,`strikeouts`
+			,`whip`
+			)
+		VALUE
+			(
+			#{playerId}
+			,#{year}
+			,#{team}
+			,#{wins}
+			,#{losses}
+			,#{earned_run_average}
+			,#{games}
+			,#{game_started}
+			,#{saves}
+			,#{hold}
+			,#{innings_pitched}
+			,#{hits}
+			,#{walks}
+			,#{strikeouts}
+			,#{whip}
+			)
+	</insert>
 	<select id="selectAllPlayerList" resultType="com.SFG.player.model.Player">
 		SELECT
 			`id`,
@@ -193,6 +231,7 @@
 			`games`,
 			`game_started`,
 			`saves`,
+			`hold`,
 			`innings_pitched`,
 			`hits`,
 			`walks`,

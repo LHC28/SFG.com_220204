@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.SFG.player.bo.PlayerBO;
 import com.SFG.player.model.BatterStat;
+import com.SFG.player.model.PitcherStat;
 import com.SFG.player.model.Player;
 
 @RequestMapping("/player")
@@ -77,6 +78,24 @@ public class PlayerRestController {
 		return batterStatList;
 	}
 	
+//	투수 data 가져오기
+	@RequestMapping("/get_pitcher_stat")
+	public List<PitcherStat> getPitcherStat(
+			@RequestParam(required=false) Integer playerId,
+			Model model
+			){
+		
+		List<PitcherStat> pitcherStatList = new ArrayList<>();
+		if(playerId==null) {
+			playerId = 2;
+			pitcherStatList = playerBO.getPitcherStats(playerId);
+		}else {
+			pitcherStatList = playerBO.getPitcherStats(playerId);
+		}
+		
+		return pitcherStatList;
+	}
+	
 //	타자 스탯 data 추가
 	@PostMapping("/add_batter_stat")
 	public Map<String, String> addBatterStat(
@@ -114,6 +133,48 @@ public class PlayerRestController {
 		int hit_by_pitch = Integer.valueOf(Shit_by_pitch);
 		int sacrifice_flys = Integer.valueOf(Ssacrifice_flys);
 		playerBO.addBatterStatByPlayerId(playerId, year, team, games, at_bats, runs, hits, doubles, triples, homerun, runs_batted_in, bases_on_balls, strikeouts, stolen_bases, hit_by_pitch, sacrifice_flys);
+		
+		Map<String, String> result = new HashMap<>();
+		result.put("result", "success");
+		return result;
+	}
+
+	//	투수 스탯 추가
+	@PostMapping("/add_pitcher_stat")
+	public Map<String, String>	addPitcherStat(
+			@RequestParam("playerId") String SplayerId
+			,@RequestParam("year") String Syear
+			,@RequestParam("team") String team
+			,@RequestParam("wins") String Swins
+			,@RequestParam("losses") String Slosses
+			,@RequestParam("earned_run_average") String Searned_run_average
+			,@RequestParam("games") String Sgames
+			,@RequestParam("game_started") String Sgame_started
+			,@RequestParam("saves") String Ssaves
+			,@RequestParam("hold") String Shold
+			,@RequestParam("innings_pitched") String Sinnings_pitched
+			,@RequestParam("hits") String Shits
+			,@RequestParam("walks") String Swalks
+			,@RequestParam("strikeouts") String Sstrikeouts
+			,@RequestParam("whip") String Swhip
+			){
+		
+		int playerId = Integer.valueOf(SplayerId);
+		int year = Integer.valueOf(Syear);
+		int wins = Integer.valueOf(Syear);
+		int losses = Integer.valueOf(Slosses);
+		double earned_run_average = Double.valueOf(Searned_run_average);
+		int games = Integer.valueOf(Sgames);
+		int game_started = Integer.valueOf(Sgame_started);
+		int saves = Integer.valueOf(Ssaves);
+		int hold = Integer.valueOf(Shold);
+		double innings_pitched = Double.valueOf(Sinnings_pitched);
+		int hits = Integer.valueOf(Shits);
+		int walks = Integer.valueOf(Swalks);
+		int strikeouts = Integer.valueOf(Sstrikeouts);
+		double whip = Double.valueOf(Swhip);
+		
+		playerBO.addPitcherStatByPlayerId(playerId, year, team, wins, losses, earned_run_average, games, game_started, saves, hold, innings_pitched, hits, walks, strikeouts, whip);
 		
 		Map<String, String> result = new HashMap<>();
 		result.put("result", "success");
@@ -170,8 +231,6 @@ public class PlayerRestController {
 			@RequestParam("account") int id
 			){
 		
-		//int id = Integer.parseInt(statId);
-		System.out.println(id);
 		playerBO.deleteBatterStatById(id);
 		
 		Map<String, String> result = new HashMap<>();
