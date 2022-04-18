@@ -278,4 +278,17 @@ public class PlayerRestController {
 		result.put("result", "success");
 		return result;
 	}
+	
+//	투수 기록 삭제
+	@PostMapping("/delete_pitcher_stat")
+	public Map<String, String> deletePitcherStat(
+			@RequestParam("account") int id
+			){
+		
+		playerBO.deletePitcherStatById(id);
+		
+		Map<String, String> result = new HashMap<>();
+		result.put("result", "success");
+		return result;
+	}
 }

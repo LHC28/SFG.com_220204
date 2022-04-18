@@ -135,4 +135,7 @@ public interface PlayerDAO {
 //	타자 기록 삭제
 	public void deleteBatterStatById(int id);
 	
+//	투수 기록 삭제
+	public void deletePitcherStatById(int id);
+	
 }

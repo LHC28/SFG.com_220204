@@ -115,6 +115,11 @@ public class PlayerBO {
 		playerDAO.updatePitcherStatByPlayerId(playerId, year, team, wins, losses, earned_run_average, games, game_started, saves, hold, innings_pitched, hits, walks, strikeouts, whip);
 	}
 	
+//	투수 기록 삭제
+	public void deletePitcherStatById(int id) {
+		playerDAO.deletePitcherStatById(id);
+	}
+	
 	// 투수 통산 기록 가져오기
 	public PitcherTotalStat getpitcherTotalStat(int playerId) {
 		// 해당 투수 모든 기록 가져오기

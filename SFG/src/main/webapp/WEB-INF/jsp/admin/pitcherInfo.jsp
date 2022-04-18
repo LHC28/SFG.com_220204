@@ -162,7 +162,7 @@
 	            	mtype:"post"
 	            	,closeAfterDel: true
 	            	,reloadAfterSubmit: true
-	            	,url: '/player/delete_batter_stat'
+	            	,url: '/player/delete_pitcher_stat'
 	            	,delData:{
 	            		account:function(){
 	            			var statId = $( "#jqGrid" ).jqGrid('getGridParam', "selarrrow" );

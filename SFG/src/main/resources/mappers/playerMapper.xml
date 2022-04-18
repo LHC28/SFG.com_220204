@@ -340,4 +340,10 @@
 		WHERE
 			`id` = #{id}
 	</delete>
+	<delete id="deletePitcherStatById" parameterType="int">
+		DELETE
+		FROM `pitcher_stat`
+		WHERE
+			`id` = #{id}
+	</delete>
 </mapper>
