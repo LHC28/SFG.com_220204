@@ -23,6 +23,7 @@ public class MatchBO {
 	@Autowired
 	private TeamDAO teamDAO;
 	
+	// 경기일정 출력용
 	public List getMatchSchedule(Integer inputMonth) {
 		
 		String month = null;
@@ -94,4 +95,29 @@ public class MatchBO {
 		
 		return matchSchedule;
 	}
+	
+	// 관리자 페이지 경기일정 출력용
+	public List<MatchSchedule> getMatchScheduleByMonth(int month) {
+		String Smonth = String.valueOf(month);
+		if(Smonth.length()==1) {
+			Smonth = "0"+Smonth;
+		}
+		return matchDAO.selectMatchScheduleByMonth(Smonth);
+	}
+	
+//	경기 정보 추가
+	public void addMatchSchedule(String yyyymmdd, int homeTeamId, int awayTeamId, int homeScore, int awayScore, String result, String time) {
+		matchDAO.insertMatchSchedule(yyyymmdd, homeTeamId, awayTeamId, homeScore, awayScore, result, time);
+	}
+	
+//	경기 정보 수정
+	public void editMatchSchedule(int rowId, String yyyymmdd, int homeTeamId, int awayTeamId, int homeScore, int awayScore, String result, String time) {
+		matchDAO.updateMatchSchedule(rowId, yyyymmdd, homeTeamId, awayTeamId, homeScore, awayScore, result, time);
+	}
+	
+//	경기 정보 삭제
+	public void deleteMatchScheduleById(int id) {
+		matchDAO.deleteMatchScheduleById(id);
+	}
+	
 }

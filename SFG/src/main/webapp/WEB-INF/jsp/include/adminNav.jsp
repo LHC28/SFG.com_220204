@@ -34,7 +34,7 @@
 					</div>
 				</div>
 			</li>
-			<li class="nav-item adminNavFont p-2"><a href="#" class="nav-link">경기정보 페이지 관리</a></li>
+			<li class="nav-item adminNavFont p-2"><a href="/admin/game_info" class="nav-link">경기정보 페이지 관리</a></li>
 			<li class="nav-item adminNavFont p-2"><a href="#" class="nav-link">팬 페이지 관리</a></li>
 		</ul>
 	</nav>

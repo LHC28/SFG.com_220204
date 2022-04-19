@@ -2,6 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.SFG.match.dao.MatchDAO">
+	<insert id="insertMatchSchedule" parameterType="map">
+		INSERT INTO `game_schedule`
+		(
+		`yyyymmdd`
+		,`homeTeamId`
+		,`awayTeamId`
+		,`homeScore`
+		,`awayScore`
+		,`result`
+		,`time`
+		)
+		value
+		(
+		#{yyyymmdd}
+		,#{homeTeamId}
+		,#{awayTeamId}
+		,#{homeScore}
+		,#{awayScore}
+		,#{result}
+		,#{time}
+		)
+	</insert>
 	<select id="selectMatchScheduleByMonthAndDay" resultType="com.SFG.match.model.MatchSchedule">
 		SELECT
 			`id`
@@ -19,4 +41,39 @@
 			`yyyymmdd` like "%${month}-${day}"
 		
 	</select>
+	<select id="selectMatchScheduleByMonth" resultType="com.SFG.match.model.MatchSchedule">
+		SELECT
+			`id`
+			,`yyyymmdd`
+			,`homeTeamId`
+			,`awayTeamId`
+			,`homeScore`
+			,`awayScore`
+			,`result`
+			,`time`
+		FROM
+			`game_schedule`
+		WHERE
+		<!-- #대신 $를 써야 된다 -->
+			`yyyymmdd` like "%-${Smonth}-%"
+	</select>
+	<update id="updateMatchSchedule" parameterType="map">
+		UPDATE `game_schedule`
+		SET
+			`yyyymmdd` = #{yyyymmdd}
+			,`homeTeamId` = #{homeTeamId}
+			,`awayTeamId` = #{awayTeamId}
+			,`homeScore` = #{homeScore}
+			,`awayScore` = #{awayScore}
+			,`result` = #{result}
+			,`time` = #{time}
+		WHERE
+			`id` = #{rowId}
+	</update>
+	<delete id="deleteMatchScheduleById">
+		DELETE
+		FROM `game_schedule`
+		WHERE
+			`id` = #{id}
+	</delete>
 </mapper>

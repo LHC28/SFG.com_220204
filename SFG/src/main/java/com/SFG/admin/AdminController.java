@@ -1,5 +1,7 @@
 package com.SFG.admin;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.SFG.match.model.MatchSchedule;
 import com.SFG.player.bo.PlayerBO;
 import com.SFG.player.model.Player;
 
@@ -65,8 +68,21 @@ public class AdminController {
 		return "template/layout";
 	}
 	
-//	회원정보
-//	@RequestMapping("/user_info")
+//	경기정보 페이지
+	@RequestMapping("/game_info")
+	public String gameInfo(
+			Model model
+			) {
+		
+		LocalDate curDate = LocalDate.now();
+		DateTimeFormatter MonthFormatter = DateTimeFormatter.ofPattern("MM");
+		int month = Integer.valueOf(curDate.format(MonthFormatter));
+		
+		model.addAttribute("curMonth", month);
+		model.addAttribute("viewName", "admin/gameInfo");
+		return "template/layout";
+	}
+	
 	
 //	메인페이지 수정용
 //	@RequestMapping("/mainpage_info")
