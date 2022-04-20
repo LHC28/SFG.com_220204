@@ -52,7 +52,7 @@
 			,colNames: ['id','날짜','홈팅 id','원정팀 id', '홈팀 점수', '원정팀 점수', '결과','시간']
 			,colModel: [
 				{label: 'id', name: 'id', width: 60, key: true, editable: false, editrules: {required: true}, align: "center"}
-				,{label: 'yyyymmdd', name: 'yyyymmdd', width: 150, editable: true, editrules: {required: true}, align: "center", formatter: "date", formatoptions: {newformat: "Y-m-d"}}
+				,{label: 'yyyymmdd', name: 'yyyymmdd', width: 150, editable: true, editrules: {required: true}, align: "center", formatter: "date", formatoptions: {newformat: "Y.m.d"}}
 				,{label: 'homeTeamId', name: 'homeTeamId', width: 150, editable: true, edittype:'select',
 					editoptions: {value:{'1':'Atlanta Braves','2':'Miami Marlins','3':'New York Mets','4':'Philadelphia Phillies','5':'Washington Nationals'
 						,'6':'Chicago Cubs','7':'Cincinnati Reds','8':'Milwaukee Brewers','9':'Pittsburgh Pirates','10':'St.Louis Cardinals'

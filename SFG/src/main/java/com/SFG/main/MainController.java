@@ -90,6 +90,8 @@ public class MainController {
 		boardKind = 3;
 		List<Post> fanList = postBO.getPostListByBoardKind(boardKind, limit);
 		
+		// 슬라이드에 들어갈 내용 가져오기
+		
 		model.addAttribute("newsList", postList);
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("fanList", fanList);

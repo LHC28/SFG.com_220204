@@ -24,7 +24,7 @@ public class MatchBO {
 	private TeamDAO teamDAO;
 	
 	// 경기일정 출력용
-	public List getMatchSchedule(Integer inputMonth) {
+	public List<MatchSchedule> getMatchSchedule(Integer inputMonth) {
 		
 		String month = null;
 		LocalDate firstDate = null;
@@ -102,6 +102,7 @@ public class MatchBO {
 		if(Smonth.length()==1) {
 			Smonth = "0"+Smonth;
 		}
+		
 		return matchDAO.selectMatchScheduleByMonth(Smonth);
 	}
 	

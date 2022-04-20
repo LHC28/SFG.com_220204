@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 	<nav class="adminNav">
 		<ul class="nav flex-column">
-			<li class="nav-item adminNavFont p-2"><a href="#" class="nav-link">회원정보</a></li>
+			<li class="nav-item adminNavFont p-2"><a href="/admin/main" class="nav-link">회원정보</a></li>
 			<li class="nav-item adminNavFont p-2">
 				<div class="dropdown">
 					<a href="#" class="dropbtn nav-link">메인 페이지 관리</a>
