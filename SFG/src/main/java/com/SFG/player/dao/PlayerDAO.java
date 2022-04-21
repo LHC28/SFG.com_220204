@@ -92,8 +92,8 @@ public interface PlayerDAO {
 //	update
 	
 //	타자 기록 수정
-	public void updateBatterStatByPlayerId(
-			@Param("playerId") int playerId
+	public void updateBatterStatById(
+			@Param("id") int id
 			,@Param("year") int year
 			,@Param("team") String team
 			,@Param("games") int games

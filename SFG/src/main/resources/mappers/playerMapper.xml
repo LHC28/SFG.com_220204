@@ -292,7 +292,7 @@
 		WHERE
 			`playerId` = #{playerId}
 	</select>
-	<update id="updateBatterStatByPlayerId" parameterType="map">
+	<update id="updateBatterStatById" parameterType="map">
 		UPDATE `batter_stat`
 		SET
 			`year` = #{year},
@@ -312,7 +312,7 @@
 			`sacrifice_flys` = #{sacrifice_flys},
 			`updatedAt` = now()
 		WHERE
-			`playerId` = #{playerId}
+			`id` = #{id}
 	</update>
 	<update id="updatePitcherStatByPlayerId" parameterType="map">
 		UPDATE `pitcher_stat`

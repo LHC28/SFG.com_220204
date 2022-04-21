@@ -93,6 +93,7 @@
 	               	,url: "/player/edit_batter_stat"
 	               	,editData: {
 	               		account: function(){
+	               			var id = $( "#jqGrid" ).jqGrid('getGridParam', "selarrrow" );
 	               			var playerId = $("playerId").val();
 		               		var year = $("#year").val();
 		               		var team = $("#team").val();
@@ -109,6 +110,7 @@
 		               		var stolen_bases = $("#stolen_bases").val();
 		               		var hit_by_pitch = $("#hit_by_pitch").val();
 		               		var sacrifice_flys = $("#sacrifice_flys").val();
+		               		return id;
 	               		}
 	               	}
 	                ,editCaption: "The Edit Dialog",

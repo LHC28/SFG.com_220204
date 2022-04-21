@@ -184,7 +184,8 @@ public class PlayerRestController {
 //	타자 스탯 수정
 	@PostMapping("/edit_batter_stat")
 	public Map<String, String> editBatterStat(
-			@RequestParam("playerId") String SplayerId
+			@RequestParam("id") int id
+			,@RequestParam("playerId") String SplayerId
 			,@RequestParam("year") String Syear
 			,@RequestParam("team") String team
 			,@RequestParam("games") String Sgames
@@ -218,7 +219,7 @@ public class PlayerRestController {
 		int hit_by_pitch = Integer.valueOf(Shit_by_pitch);
 		int sacrifice_flys = Integer.valueOf(Ssacrifice_flys);
 		
-		playerBO.editBatterStatByPlayerId(playerId, year, team, games, at_bats, runs, hits, doubles, triples, homerun, runs_batted_in, bases_on_balls, strikeouts, stolen_bases, hit_by_pitch, sacrifice_flys);
+		playerBO.editBatterStatById(id, year, team, games, at_bats, runs, hits, doubles, triples, homerun, runs_batted_in, bases_on_balls, strikeouts, stolen_bases, hit_by_pitch, sacrifice_flys);
 		
 		Map<String, String> result = new HashMap<>();
 		
