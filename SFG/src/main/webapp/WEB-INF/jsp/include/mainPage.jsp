@@ -4,14 +4,35 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div class="content">
+	<%-- 슬라이드 부분 --%>
 	<div id="slideBanner">
-		<img id="banner" src="/static/images/ace.jpg" alt="" width="1110px;" height="450px;">
+		<img id="banner" src="${newsList[0].fileList[0].imagePath }" alt="" width="1110px;" height="450px;">
 		<div id="bannerContentBox">
-			<div id="bannerTitle" class="d-flex align-items-center ml-2">1.<br> 제목 부분</div>
-			<div id="bannerContent" class="d-flex align-items-center ml-2 mb-2">1. 내용 부분</div>
-			<a href="#" id="bannerBtn">Read more</a>
+			<div id="bannerTitle" class="d-flex align-items-center ml-2">1.<br>
+			<c:choose>
+				<c:when test="${fn:length(newsList[0].board.title) gt 20 }">
+					${fn:substring(newsList[0].board.title,0,20) }...
+				</c:when>
+				<c:when test="${fn:length(newsList[0].board.title) le 20 }">
+					${newsList[0].board.title }
+				</c:when>
+			</c:choose>
+			</div>
+			<div id="bannerContent" class="d-flex align-items-center ml-2 mb-2">
+			<c:choose>
+				<c:when test="${fn:length(newsList[0].board.content) gt 35 }">
+					${fn:substring(newsList[0].board.content,0,30) }...
+				</c:when>
+				<c:when test="${fn:length(newsList[0].board.content) le 35 }">
+					${newsList[0].board.content }
+				</c:when>
+			</c:choose>
+			
+			</div>
+			<a href="/board/board_view?boardId=${newsList[0].board.id}" id="bannerBtn">Read more</a>
 		</div>
 	</div>
+	<%-- 다음경기 일정 --%>
 	<div id="matchSchedule">
 		<img id="matchImage" src="/static/images/mainpage/matchImage.png" alt="경기일정 배경사진" width="1110px" height="450px">
 		<div id="matchScheduleContent">
@@ -22,9 +43,9 @@
 				<div id="matchScheduleContentTeam" class="d-flex justify-content-center align-items-center">
 					<c:set var="name" value="${fn:split(match.awayTeamName,' ')}" />
 					<div class="matchScheduleContentTeamFont2 m-2">${name[0] }<br>${name[1] }</div>
-					<img src="${match.awayTeamLogo }" alt="" width="100px" height="100px">
+					<img src="${match.awayTeamLogo }" alt="구단 마크" width="100px" height="100px">
 					<div id="matchScheduleContentTeamFont1">vs</div>
-					<img src="${match.homeTeamLogo }" alt="" width="100px" height="100px">
+					<img src="${match.homeTeamLogo }" alt="구단 마크" width="100px" height="100px">
 					<c:set var="name" value="${fn:split(match.homeTeamName, ' ')}" />
 					<div class="matchScheduleContentTeamFont2 m-2">${name[0] }<br>${name[1] }</div>
 				</div>
@@ -41,6 +62,7 @@
 			</div>
 		</div>
 	</div>
+	<%-- 뉴스 게시판 최신순 --%>
 	<div id="recentBoardBox">
 		<div id="recentBoardTitle" class="d-flex justify-content-center">Giants News</div>
 		<div class="mt-3 d-flex justify-content-center">
@@ -59,7 +81,14 @@
 							</c:forEach>
 						</div>
 						<div id="recentBoard1Content">
-							<div id="recentBoard1ContentTitle" class="d-flex justify-content-center p-2">${news.board.title }</div>
+							<div id="recentBoard1ContentTitle" class="d-flex justify-content-center p-2">
+							<c:if test="${fn:length(news.board.title) gt 23}">
+								${fn:substring(news.board.title,0,20)}...
+							</c:if>
+							<c:if test="${fn:length(news.board.title) le 23}">
+								${news.board.title }
+							</c:if>
+							</div>
 							<div class="d-flex justify-content-end mr-3"><fmt:formatDate value="${news.board.createdAt}" pattern="yyyy.MM.dd" /></div>
 						</div>
 						</a>
@@ -81,7 +110,14 @@
 									</c:forEach>
 								</div>
 								<div class="recentBoard2Content">
-									<div class="recentBoard2ContentTitle d-flex justify-content-center pt-2">${news.board.title }</div>
+									<div class="recentBoard2ContentTitle d-flex justify-content-center pt-2">
+									<c:if test="${fn:length(news.board.title) gt 23}">
+										${fn:substring(news.board.title,0,20)}...
+									</c:if>
+									<c:if test="${fn:length(news.board.title) le 23}">
+										${news.board.title }
+									</c:if>
+									</div>
 									<div class="recentBoard2Contentcontent d-flex justify-content-end mr-3"><fmt:formatDate value="${news.board.createdAt}" pattern="yyyy.MM.dd" /></div>
 								</div>
 							</a>
@@ -100,7 +136,14 @@
 									</c:forEach>
 								</div>
 								<div class="recentBoard2Content">
-									<div class="recentBoard2ContentTitle d-flex justify-content-center pt-2">${news.board.title }</div>
+									<div class="recentBoard2ContentTitle d-flex justify-content-center pt-2">
+									<c:if test="${fn:length(news.board.title) gt 23}">
+										${fn:substring(news.board.title,0,20)}...
+									</c:if>
+									<c:if test="${fn:length(news.board.title) le 23}">
+										${news.board.title }
+									</c:if>
+									</div>
 									<div class="recentBoard2Contentcontent d-flex justify-content-end mr-3"><fmt:formatDate value="${news.board.createdAt}" pattern="yyyy.MM.dd" /></div>
 								</div>
 							</a>
@@ -121,7 +164,14 @@
 									</c:forEach>
 								</div>
 								<div class="recentBoard2Content">
-									<div class="recentBoard2ContentTitle d-flex justify-content-center pt-2">${news.board.title }</div>
+									<div class="recentBoard2ContentTitle d-flex justify-content-center pt-2">
+									<c:if test="${fn:length(news.board.title) gt 23}">
+										${fn:substring(news.board.title,0,20)}...
+									</c:if>
+									<c:if test="${fn:length(news.board.title) le 23}">
+										${news.board.title }
+									</c:if>
+									</div>
 									<div class="recentBoard2Contentcontent d-flex justify-content-end mr-3"><fmt:formatDate value="${news.board.createdAt}" pattern="yyyy.MM.dd" /></div>
 								</div>
 							</a>
@@ -140,7 +190,14 @@
 									</c:forEach>
 								</div>
 								<div class="recentBoard2Content">
-									<div class="recentBoard2ContentTitle d-flex justify-content-center pt-2">${news.board.title }</div>
+									<div class="recentBoard2ContentTitle d-flex justify-content-center pt-2">
+									<c:if test="${fn:length(news.board.title) gt 23}">
+										${fn:substring(news.board.title,0,20)}...
+									</c:if>
+									<c:if test="${fn:length(news.board.title) le 23}">
+										${news.board.title }
+									</c:if>
+									</div>
 									<div class="recentBoard2Contentcontent d-flex justify-content-end mr-3"><fmt:formatDate value="${news.board.createdAt}" pattern="yyyy.MM.dd" /></div>
 								</div>
 							</a>
@@ -153,6 +210,7 @@
 			</div>
 		</div>
 	</div>
+	<%-- 기타 부분 - 구단 SNS 및 공지사항, 팬 게시판 부분 --%>
 	<div id="etcBox" class="d-flex justify-content-center">
 		<div id="etcBoxTeamSnsBox">
 			<div class="tableTitle d-flex align-items-end justify-content-center">
@@ -161,7 +219,9 @@
 			<div id="snsBox" class="d-flex justify-content-center align-items-center">준비중...</div>
 		</div>
 		<div id="etcBoxBoardBox">
-			<div class="tableTitle"></div>
+			<div class="tableTitle d-flex align-items-end justify-content-center">
+				공지사항 및 팬 게시판
+			</div>
 			<div class="d-flex justify-content-center mt-5">
 				<table class="etcBoxBoardTable text-center">
 					<tr>
@@ -203,6 +263,21 @@
 
 <script>
 	$(document).ready(function(){
+		var limit = 5;
+		var boardKind = 2
+		var postList;
+		
+		$.ajax({
+			type: 'post'
+			,url: '/post/get_post_boardAndImage'
+			,async: false // 전역변수에 저장하기 위함.
+			,data: {"limit":limit, "boardKind":boardKind}
+			,success: function(data){
+				postList = data;
+			},error: function(e){
+				alert("슬라이드 부분 에러발생, 관리자에게 문의해주세요.");
+			}
+		});
 		
 		// 일정시간마다 배너 넘기기
 		var banner = document.getElementById("banner");
@@ -210,20 +285,33 @@
 		var bannerContent = document.getElementById("bannerContent");
 		var bannerBtn = document.getElementById("bannerBtn");
 		var arrImage = [
-			"/static/images/ace.jpg",
-			"/static/images/posey.png"
+			postList[0].fileList[0].imagePath
+			,postList[1].fileList[0].imagePath
+			,postList[2].fileList[0].imagePath
+			,postList[3].fileList[0].imagePath
+			,postList[4].fileList[0].imagePath
 		];
 		var arrTitle = [
-			"1. 제목1",
-			"2. 제목2"
+			"1. "+postList[0].board.title
+			,"2. "+postList[1].board.title
+			,"3. "+postList[2].board.title
+			,"4. "+postList[3].board.title
+			,"5. "+postList[4].board.title
 		];
 		var arrContent = [
-			"내용1",
-			"내용2"
+			postList[0].board.content
+			,postList[1].board.content
+			,postList[2].board.content
+			,postList[3].board.content
+			,postList[4].board.content
+			
 		];
 		var arrBtn = [
-			"#",
-			"#"
+			"/board/board_view?boardId="+postList[0].board.id
+			,"/board/board_view?boardId="+postList[1].board.id
+			,"/board/board_view?boardId="+postList[2].board.id
+			,"/board/board_view?boardId="+postList[3].board.id
+			,"/board/board_view?boardId="+postList[4].board.id
 		];
 		
 		var index = 0;
@@ -233,8 +321,16 @@
 			// 배너 제목
 			// 번호와 제목 내용 두 줄로 만들기 위한 과정
 			var title = arrTitle[index].split(".");
+			if(title[1].length > 20){
+				title[1] = title[1].substring(0,20)+"...";
+			}
 			bannerTitle.innerHTML = title[0]+". <br>"+title[1];
 			// 배너 내용
+			for(let i=0; i<arrContent.length; i++){
+				if(arrContent[i].length > 35){
+					arrContent[i] = arrContent[i].substring(0,30)+"...";
+				}
+			}
 			bannerContent.innerHTML = arrContent[index];
 			// 배너 버튼
 			bannerBtn.setAttribute("href", arrBtn[index]);

@@ -46,7 +46,7 @@ body {background-color: #ff4814;}
 #matchScheduleContentBox{position: relative; top:15%;}
 #matchScheduleContentTitle{width: 60%; height: 100px; display: inline-block; color: white; font-size: 30px; font-weight:bold; padding: 15px 0;}
 #matchScheduleContentTeam{width: 100%; height: 150px; display: inline-block; padding: 30px 0; color: white;}
-#matchScheduleContentTeamFont1{font-size: 40px;}
+#matchScheduleContentTeamFont1{font-size: 40px; margin-left: 15px; margin-right: 15px;}
 .matchScheduleContentTeamFont2{font-size: 20px; font-weight: bold;}
 #matchScheduleContentDate{width: 30%; height: 100px; display: inline-block; color: white; font-size: 20px;}
 /* 메인 페이지게시판 부분 */
@@ -227,7 +227,7 @@ body {background-color: #ff4814;}
 .boardViewHeadTitle{width: 50%;}
 .boardViewHeadViews{width: 15%;}
 .boardViewHeadRecommend{width: 15%;}
-.boardViewContent {font-size: 20px; font-weight: 200;}
+.boardViewContent {font-size: 20px; font-weight: 200; word-wrap: break-word;}
 
 /* adminMain */
 .adminNav {width: 220px; height: 800px; background-color: #a9a9a9;}
