@@ -35,8 +35,10 @@
 			,width: 850
 			,rowNum: 10
 			,pager: '#jqGridPager'
+			,pgbuttons: true
+			,pginput: true
 			,viewrecords: true // 페이지 네비게이터 우측 영역 표시 여부
-			,loadonce: false // 로딩 중 화면 표시
+			,loadonce: true // 로딩 중 화면 표시
 			,rownumbers: true // 각 row의 맨 앞줄 각 행의 번호가 자동으로 부여되도록 설정
 			,caption: "유저 정보"
 			// 다시 확인
