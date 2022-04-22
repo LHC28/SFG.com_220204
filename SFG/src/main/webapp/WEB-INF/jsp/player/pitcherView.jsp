@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <div class="pitcherContent">
 	<div class="couchBox1 d-flex align-items-center justify-content-center">
 		<div class="couchBox2 d-flex align-items-center justify-content-center">
@@ -23,11 +24,11 @@
 								</tr>
 								<tr>
 									<td>
-										<a href="/player/player_detail_view?playerId=${pitcher.id}"><img src="${pitcher.imagePath}" alt="투수" width="180px;" height="180px;"></a>
+										<a href="/player/player_detail_view?playerId=${pitcher.id}"><img src="${pitcher.imagePath}" alt="투수" width="150px;" height="180px;"></a>
 									</td>
 								</tr>
 								<tr>
-									<td>${pitcher.number }. ${pitcher.name }</td>
+									<td>${pitcher.number }. ${pitcher.name}</td>
 								</tr>
 							</table>
 						</div>

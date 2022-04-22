@@ -41,6 +41,14 @@ public class PlayerController {
 		//투수리스트 가져오기
 		List<Player> pitcherList = playerBO.getPitcherList();
 		
+		// 이름이 긴 경우 두 줄로 나타날 수 있어 성만 나오도록 한다.
+		for(int i=0; i<pitcherList.size(); i++) {
+			if(pitcherList.get(i).getName().length()>16) {
+				String[] name = pitcherList.get(i).getName().split(" ");
+				pitcherList.get(i).setName(name[1]);
+			}
+		}
+		
 		model.addAttribute("pitcherList", pitcherList);
 		model.addAttribute("viewName", "player/pitcherView");
 		return "template/layout";
