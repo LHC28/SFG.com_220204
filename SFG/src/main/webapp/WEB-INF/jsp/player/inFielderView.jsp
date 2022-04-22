@@ -19,7 +19,7 @@
 						<div class="player">
 							<table class="playerTable text-center d-flex justify-content-center align-items-center">
 								<tr>
-									<td>${infielder.position.substring(10) }</td>
+									<td>${infielder.position }</td>
 								</tr>
 								<tr>
 									<td>
@@ -33,51 +33,6 @@
 						</div>
 						</c:forEach>
 						<%-- 칸이 남을 땐 안 보이도록 하여 한줄에 4개를 채운다. --%>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
 					</div>
 				</div>
 			</div>
