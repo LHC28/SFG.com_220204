@@ -106,13 +106,13 @@ public class PlayerBO {
 	}
 	
 //	투수 기록 추가
-	public void addPitcherStatByPlayerId(int playerId, int year, String team, int wins, int losses, double earned_run_average, int games, int game_started, int saves, int hold, double innings_pitched, int hits, int walks, int strikeouts, double whip) {
-		playerDAO.insertPitcherStatByPlayerId(playerId, year, team, wins, losses, earned_run_average, games, game_started, saves, hold, innings_pitched, hits, walks, strikeouts, whip);
+	public void addPitcherStatByPlayerId(int playerId, int year, String team, int wins, int losses, double earned_run_average, int games, int game_started, int saves, int hold, double innings_pitched, int hits, int earned_runs, int walks, int strikeouts, double whip) {
+		playerDAO.insertPitcherStatByPlayerId(playerId, year, team, wins, losses, earned_run_average, games, game_started, saves, hold, innings_pitched, hits, earned_runs, walks, strikeouts, whip);
 	}
 	
 //	투수 기록 수정
-	public void editPitcherStatByPlayerId(int playerId, int year, String team, int wins, int losses, double earned_run_average, int games, int game_started, int saves, int hold, double innings_pitched, int hits, int walks, int strikeouts, double whip) {
-		playerDAO.updatePitcherStatByPlayerId(playerId, year, team, wins, losses, earned_run_average, games, game_started, saves, hold, innings_pitched, hits, walks, strikeouts, whip);
+	public void editPitcherStatByPlayerId(int id, int playerId, int year, String team, int wins, int losses, double earned_run_average, int games, int game_started, int saves, int hold, double innings_pitched, int hits, int earned_runs, int walks, int strikeouts, double whip) {
+		playerDAO.updatePitcherStatByPlayerId(id, playerId, year, team, wins, losses, earned_run_average, games, game_started, saves, hold, innings_pitched, hits, earned_runs, walks, strikeouts, whip);
 	}
 	
 //	투수 기록 삭제
@@ -129,7 +129,11 @@ public class PlayerBO {
 		int games = 0;
 		int wins = 0;
 		int losses = 0;
+		// 이닝수
 		double innings_pitched = 0;
+//		자책점
+		int earned_runs = 0;
+//		평균자책점
 		double earned_run_average = 0;
 		int strikeouts = 0;
 		for(int i=0; i<pitcherStats.size(); i++) {
@@ -145,10 +149,14 @@ public class PlayerBO {
 			innings_pitched=0;
 			innings_pitched=num+(int)(demical/0.3)+(demical%0.3);
 			//평균자책점
-			earned_run_average+=pitcherStats.get(i).getEarned_run_average();
+			earned_runs+=pitcherStats.get(i).getEarned_runs();
+			
 			//삼진
 			strikeouts+=pitcherStats.get(i).getStrikeouts();
 		}
+		// 전체 시즌 기준 평균자책점 (소수 아래 둘째자리까지)
+		earned_run_average = Math.round((9*earned_runs)/innings_pitched*100)/100.0;
+		
 		pitcherTotalStat.setGames(games);
 		pitcherTotalStat.setWins(wins);
 		pitcherTotalStat.setLosses(losses);

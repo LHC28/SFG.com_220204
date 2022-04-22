@@ -154,6 +154,7 @@ public class PlayerRestController {
 			,@RequestParam("hold") String Shold
 			,@RequestParam("innings_pitched") String Sinnings_pitched
 			,@RequestParam("hits") String Shits
+			,@RequestParam("earned_runs") String Searned_runs
 			,@RequestParam("walks") String Swalks
 			,@RequestParam("strikeouts") String Sstrikeouts
 			,@RequestParam("whip") String Swhip
@@ -170,11 +171,12 @@ public class PlayerRestController {
 		int hold = Integer.valueOf(Shold);
 		double innings_pitched = Double.valueOf(Sinnings_pitched);
 		int hits = Integer.valueOf(Shits);
+		int earned_runs = Integer.valueOf(Searned_runs);
 		int walks = Integer.valueOf(Swalks);
 		int strikeouts = Integer.valueOf(Sstrikeouts);
 		double whip = Double.valueOf(Swhip);
 		
-		playerBO.addPitcherStatByPlayerId(playerId, year, team, wins, losses, earned_run_average, games, game_started, saves, hold, innings_pitched, hits, walks, strikeouts, whip);
+		playerBO.addPitcherStatByPlayerId(playerId, year, team, wins, losses, earned_run_average, games, game_started, saves, hold, innings_pitched, hits, earned_runs, walks, strikeouts, whip);
 		
 		Map<String, String> result = new HashMap<>();
 		result.put("result", "success");
@@ -228,7 +230,8 @@ public class PlayerRestController {
 	
 	@RequestMapping("/edit_pitcher_stat")
 	public Map<String, String> editPitcherStat(
-			@RequestParam("playerId") String SplayerId
+			@RequestParam("id") int id
+			,@RequestParam("playerId") String SplayerId
 			,@RequestParam("year") String Syear
 			,@RequestParam("team") String team
 			,@RequestParam("wins") String Swins
@@ -240,6 +243,7 @@ public class PlayerRestController {
 			,@RequestParam("hold") String Shold
 			,@RequestParam("innings_pitched") String Sinnings_pitched
 			,@RequestParam("hits") String Shits
+			,@RequestParam("earned_runs") String Searned_runs
 			,@RequestParam("walks") String Swalks
 			,@RequestParam("strikeouts") String Sstrikeouts
 			,@RequestParam("whip") String Swhip
@@ -247,7 +251,7 @@ public class PlayerRestController {
 		
 		int playerId = Integer.valueOf(SplayerId);
 		int year = Integer.valueOf(Syear);
-		int wins = Integer.valueOf(Syear);
+		int wins = Integer.valueOf(Swins);
 		int losses = Integer.valueOf(Slosses);
 		double earned_run_average = Double.valueOf(Searned_run_average);
 		int games = Integer.valueOf(Sgames);
@@ -256,11 +260,12 @@ public class PlayerRestController {
 		int hold = Integer.valueOf(Shold);
 		double innings_pitched = Double.valueOf(Sinnings_pitched);
 		int hits = Integer.valueOf(Shits);
+		int earned_runs = Integer.valueOf(Searned_runs);
 		int walks = Integer.valueOf(Swalks);
 		int strikeouts = Integer.valueOf(Sstrikeouts);
 		double whip = Double.valueOf(Swhip);
 		System.out.println(hold);
-		playerBO.editPitcherStatByPlayerId(playerId, year, team, wins, losses, earned_run_average, games, game_started, saves, hold, innings_pitched, hits, walks, strikeouts, whip);
+		playerBO.editPitcherStatByPlayerId(id, playerId, year, team, wins, losses, earned_run_average, games, game_started, saves, hold, innings_pitched, hits, earned_runs, walks, strikeouts, whip);
 		
 		Map<String, String> result = new HashMap<>();
 		result.put("result", "success");

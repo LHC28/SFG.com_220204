@@ -20,6 +20,7 @@ public class PitcherStat {
 	private int hold;
 	private double innings_pitched;
 	private int hits;
+	private int earned_runs;
 	private int walks;
 	private int strikeouts;
 	private double whip;

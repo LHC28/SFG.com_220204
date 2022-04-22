@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div class="content">
+<div class="pitcherContent">
 	<div class="couchBox1 d-flex align-items-center justify-content-center">
 		<div class="couchBox2 d-flex align-items-center justify-content-center">
 			<div class="couchbox3">
@@ -33,51 +33,6 @@
 						</div>
 						</c:forEach>
 						<%-- 칸이 남을 땐 안 보이도록 하여 한줄에 4개를 채운다. --%>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
 					</div>
 				</div>
 			</div>

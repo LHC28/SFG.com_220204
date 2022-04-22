@@ -55,6 +55,7 @@ public interface PlayerDAO {
 			,@Param("hold") int hold
 			,@Param("innings_pitched") double innings_pitched
 			,@Param("hits") int hits
+			,@Param("earned_runs") int earned_runs
 			,@Param("walks") int walks
 			,@Param("strikeouts") int striketous
 			,@Param("whip") double whip
@@ -113,7 +114,8 @@ public interface PlayerDAO {
 	
 //	투수 기록 수정
 	public void updatePitcherStatByPlayerId(
-			@Param("playerId") int playerId
+			@Param("id") int id
+			,@Param("playerId") int playerId
 			,@Param("year") int year
 			,@Param("team") String team
 			,@Param("wins") int wins
@@ -125,6 +127,7 @@ public interface PlayerDAO {
 			,@Param("hold") int hold
 			,@Param("innings_pitched") double innings_pitched
 			,@Param("hits") int hits
+			,@Param("earned_runs") int earned_runs
 			,@Param("walks") int walks
 			,@Param("strikeouts") int striketous
 			,@Param("whip") double whip

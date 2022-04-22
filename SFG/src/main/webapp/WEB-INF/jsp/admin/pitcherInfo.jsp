@@ -42,7 +42,7 @@
 			url: "/player/get_pitcher_stat?playerId="+playerId
 			,mtype: "get"
 			,datatype: "json"
-			,colNames: ['id','선수id','연도','팀','승리','패배','평균자책점','경기수','선발출전','세이브', '홀드', '이닝수','피안타','볼넷','삼진','whip']
+			,colNames: ['id','선수id','연도','팀','승리','패배','평균자책점','경기수','선발출전','세이브', '홀드', '이닝수','피안타', '자책점', '볼넷','삼진','whip']
 			,colModel: [
 				{label: 'id', name: 'id', width: 60, key: true, editable: false, editrules: {required: true}, align: "center"}
 				,{label: 'playerId', name: 'playerId', width: 60, editable: true, editrules: {required: true}, align: "center"}
@@ -57,6 +57,7 @@
 				,{label: 'hold', name: 'hold', width: 60, editable: true, editrules: {required: true}, align: "center"}
 				,{label: 'innings_pitched', name: 'innings_pitched', width: 60, editable: true, editrules: {required: true}, align: "center"}
 				,{label: 'hits', name: 'hits', width: 60, editable: true, editrules: {required: true}, align: "center"}
+				,{label: 'earned_runs', name: 'earned_runs', width: 60, editable: true, editrules: {required: true}, align: "center"}
 				,{label: 'walks', name: 'walks', width: 60, editable: true, editrules: {required: true}, align: "center"}
 				,{label: 'strikeouts', name: 'strikeouts', width: 60, editable: true, editrules: {required: true}, align: "center"}
 				,{label: 'whip', name: 'whip', width: 60, editable: true, editrules: {required: true}, align: "center"}
@@ -92,6 +93,7 @@
 	               	,url: "/player/edit_pitcher_stat"
 	               	,editData: {
 	               		account: function(){
+	               			var id = $( "#jqGrid" ).jqGrid('getGridParam', "selarrrow" );
 	               			var playerId = $("#playerId").val();
 		               		var year = $("#year").val();
 		               		var team = $("#team").val();
@@ -104,9 +106,11 @@
 		               		var hold = $("#hold").val();
 		               		var innings_pitched = $("#innings_pitched").val();
 		               		var hits = $("#hits").val();
+		               		var earned_runs = $("#earned_runs").val();
 		               		var walks = $("#walks").val();
 		               		var strikeouts = $("#strikeouts").val();
 		               		var whip = $("#whip").val();
+		               		return id;
 	               		}
 	               	}
 	                ,editCaption: "The Edit Dialog",
@@ -139,6 +143,7 @@
 		               		var hold = $("#hold").val();
 		               		var innings_pitched = $("#innings_pitched").val();
 		               		var hits = $("#hits").val();
+		               		var earned_runs = $("#earned_runs").val();
 		               		var walks = $("#walks").val();
 		               		var strikeouts = $("#strikeouts").val();
 		               		var whip = $("#whip").val();

@@ -86,6 +86,7 @@
 			,`hold`
 			,`innings_pitched`
 			,`hits`
+			,`earned_runs`
 			,`walks`
 			,`strikeouts`
 			,`whip`
@@ -104,6 +105,7 @@
 			,#{hold}
 			,#{innings_pitched}
 			,#{hits}
+			,#{earned_runs}
 			,#{walks}
 			,#{strikeouts}
 			,#{whip}
@@ -234,6 +236,7 @@
 			`hold`,
 			`innings_pitched`,
 			`hits`,
+			`earned_runs`,
 			`walks`,
 			`strikeouts`,
 			`whip`
@@ -328,11 +331,12 @@
 			,`hold` = #{hold}
 			,`innings_pitched` = #{innings_pitched}
 			,`hits` = #{hits}
+			,`earned_runs` = #{earned_runs}
 			,`walks` = #{walks}
 			,`strikeouts` = #{strikeouts}
 			,`whip` = #{whip}
 		WHERE
-			`playerId` = #{playerId}
+			`id` = #{id}
 	</update>
 	<delete id="deleteBatterStatById" parameterType="int">
 		DELETE
