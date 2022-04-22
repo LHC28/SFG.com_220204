@@ -23,7 +23,7 @@
 			,datatype: "json"
 			,colNames: ['id','이름','등번호','포지션','생년월일','데뷔일','이미지']
 			,colModel: [
-				{label: 'id', name: 'id', width: 60, key: true, editable: false, editrules: {required: true},Formatter: function(){ return this.value.number(); } align: "center"}
+				{label: 'id', name: 'id', width: 60, key: true, editable: false, editrules: {required: true},Formatter: function(){ return this.value.number(); }, align: "center"}
 				,{label: 'name', name: 'name', width: 150, editable: true, editrules: {required: true}, align: "center"}
 				,{label: 'number', name: 'number', width: 60, editable: true, editrules: {required: true}, align: "center"}
 				,{label: 'position', name: 'position', width: 150, editable: true, editrules: {required: true}, align: "center"}

@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div class="content">
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<div class="couchContent">
 	<div class="couchBox1 d-flex align-items-center justify-content-center">
 		<div class="couchBox2 d-flex align-items-center justify-content-center">
 			<div class="couchbox3">
@@ -16,10 +17,15 @@
 					<div class="playerBox d-flex justify-content-between flex-wrap mb-4">
 						<%-- player --%>
 						<c:forEach var="coach" items="${coachList }" varStatus="status">
-						<div class="player">
-							<table class="playerTable text-center d-flex justify-content-center align-items-center">
+						<div class="couch">
+							<table class="couchTable text-center d-flex justify-content-center align-items-center">
 								<tr>
+									<c:if test="${fn:length(coach.position) ge 15 }">
 									<td>${coach.position}</td>
+									</c:if>
+									<c:if test="${fn:length(coach.position) lt 15 }">
+									<td>${coach.position}</td>
+									</c:if>
 								</tr>
 								<tr>
 									<td>
@@ -32,51 +38,6 @@
 							</table>
 						</div>
 						</c:forEach>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
 					</div>
 				</div>
 			</div>

@@ -63,7 +63,7 @@
 			]
 			,height: 300
 			,width: 850
-			,rowNum: 10
+			,rowNum: 20
 			,pager: '#jqGridPager'
 			,viewrecords: true // 페이지 네비게이터 우측 영역 표시 여부
 			,loadonce: false // 로딩 중 화면 표시

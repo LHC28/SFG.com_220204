@@ -153,14 +153,19 @@ body {background-color: #ff4814;}
 .stadiumTable tr {border: 1px solid #969696;}
 
 /* 코칭스태프 페이지 */
-.couchBox1 {width:1110px; height:1300px; background-color: #ff7a2f;}
-.couchBox2 {width:1050px; height:1250px; background-color: white;}
-.couchbox3 {width:1000px; height:1200px; background-color: #f2f2f2; border: 1px solid #333333;}
+.couchContent{width:1110px; height: 1750px; background-color: white;}
+.couchBox1 {width:1110px; height:1750px; background-color: #ff7a2f;}
+.couchBox2 {width:1050px; height:1700px; background-color: white;}
+.couchbox3 {width:1000px; height:1650px; background-color: #f2f2f2; border: 1px solid #333333;}
+.couch{width: 200px; height: 300px; border: 1px solid #333333;}
+.couchTable {width:200px; height: 300px;}
+.couchTable td {font-size:20px; font-weight: bold;}
+
 .playerBox {width: 900px; height: 1100px;}
 .playerTable {width:200px; height: 250px;}
 .playerTable td {font-size:20px; font-weight: bold;}
-.player {width: 200px; height: 250px; border: 1px solid #333333;}
 
+.player {width: 200px; height: 250px; border: 1px solid #333333;}
 /* 선수 세부사항 페이지 */
 .detailPlayerBox1 {width:1110px; height:1350px; background-color: #ff7a2f;}
 .detailPlayerBox2 {width:1050px; height:1300px; background-color: white;}
