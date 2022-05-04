@@ -86,7 +86,7 @@ public class PlayerController {
 		Player player = playerBO.getPlayer(playerId);
 		// 선수 소개 정보 가져오기
 		PlayerIntroduce playerIntroduce = playerBO.getPlayerIntroduce(playerId);
-		System.out.println(player.getPosition());
+		
 		if(player.getPosition().equals("pitcher")) {
 			// 투수 통산기록 가져오기
 			PitcherTotalStat pitcherTotalStat = playerBO.getpitcherTotalStat(playerId);

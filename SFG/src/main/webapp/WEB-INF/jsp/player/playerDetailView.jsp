@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div class="content">
 	<div class="detailPlayerBox1 d-flex align-items-center justify-content-center">
 		<div class="detailPlayerBox2 d-flex align-items-center justify-content-center">
@@ -148,6 +149,7 @@
 						<tbody>
 							<c:forEach var="batterStat" items="${batterStats }" varStatus="status">
 							<tr>
+								<%-- 소수점 아래 0빠지는건 여기서 변환하는 것으로 해결 --%>
 								<td>${batterStat.year }</td>
 								<td>${batterStat.games }</td>
 								<td>${batterStat.hits }</td>
@@ -157,10 +159,10 @@
 								<td>${batterStat.stolen_bases }</td>
 								<td>${batterStat.bases_on_balls }</td>
 								<td>${batterStat.strikeouts }</td>
-								<td>${batterStat.batting_average }</td>
-								<td>${batterStat.on_base_percentage }</td>
-								<td>${batterStat.slugging_percentage }</td>
-								<td>${batterStat.on_base_plus_slugging }</td>
+								<td><fmt:formatNumber value="${batterStat.batting_average }" pattern="0.000"/></td>
+								<td><fmt:formatNumber value="${batterStat.on_base_percentage }" pattern="0.000"/></td>
+								<td><fmt:formatNumber value="${batterStat.slugging_percentage }" pattern="0.000"/></td>
+								<td><fmt:formatNumber value="${batterStat.on_base_plus_slugging }" pattern="0.000"/></td>
 							</tr>
 							</c:forEach>
 						</tbody>

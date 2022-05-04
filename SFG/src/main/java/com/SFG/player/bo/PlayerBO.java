@@ -181,11 +181,8 @@ public class PlayerBO {
 			double slugging_percentage = (((double)batterStats.get(i).getHits()-(double)batterStats.get(i).getDoubles()-(double)batterStats.get(i).getTriples()-(double)batterStats.get(i).getHomerun())+(double)batterStats.get(i).getDoubles()*2+(double)batterStats.get(i).getTriples()*3+(double)batterStats.get(i).getHomerun()*4)/(double)batterStats.get(i).getAt_bats();
 			// OPS
 			double on_base_plus_slugging = on_base_percentage + slugging_percentage; 
-			// 소수점 아래 세번째자리까지 남기기
-			batting_average = (double)Math.round(batting_average*1000)/1000;
-			on_base_percentage = (double)Math.round(on_base_percentage*1000)/1000;
-			slugging_percentage = (double)Math.round(slugging_percentage*1000)/1000;
-			on_base_plus_slugging = (double)Math.round(on_base_plus_slugging*1000)/1000;
+
+//			비율 성적 값 넣기 - 타율, 출루율, 장타율, OPS
 			batterStats.get(i).setBatting_average(batting_average);
 			batterStats.get(i).setOn_base_percentage(on_base_percentage);
 			batterStats.get(i).setSlugging_percentage(slugging_percentage);
