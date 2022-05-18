@@ -43,7 +43,7 @@ public class PlayerController {
 		
 		// 이름이 긴 경우 두 줄로 나타날 수 있어 성만 나오도록 한다.
 		for(int i=0; i<pitcherList.size(); i++) {
-			if(pitcherList.get(i).getName().length()>16) {
+			if(pitcherList.get(i).getName().length()>=16) {
 				String[] name = pitcherList.get(i).getName().split(" ");
 				pitcherList.get(i).setName(name[1]);
 			}
@@ -60,6 +60,14 @@ public class PlayerController {
 		// 내야수 리스트 가져오기
 		List<Player> infieldList = playerBO.getInfieldList();
 		
+		// 이름이 긴 경우 두 줄로 나타날 수 있어 성만 나오도록 한다.
+		for(int i=0; i<infieldList.size(); i++) {
+			if(infieldList.get(i).getName().length()>=16) {
+				String[] name = infieldList.get(i).getName().split(" ");
+				infieldList.get(i).setName(name[1]);
+			}
+		}
+		
 		model.addAttribute("infieldList", infieldList);
 		model.addAttribute("viewName", "player/inFielderView");
 		return "template/layout";
@@ -70,6 +78,14 @@ public class PlayerController {
 	public String outFielderView(Model model) {
 		// 외야수 리스트 가져오기
 		List<Player> outfieldList = playerBO.getOutfieldList();
+		
+		// 이름이 긴 경우 두 줄로 나타날 수 있어 성만 나오도록 한다.
+				for(int i=0; i<outfieldList.size(); i++) {
+					if(outfieldList.get(i).getName().length()>=16) {
+						String[] name = outfieldList.get(i).getName().split(" ");
+						outfieldList.get(i).setName(name[1]);
+					}
+				}
 		
 		model.addAttribute("outfieldList", outfieldList);
 		model.addAttribute("viewName", "player/outFielderView");

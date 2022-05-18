@@ -23,7 +23,7 @@
 								</tr>
 								<tr>
 									<td>
-										<img src="${outfielder.imagePath }" alt="코치" width="180px;" height="180px;">
+										<a href="/player/player_detail_view?playerId=${outfielder.id}"><img src="${outfielder.imagePath }" alt="외야수" width="150px;" height="180px;"></a>
 									</td>
 								</tr>
 								<tr>
@@ -33,51 +33,6 @@
 						</div>
 						</c:forEach>
 						<%-- 칸이 남을 땐 안 보이도록 하여 한줄에 4개를 채운다. --%>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
-						<div class="player">
-							
-						</div>
 					</div>
 				</div>
 			</div>
