@@ -60,7 +60,7 @@ public class MainController {
 			while(true) {
 				// 오늘 기준 다음 월로...
 				month++;
-				// 12월 이후로 넘어가면 반복 중지
+				// 12월 이후로 넘어가면 반복 중지(경기 일정이 없는 경우도 고려)
 				if(month>12) {
 					break;
 				}
@@ -94,6 +94,7 @@ public class MainController {
 		model.addAttribute("newsList", postList);
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("fanList", fanList);
+		// 경기 일정이 없는 경우도 고려해야 함.
 		model.addAttribute("match", match);
 		model.addAttribute("viewName", "include/mainPage");
 		return "template/layout";

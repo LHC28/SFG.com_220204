@@ -36,7 +36,7 @@
 							${playerIntroduce.content}
 						</div>
 					</div>
-					<img src="${playerIntroduce.imagePath }" alt="선수 사진" width="300px" height="230px">
+					<img src="${playerIntroduce.imagePath}" alt="선수 사진" width="300px" height="230px">
 				</div>
 				<div class="d-flex justify-content-center">
 					<table class="playerStatTable text-center">

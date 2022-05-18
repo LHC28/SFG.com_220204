@@ -16,6 +16,7 @@ import com.SFG.player.bo.PlayerBO;
 import com.SFG.player.model.BatterStat;
 import com.SFG.player.model.PitcherStat;
 import com.SFG.player.model.Player;
+import com.SFG.player.model.PlayerIntroduce;
 
 @RequestMapping("/player")
 @RestController
@@ -294,6 +295,66 @@ public class PlayerRestController {
 		playerBO.deletePitcherStatById(id);
 		
 		Map<String, String> result = new HashMap<>();
+		result.put("result", "success");
+		return result;
+	}
+	
+//	선수 소개 가져오기
+	@RequestMapping("/get_all_player_introduce")
+	public List<PlayerIntroduce> getAllPlayerIntroduce(
+			Model model
+			){
+		List<PlayerIntroduce> playerIntroduceList = playerBO.getAllPlayerIntroduceList();
+		
+		
+		return playerIntroduceList;
+	}
+	
+//	선수 소개 수정하기
+	@PostMapping("/edit_player_introduce")
+	public Map<String, String> editPlayerIntroduce(
+			@RequestParam("id") String Sid
+			,@RequestParam("playerId") String SplayerId
+			,@RequestParam("title") String title
+			,@RequestParam("content") String content
+			,@RequestParam("imagePath") String imagePath
+			){
+		Map<String, String> result = new HashMap<>();
+		
+		int id = Integer.parseInt(Sid);
+		int playerId = Integer.parseInt(SplayerId);
+		playerBO.editPlayerIntroduce(id, playerId, title, content, imagePath);
+		
+		result.put("result", "success");
+		return result;
+	}
+	
+//	선수 소개 추가하기
+	@PostMapping("/add_player_introduce")
+	public Map<String, String> addPlayerIntroduce(
+			@RequestParam("playerId") String SplayerId
+			,@RequestParam("title") String title
+			,@RequestParam("content") String content
+			,@RequestParam("imagePath") String imagePath
+			){
+		Map<String, String> result = new HashMap<>();
+		
+		int playerId = Integer.parseInt(SplayerId);
+		playerBO.addPlayerIntroduce(playerId, title, content, imagePath);
+		
+		result.put("result", "success");
+		return result;
+	}
+	
+//	선수 소개 삭제하기
+	@PostMapping("/delete_player_introduce")
+	public Map<String, String> deletePlayerIntroduce(
+			@RequestParam("account") int id
+			){
+		Map<String, String> result = new HashMap<>();
+		
+		playerBO.deletePlayerIntroduce(id);
+		
 		result.put("result", "success");
 		return result;
 	}

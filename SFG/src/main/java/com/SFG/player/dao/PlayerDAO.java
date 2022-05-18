@@ -60,6 +60,13 @@ public interface PlayerDAO {
 			,@Param("strikeouts") int striketous
 			,@Param("whip") double whip
 			);
+	
+	public void insertPlayerIntroduce(
+			@Param("playerId") int playerId
+			,@Param("title") String title
+			,@Param("content") String content
+			,@Param("imagePath") String imagePath
+			);
 
 //	select
 	
@@ -72,6 +79,8 @@ public interface PlayerDAO {
 	public List<Player> selectInfieldList();
 	
 	public List<Player> selectOutfieldList();
+	
+	public List<PlayerIntroduce> selectAllPlayerIntroduceList();
 	
 	// 선수 정보 가져오기
 	public Player selectPlayer(int playerId);
@@ -133,6 +142,15 @@ public interface PlayerDAO {
 			,@Param("whip") double whip
 			);
 	
+//	선수 소개 수정
+	public void updatePlayerIntroduce(
+			@Param("id") int id
+			,@Param("playerId") int playerId
+			,@Param("title") String title
+			,@Param("content") String content
+			,@Param("imagePath") String imagePath
+			);
+	
 //	delete
 	
 //	타자 기록 삭제
@@ -140,5 +158,8 @@ public interface PlayerDAO {
 	
 //	투수 기록 삭제
 	public void deletePitcherStatById(int id);
+	
+//	선수 소개 삭제
+	public void deletePlayerIntroduce(int id);
 	
 }

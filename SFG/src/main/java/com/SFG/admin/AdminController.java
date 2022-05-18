@@ -83,6 +83,16 @@ public class AdminController {
 		return "template/layout";
 	}
 	
+//	선수 소개 입력 및 수정 페이지
+	@RequestMapping("/player_introduce")
+	public String playerIntroduce(
+			Model model
+			) {
+		
+		
+		model.addAttribute("viewName", "admin/playerIntroduce");
+		return "template/layout";
+	}
 	
 //	메인페이지 수정용
 //	@RequestMapping("/mainpage_info")

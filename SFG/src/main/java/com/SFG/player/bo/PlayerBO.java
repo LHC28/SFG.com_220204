@@ -210,7 +210,6 @@ public class PlayerBO {
 			runs_batted_in+= batterStats.get(i).getRuns_batted_in();
 			stolen_bases+= batterStats.get(i).getStolen_bases();
 			at_bats+= batterStats.get(i).getAt_bats();
-			System.out.println(batterStats.get(i).getAt_bats());
 		}
 		
 		double batting_average = (double)hits/(double)at_bats;
@@ -223,6 +222,27 @@ public class PlayerBO {
 		batterTotalStat.setBatting_average(batting_average);
 		
 		return batterTotalStat;
+	}
+	
+	// 선수 소개 관련
+	public List<PlayerIntroduce> getAllPlayerIntroduceList(){
+		
+		return playerDAO.selectAllPlayerIntroduceList();
+	}
+	
+//	선수 소개 수정
+	public void editPlayerIntroduce(int id, int playerId, String title, String content, String imagePath) {
+		playerDAO.updatePlayerIntroduce(id, playerId, title, content, imagePath);
+	}
+	
+//	선수 소개 추가
+	public void addPlayerIntroduce(int playerId, String title, String content, String imagePath) {
+		playerDAO.insertPlayerIntroduce(playerId, title, content, imagePath);
+	}
+	
+//	선수 소개 삭제
+	public void deletePlayerIntroduce(int id) {
+		playerDAO.deletePlayerIntroduce(id);
 	}
 
 }

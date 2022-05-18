@@ -31,6 +31,7 @@
 						<a href="/admin/player_info">선수 및 코칭스태프 등록</a>
 						<a href="/admin/batter_info">선수 타자 기록 등록</a>
 						<a href="/admin/pitcher_info">선수 투수 기록 등록</a>
+						<a href="/admin/player_introduce">선수 소개 등록</a>
 					</div>
 				</div>
 			</li>
