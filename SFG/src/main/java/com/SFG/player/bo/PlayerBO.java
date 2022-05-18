@@ -144,7 +144,9 @@ public class PlayerBO {
 			//패
 			losses+=pitcherStats.get(i).getLosses();
 			//이닝
+			// 자연수 부분
 			int num = (int)innings_pitched+(int)pitcherStats.get(i).getInnings_pitched();
+			// 소수 아래 부분
 			double demical = (innings_pitched-(int)innings_pitched)+(pitcherStats.get(i).getInnings_pitched()-(int)pitcherStats.get(i).getInnings_pitched());
 			innings_pitched=0;
 			innings_pitched=num+(int)(demical/0.3)+(demical%0.3);
@@ -156,6 +158,8 @@ public class PlayerBO {
 		}
 		// 전체 시즌 기준 평균자책점 (소수 아래 둘째자리까지)
 		earned_run_average = Math.round((9*earned_runs)/innings_pitched*100)/100.0;
+		
+		innings_pitched = Math.round(innings_pitched*10)/10.0;
 		
 		pitcherTotalStat.setGames(games);
 		pitcherTotalStat.setWins(wins);
