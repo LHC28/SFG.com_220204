@@ -100,8 +100,6 @@ public class AdminController {
 //	구단 페이지
 //	@RequestMapping("/team_info")
 	
-//	경기정보 페이지
-//	@RequestMapping("game_info")
 	
 //	팬페이지
 //	@RequestMapping("/fan_info")
