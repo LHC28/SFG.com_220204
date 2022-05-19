@@ -48,14 +48,16 @@ public class MainController {
 		DateTimeFormatter dayFormatter = DateTimeFormatter.ofPattern("d");
 		int month = Integer.valueOf(curDate.format(MonthFormatter));
 		int day = Integer.valueOf(curDate.format(dayFormatter));
-		// 경기 일정 가져오기
+		System.out.println(day);
+		// 경기 일정 가져오기 (int 이기 때문에 null이 아닌 0이 비어있는 값으로)
 		List<MatchSchedule> matchSchedule = matchBO.getMatchSchedule(month);
-		for(int i=day; i<=matchSchedule.size(); i++) {
-			if(matchSchedule.get(i).getId()!=0) {
+		for(int i=0; i<=matchSchedule.size(); i++) {
+			if(matchSchedule.get(i)!=null && matchSchedule.get(i).getDay()==day) {
 				match = matchSchedule.get(i);
 				break;
 			}
 		}
+		
 		if(match.getId()==0) {
 			while(true) {
 				// 오늘 기준 다음 월로...

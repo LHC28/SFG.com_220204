@@ -38,13 +38,15 @@
 		<div id="matchScheduleContent">
 			<div id="matchScheduleContentBox">
 				<div id="matchScheduleContentTitle">
-					[메이저리그 네셔널리그 서부지구]<br>다음 경기
+					[메이저리그 네셔널리그 서부지구]<br>오늘 일정
 				</div>
 				<div id="matchScheduleContentTeam" class="d-flex justify-content-center align-items-center">
 					<c:set var="name" value="${fn:split(match.awayTeamName,' ')}" />
 					<div class="matchScheduleContentTeamFont2 m-2">${name[0] }<br>${name[1] }</div>
 					<img src="${match.awayTeamLogo }" alt="구단 마크" width="100px" height="100px">
+					<div class="matchScheduleContentTeamFont3 m-3">${match.awayScore }</div>
 					<div id="matchScheduleContentTeamFont1">vs</div>
+					<div class="matchScheduleContentTeamFont3 m-3">${match.homeScore }</div>
 					<img src="${match.homeTeamLogo }" alt="구단 마크" width="100px" height="100px">
 					<c:set var="name" value="${fn:split(match.homeTeamName, ' ')}" />
 					<div class="matchScheduleContentTeamFont2 m-2">${name[0] }<br>${name[1] }</div>
