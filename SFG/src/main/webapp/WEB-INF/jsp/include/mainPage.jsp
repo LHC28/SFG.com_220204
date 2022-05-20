@@ -38,7 +38,10 @@
 		<div id="matchScheduleContent">
 			<div id="matchScheduleContentBox">
 				<div id="matchScheduleContentTitle">
-					[메이저리그 네셔널리그 서부지구]<br>오늘 일정
+					[메이저리그 네셔널리그 서부지구]
+					<br>
+					<c:if test="${match.day eq day}">오늘 일정</c:if>
+					<c:if test="${match.day ne day}">다음 일정</c:if>
 				</div>
 				<div id="matchScheduleContentTeam" class="d-flex justify-content-center align-items-center">
 					<c:set var="name" value="${fn:split(match.awayTeamName,' ')}" />

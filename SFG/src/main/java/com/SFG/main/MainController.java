@@ -66,9 +66,10 @@ public class MainController {
 				if(month>12) {
 					break;
 				}
+				// 가까운 일자의 경기 일정 가져오기
 				matchSchedule = matchBO.getMatchSchedule(month);
 				for(int i=1; i<=matchSchedule.size(); i++) {
-					if(matchSchedule.get(i).getId()!=0) {
+					if(matchSchedule.get(i)!=null && matchSchedule.get(i).getDay()>day) {
 						match = matchSchedule.get(i);
 						break;
 					}
@@ -92,7 +93,8 @@ public class MainController {
 		boardKind = 3;
 		List<Post> fanList = postBO.getPostListByBoardKind(boardKind, limit);
 		
-		
+		// 오늘 날짜를 활용해 경기일정 글자 변경하는데 활용하기 위함.
+		model.addAttribute("day", day);
 		model.addAttribute("newsList", postList);
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("fanList", fanList);
