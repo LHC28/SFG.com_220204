@@ -12,7 +12,7 @@ public interface MatchDAO {
 	
 	public MatchSchedule selectMatchScheduleByMonthAndDay(
 			@Param("month") String month
-			,@Param("day") int day);
+			,@Param("day") String day);
 	
 	public List<MatchSchedule> selectMatchScheduleByMonth(String Smonth);
 	

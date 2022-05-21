@@ -50,9 +50,9 @@ public class MatchBO {
 		}else {
 			// get으로 받아온 월
 			LocalDate targetDate = LocalDate.of(2022, inputMonth,1);
-			// 첫일
+			// 첫일 구하기
 			firstDate = targetDate.with(TemporalAdjusters.firstDayOfMonth());
-			// 말일
+			// 말일 구하기
 			lastDate = targetDate.with(TemporalAdjusters.lastDayOfMonth());
 			
 			// 월 가져오기
@@ -71,11 +71,20 @@ public class MatchBO {
 		
 		List<MatchSchedule> matchSchedule = new ArrayList<>();
 		
+		// 첫주 1일 이전의 남는 칸 채우기용(표만들 때 활용하기 위함.)
 		for(int i=1; i<dayOfWeek; i++) {
 			matchSchedule.add(null);
 		}
 		for(int i=firstDay; i<=lastDay; i++) {
-			MatchSchedule matchDay = matchDAO.selectMatchScheduleByMonthAndDay(month, i);
+			
+			String Si = String.valueOf(i);
+			if(i<10) {
+//				DB에서 가져올 때 MM-dd형식으로 찾아오는데 0~9의 경우 00 01의 형식이 아닌 1 2가 되면 가져오지 못하게 된다.
+//				따라서 문자로 바꾸어 앞에 0을 붙이는 방식을 활용한다.
+				Si = "0"+Si;
+			}
+			
+			MatchSchedule matchDay = matchDAO.selectMatchScheduleByMonthAndDay(month, Si);
 			if(matchDay==null) {
 				MatchSchedule nullMatchDay = new MatchSchedule();
 				nullMatchDay.setDay(i);
