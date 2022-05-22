@@ -96,6 +96,7 @@ public class MainController {
 		List<Post> fanList = postBO.getPostListByBoardKind(boardKind, limit);
 		
 		// 오늘 날짜를 활용해 경기일정 글자 변경하는데 활용하기 위함.
+		model.addAttribute("month", month);
 		model.addAttribute("day", day);
 		model.addAttribute("teamRanks", teamRanks);
 		model.addAttribute("newsList", postList);

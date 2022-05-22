@@ -8,6 +8,7 @@ import lombok.Setter;
 public class TeamRank {
 
 	private String teamName;
+	private int rank;
 	private int games;
 	private int wins;
 	private int loses;

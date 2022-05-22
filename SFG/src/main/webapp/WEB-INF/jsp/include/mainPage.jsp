@@ -67,6 +67,49 @@
 			</div>
 		</div>
 	</div>
+	<%-- 팀 순위 --%>
+	<div id="teamRankBox">
+		<div id="teamRankBoxTitle" class="d-flex align-items-center justify-content-center">
+			<div>Sanfrancisco Giants Record</div>
+		</div>
+		<div id="teamRankBoxContent" class="d-flex align-items-center justify-content-center">
+			<div id="teamRankBoxContentImageBox" class="d-flex justify-content-center align-items-center">
+				<div class="teamRankBoxContentImageBoxFont1 text-center">
+					<c:forEach var="team" items="${teamRanks }" varStatus="status">
+					<c:if test="${team.teamName eq '샌프란시스코' }">
+					<div class="teamRankBoxContentImageBoxFont2">네셔널리그 서부지구</div>
+					<div class="teamRankBoxContentImageBoxFont3 m-2">${team.rank }</div>
+					<div class="teamRankBoxContentImageBoxFont4 mt-2">현재순위 ${team.rank }위</div>
+					<div class="teamRankBoxContentImageBoxFont5">2022-${month }-${day } (${team.wins }승 ${team.loses }패)</div>
+					<a href="/match/match_result_view" class="btn matchViewBtn text-white m-2">Learn more > </a>
+					</c:if>
+					</c:forEach>
+				</div>
+			</div>
+			<div id="teamRankBoxContentTableBox">
+				<table class="teamRankBoxContentTable text-center">
+					<tr>
+						<td>순위</td>
+						<td colspan="3">팀명</td>
+						<td>경기</td>
+						<td>승</td>
+						<td>패</td>
+						<td>게임차</td>
+					</tr>
+					<c:forEach var="team" items="${teamRanks }" varStatus="status">
+					<tr>
+						<td>${team.rank }</td>
+						<td colspan="3">${team.teamName }</td>
+						<td>${team.games }</td>
+						<td>${team.wins }</td>
+						<td>${team.loses }</td>
+						<td>${team.gamesBehind }</td>
+					</tr>
+					</c:forEach>
+				</table>
+			</div>
+		</div>
+	</div>
 	<%-- 뉴스 게시판 최신순 --%>
 	<div id="recentBoardBox">
 		<div id="recentBoardTitle" class="d-flex justify-content-center">Giants News</div>

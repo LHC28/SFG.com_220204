@@ -29,13 +29,14 @@ public class CrawlingTeamRank {
             
             Elements dataElements = document.select("#westDivisionTeamRecordList_table .inner");
             
-            for(int i=0; i<4; i++) {
+            for(int i=0; i<5; i++) {
             	// 값을 넣을 객체
             	TeamRank teamRank = new TeamRank();
-            	for(int j=i*11; j<=(i*11)+11; j++) {
+            	teamRank.setRank(i+1);
+            	for(int j=i*11; j<(i*11)+11; j++) {
             		String data = dataElements.get(j).text();
             		if(j%11==1) { // 팀명
-            			teamRank.setTeamName(dataElements.get(j).text());
+            			teamRank.setTeamName(data);
             		}else if(j%11==2) { // 경기수
             			int games = Integer.valueOf(data);
             			teamRank.setGames(games);
@@ -50,6 +51,7 @@ public class CrawlingTeamRank {
             			teamRank.setWinsRate(winsRate);
             		}else if(j%11==6) { // 게임차
             			double gamesBehind = 0;
+//            			1위인 경우 0이 아닌 -로 적혀있기 때문
             			if(!data.equals("-")) {
             				gamesBehind = Double.valueOf(data);
             			}
@@ -58,12 +60,11 @@ public class CrawlingTeamRank {
             	}
             	teamRanks.add(teamRank);
             }
-            
 //            출력 테스트
-//            for(int i=0; i<dataElements.size(); i++) {
-//            	final String data = dataElements.get(i).text();
-//            	System.out.println(data);
-//            }
+            for(int i=0; i<dataElements.size(); i++) {
+            	final String data = dataElements.get(i).text();
+            	System.out.println(data);
+            }
             
         } catch (IOException e) {
             e.printStackTrace();

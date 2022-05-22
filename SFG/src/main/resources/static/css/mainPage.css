@@ -31,7 +31,7 @@ body {background-color: #ff4814;}
 .loginBox a:hover{text-decoration: none; color: white;}
 .signOutBtn {font-size: 10px; color: white; background-color: #ff7a2f;}
 
-.content {width:1110px; height: 1850px; background-color: white;}
+.content {width:1110px; height: 2300px; background-color: white;}
 
 /* mainPage */
 #slideBanner {height:450px;}
@@ -50,6 +50,22 @@ body {background-color: #ff4814;}
 .matchScheduleContentTeamFont2{font-size: 20px; font-weight: bold;}
 .matchScheduleContentTeamFont3{font-size: 40px; font-weight: bold;}
 #matchScheduleContentDate{width: 30%; height: 100px; display: inline-block; color: white; font-size: 20px;}
+/* 메인 팀 순위 부분 */
+#teamRankBox {width: 100%; height: 450px; background-color: #ff8f55;}
+#teamRankBoxTitle {width: 100%; height: 15%; color: white; font-size: 35px;}
+#teamRankBoxContent {width: 100%; height: 85%;}
+#teamRankBoxContentImageBox {width: 320px; height: 320px; position: relative; z-index: 1;}
+/* 바로 opacity를 활용하게 되면 안에 들어가는 하위 요소들도 모두 투명해지기 때문에 가상요소를 만들어 배치해주면 된다. */
+#teamRankBoxContentImageBox::after {width: 320px; height: 320px; content: ""; background: url("/static/images/posey.png"); position: absolute; top:0; left: 0; z-index: -1; opacity: 0.4;}
+.teamRankBoxContentImageBoxFont1 {color: white;}
+.teamRankBoxContentImageBoxFont2 {font-size: 30px;}
+.teamRankBoxContentImageBoxFont3 {font-size: 40px;}
+.teamRankBoxContentImageBoxFont4 {font-size: 30px;}
+.teamRankBoxContentImageBoxFont5 {font-size: 20px;}
+.matchViewBtn {border: 1px solid white;}
+#teamRankBoxContentTableBox {width: 450px; height: 320px; background-color: white;}
+.teamRankBoxContentTable {width: 450px; height: 320px;}
+.teamRankBoxContentTable td {border: 1px solid #d3d3d3; border-collapse:collapse;}
 /* 메인 페이지게시판 부분 */
 #recentBoardBox {height: 450px; background-color: rgb(255,122,47);}
 #recentBoardTitle {font-size: 40px; color: white;}
