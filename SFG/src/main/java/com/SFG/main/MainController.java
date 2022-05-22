@@ -3,16 +3,15 @@ package com.SFG.main;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.SFG.board.bo.BoardBO;
+import com.SFG.crawling.CrawlingTeamRank;
+import com.SFG.crawling.model.TeamRank;
 import com.SFG.match.BO.MatchBO;
 import com.SFG.match.model.MatchSchedule;
 import com.SFG.post.bo.PostBO;
@@ -81,6 +80,9 @@ public class MainController {
 			}
 		}
 		
+		// 구단 순위 가져오기
+		List<TeamRank> teamRanks = CrawlingTeamRank.getTeamRank();
+		
 		// 구단 뉴스 가져오기 (boardKind = 2, limit = 5)
 		int boardKind = 2;
 		int limit = 5;
@@ -95,6 +97,7 @@ public class MainController {
 		
 		// 오늘 날짜를 활용해 경기일정 글자 변경하는데 활용하기 위함.
 		model.addAttribute("day", day);
+		model.addAttribute("teamRanks", teamRanks);
 		model.addAttribute("newsList", postList);
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("fanList", fanList);
