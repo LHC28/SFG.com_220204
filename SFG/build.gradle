@@ -35,6 +35,8 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.2.2'
 	// Jsoup 추가
 	implementation 'org.jsoup:jsoup:1.13.1'
+	// 이메일 인증 관련
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
 	
 }
 

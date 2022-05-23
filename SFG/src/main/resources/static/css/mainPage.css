@@ -124,18 +124,23 @@ body {background-color: #ff4814;}
 #loginBox2 a:hover {text-decoration: none; color: black;}
 
 /* signUpView */
-#signUpBox1 {width: 1110px; height: 700px; background-color: #ff7a2f;}
-#signUpBox2 {width: 1000px; height: 600px; background-color: white;}
-#signUpBox3 {width: 800px; height: 500px; background-color: #ff7a2f;}
-#signUpBox4 {width: 750px; height: 450px; background-color: white;}
-#signUpBox5 {width: 500px; height: 420px;}
-#signUpBox {width: 300px;}
+#signUpBox1 {width: 1110px; height: 800px; background-color: #ff7a2f;}
+#signUpBox2 {width: 1000px; height: 700px; background-color: white;}
+#signUpBox3 {width: 800px; height: 600px; background-color: #ff7a2f;}
+#signUpBox4 {width: 750px; height: 550px; background-color: white;}
+#signUpBox5 {width: 500px; height: 450px;}
+#signUpBox {width: 350px;}
 #signUpBoxTitle {font-size: 40px; color: #ff7a2f;}
 .duplicatedLoginId {font-size: 10px; color: red;}
 .possibleLoginId {font-size: 10px; color: green;}
-.signUpBtn {background-color: #ff7a2f; color: white;}
-.duplicatedIdBtn {font-size: 10px;}
+.checkEmailBtn {font-size: 10px; width: 90px;}
+.checkEmailBtn2 {font-size: 10px; width: 90px;} 
+.impossibleEmail {font-size: 10px; color: red;}
+.possibleEmail {font-size: 10px; color: green;}
 
+.signUpBtn {background-color: #ff7a2f; color: white;}
+.duplicatedIdBtn {font-size: 10px; width: 90px;}
+.duplicatedEmailBtn {font-size: 10px; width: 90px;}
 
 /* introduceView - 다른 소개 페이지도 활용 */
 .introduceBox1 {width:1110px; height:1000px; background-color: #ff7a2f;}

@@ -27,10 +27,22 @@
 							</div>
 							<div class="mt-2">
 								<div>이메일</div>
-								<input type="text" id="email" class="form-control">
+								<div class="d-flex">
+									<input type="text" id="email" class="form-control">
+									<button class="btn btn-primary checkEmailBtn ml-2">메일 확인</button>
+								</div>
+							</div>
+							<div class="mt-2 emailCheckBox d-none">
+								<div>인증번호 입력</div>
+								<div class="d-flex">
+									<input type="text" id="emailCheck" class="form-control" placeholder="인증번호를 입력해주세요.">
+									<button class="btn btn-primary checkEmailBtn2 ml-2">확인</button>
+								</div>
+								<div class="impossibleEmail mt-1 d-none">이메일 인증 실패</div>
+								<div class="possibleEmail mt-1 d-none">이메일 인증 성공</div>
 							</div>
 							<%-- 버튼을 입력하면 유효성 검사 후 로그인 화면으로 이동 --%>
-							<input type="button" class="btn signUpBtn w-100 mt-4" value="회원가입하기">
+							<input type="button" class="btn signUpBtn w-100 mt-3" value="회원가입하기">
 						</div>
 					</div>
 				</div>
@@ -40,6 +52,9 @@
 </div>
 <script>
 	$(document).ready(function(){
+		
+		// 이메일 인증시 인증번호 저장하는 변수
+		var cerNum = '';
 		
 		// loginId 중복확인 버튼 클릭시
 		$('.duplicatedIdBtn').on('click',function(){
@@ -66,6 +81,51 @@
 					alert("error : "+e);
 				}
 			});
+		});
+		
+		// 메일 확인 버튼 클릭시
+		$('.checkEmailBtn').on('click', function(){
+			var email = $('#email').val();
+			if(email==''){
+				alert("이메일을 입력하세요.");
+				return;
+			}
+			if($('.emailCheckBox').hasClass('d-none')){
+				$('.emailCheckBox').removeClass('d-none');
+			}
+			// 인증번호 만들기
+			$.ajax({
+				url: "/user/email_authentication"
+				,type: "post"
+				,data: {"email":email}
+				,success: function(data){
+					cerNum = data.num;
+				},
+				error:function(request,status,error){
+					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				}
+			});
+		});
+		
+		// 이메일 확인의 확인 버튼 클릭시
+		$('.checkEmailBtn2').on('click', function(){
+			var num = $('#emailCheck').val();
+			
+			if(num==''){
+				alert("인증번호를 입력해주세요.");
+				return;
+			}
+			
+			// 인증번호와 입력한 번호가 같은 경우
+			if(cerNum==num){
+				$('.possibleEmail').removeClass('d-none');
+				$('.impossibleEmail').addClass('d-none');
+			}
+			// 인증번호와 입력한 번호가 다른 경우
+			else if(cerNum!=num){
+				$('.impossibleEmail').removeClass('d-none');
+				$('.possibleEmail').addClass('d-none');
+			}
 		});
 		
 		// 회원가입 버튼 클릭시
@@ -96,9 +156,13 @@
 				return;
 			}
 			
-			if($('.possibleLoginId').hasClass("d-none")){
+			if($('.duplicatedLoginId').hasClass("d-none")){
 				alert("아이디 중복여부를 확인하세요.");
 				return;
+			}
+			
+			if($('.impossibleEmail').hasClass('d-none')){
+				alert("이메일 인증여부를 확인해주세요.");
 			}
 			
 			$.ajax({

@@ -4,12 +4,14 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +27,9 @@ public class UserRestController {
 
 	@Autowired
 	private UserBO userBO;
+	
+	@Autowired
+	public JavaMailSender javaMailSender;
 	
 	@PostMapping("/duplicated_id")
 	public Map<String, String> duplicatedId(
@@ -123,5 +128,31 @@ public class UserRestController {
 		return result;
 	}
 	
+//	이메일 인증 관련
+	@PostMapping("/email_authentication")
+	public Map<String, String> emailAuthentication(
+			@RequestParam("email") String email
+			){
+		Map<String, String> result = new HashMap<>();
+		
+		Random ran = new Random();
+		String num = "";
+		for(int i=0; i<8; i++) {
+			int n = ran.nextInt(10);
+			num+=n;
+		}
+		
+		SimpleMailMessage simpleMessage = new SimpleMailMessage();
+		simpleMessage.setFrom("zzangth94@naver.com");
+		simpleMessage.setTo(email);
+		simpleMessage.setSubject("sfg.com 이메일 인증 번호 알림");
+		simpleMessage.setText("인증번호는 "+num+"입니다.");
+		javaMailSender.send(simpleMessage);
+		
+		result.put("result", "success");
+		// 이메일로 보낸 인증번호 넘기기
+		result.put("num", num);
+		return result;
+	}
 
 }
