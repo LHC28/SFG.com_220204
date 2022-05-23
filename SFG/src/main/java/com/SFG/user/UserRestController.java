@@ -175,5 +175,47 @@ public class UserRestController {
 		
 		return result;
 	}
+	
+	// 이름, 로그인아이디, 이메일을 활용한 비밀번호 재설정
+	@PostMapping("/find_password")
+	public Map<String, String> findPassword(
+			@RequestParam("name") String name
+			,@RequestParam("loginId") String loginId
+			,@RequestParam("email") String email
+			){
+		
+		Map<String, String> result = new HashMap<>();
+		
+		User user = userBO.getUserByNameAndLoginIdAndEmail(name, loginId, email);
+		
+		if(user==null) {
+			result.put("result", "fail");
+		}else if(user!=null) {
+			result.put("result", "success");
+			result.put("loginId", user.getLoginId());
+		}
+		
+		return result;
+	}
+	
+	@PostMapping("/change_password")
+	public Map<String, String> changePassword(
+			@RequestParam("loginId") String loginId
+			,@RequestParam("password") String password
+			){
+		Map<String, String> result = new HashMap<>();
+		System.out.println(loginId+" "+ password);
+		String encryptPassword = null;
+		try {
+			encryptPassword = SHA256.encrypt(password);
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		
+		userBO.changePasswordByLoginId(loginId, encryptPassword);
+		
+		result.put("result", "success");
+		return result;
+	}
 
 }

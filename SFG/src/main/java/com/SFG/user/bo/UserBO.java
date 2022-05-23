@@ -44,4 +44,14 @@ public class UserBO {
 			return user.getLoginId();
 		}
 	}
+	
+//	이름, 로그인아이디, 이메일을 활용하여 유저 정보 가져오기
+	public User getUserByNameAndLoginIdAndEmail(String name, String loginId, String email) {
+		return userDAO.selectUserByNameAndLoginIdAndEmail(name, loginId, email);
+	}
+	
+//	로그인아이디를 활용한 비밀번호 변경
+	public void changePasswordByLoginId(String loginId, String password) {
+		userDAO.updatePasswordByLoginId(loginId, password);
+	}
 }

@@ -84,6 +84,31 @@
 			`name` = #{name}
 			AND `email` = #{email}
 	</select>
+	<select id="selectUserByNameAndLoginIdAndEmail" resultType="com.SFG.user.model.User">
+		SELECT
+			`id`
+			,`loginId`
+			,`password`
+			,`name`
+			,`email`
+			,`imagePath`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`user`
+		WHERE
+			`name` = #{name}
+			AND `loginId` = #{loginId}
+			AND `email` = #{email}
+	</select>
+	<update id="updatePasswordByLoginId" parameterType="map">
+		UPDATE `user`
+		SET
+			`password` = #{password}
+			,`updatedAt` = NOW()
+		WHERE
+			`loginId` = #{loginId}
+	</update>
 	<delete id="deleteUserById">
 		DELETE
 		FROM `user`

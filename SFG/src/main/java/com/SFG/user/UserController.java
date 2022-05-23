@@ -48,4 +48,13 @@ public class UserController {
 		return "template/layout";
 	}
 	
+	@RequestMapping("/find_password")
+	public String findPassword(
+			Model model
+			) {
+		
+		model.addAttribute("viewName", "user/findPasswordView");
+		return "template/layout";
+	}
+	
 }

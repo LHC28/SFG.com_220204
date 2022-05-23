@@ -145,6 +145,11 @@ body {background-color: #ff4814;}
 /* 아이디 찾기 */
 .findLoginIdBtn {background-color: #ff7a2f; color: white; width: 100%;}
 
+/* 비밀번호 찾기 */
+.findPasswordIdBtn {background-color: #ff7a2f; color: white; width: 100%;}
+
+/* 비밀번호 재설정 */
+.setNewPasswordBtn {background-color: #ff7a2f; color: white; width: 100%;}
 /* introduceView - 다른 소개 페이지도 활용 */
 .introduceBox1 {width:1110px; height:1000px; background-color: #ff7a2f;}
 .introduceBox2 {width:1050px; height:950px; background-color: white;}

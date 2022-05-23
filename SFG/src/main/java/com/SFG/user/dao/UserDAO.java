@@ -32,4 +32,17 @@ public interface UserDAO {
 			@Param("name") String name
 			,@Param("email") String email
 			);
+	
+//	이름, 아이디, 이메일을 활용한 유저 정보 가져오기
+	public User selectUserByNameAndLoginIdAndEmail(
+			@Param("name") String name
+			,@Param("loginId") String loginId
+			,@Param("email") String email
+			);
+	
+//	로그인아이디를 활용한 비밀번호 변경
+	public void updatePasswordByLoginId(
+			@Param("loginId") String loginId
+			,@Param("password") String password
+			);
 }

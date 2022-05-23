@@ -17,7 +17,7 @@
 						<div class="d-flex justify-content-center">
 							<div class="loginFindBox d-flex align-items-center justify-content-between mt-4">
 								<a href="/user/find_loginId">아이디 찾기</a>
-								<a href="#">비밀번호 찾기</a>
+								<a href="/user/find_password">비밀번호 찾기</a>
 							</div>
 						</div>
 					</div>
