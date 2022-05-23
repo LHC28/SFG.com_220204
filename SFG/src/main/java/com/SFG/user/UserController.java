@@ -38,4 +38,14 @@ public class UserController {
 		
 		return "redirect:/main/main_page";
 	}
+	
+	@RequestMapping("/find_loginId")
+	public String findLoginId(
+			Model model
+			) {
+		
+		model.addAttribute("viewName", "user/findLoginIdView");
+		return "template/layout";
+	}
+	
 }

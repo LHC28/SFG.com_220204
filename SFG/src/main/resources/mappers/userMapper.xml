@@ -68,6 +68,22 @@
 		FROM
 			`user`
 	</select>
+	<select id="selectUserLoginIdByNameAndEmail" resultType="com.SFG.user.model.User">
+				SELECT
+			`id`
+			,`loginId`
+			,`password`
+			,`name`
+			,`email`
+			,`imagePath`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`user`
+		WHERE
+			`name` = #{name}
+			AND `email` = #{email}
+	</select>
 	<delete id="deleteUserById">
 		DELETE
 		FROM `user`

@@ -26,4 +26,10 @@ public interface UserDAO {
 	public List<User> selectUserList();
 	
 	public void deleteUserById(int id);
+	
+//	입력한 이름과 이메일을 활용한 로그인 아이디 가져오기
+	public User selectUserLoginIdByNameAndEmail(
+			@Param("name") String name
+			,@Param("email") String email
+			);
 }

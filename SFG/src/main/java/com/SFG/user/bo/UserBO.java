@@ -34,4 +34,14 @@ public class UserBO {
 	public void deleteUserById(int id) {
 		userDAO.deleteUserById(id);
 	}
+	
+//	이름과 이메일을 활용하여 로그인 아이디 가져오기
+	public String getUserLoginIdByNameAndEmail(String name, String email) {
+		User user = userDAO.selectUserLoginIdByNameAndEmail(name, email);
+		if(user==null) {
+			return null;
+		}else {
+			return user.getLoginId();
+		}
+	}
 }

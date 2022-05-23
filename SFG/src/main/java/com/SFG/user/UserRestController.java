@@ -154,5 +154,26 @@ public class UserRestController {
 		result.put("num", num);
 		return result;
 	}
+	
+//	이름과 이메일을 활용한 아이디 찾기
+	@PostMapping("/find_loginId")
+	public Map<String, String> findLoginId(
+			@RequestParam("name") String name
+			,@RequestParam("email") String email
+			){
+		Map<String, String> result = new HashMap<>();
+		
+		String loginId = userBO.getUserLoginIdByNameAndEmail(name, email);
+		
+		if(loginId==null) {
+			result.put("result", "fail");
+		}else {
+			result.put("result", "success");
+		}
+		System.out.println(loginId);
+		result.put("loginId", loginId);
+		
+		return result;
+	}
 
 }
