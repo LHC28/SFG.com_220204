@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div class="content">
-	<div class="couchBox1 d-flex align-items-center justify-content-center">
-		<div class="couchBox2 d-flex align-items-center justify-content-center">
-			<div class="couchbox3">
+<div class="outfielderContent">
+	<div class="outfieldBox1 d-flex align-items-center justify-content-center">
+		<div class="outfieldBox2 d-flex align-items-center justify-content-center">
+			<div class="outfieldBox3">
 				<div class="d-flex justify-content-center mb-4">
 					<div class="introduceTitleBox">
 						<div class="introduceTitle d-flex align-items-center justify-content-center">

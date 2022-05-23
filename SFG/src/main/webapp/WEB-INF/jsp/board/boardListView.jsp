@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<div class="content">
+<div class="boardListViewContent">
 	<div class="boardBox1 d-flex align-items-center justify-content-center">
 		<div class="boardBox2 d-flex align-items-center justify-content-center">
 			<div class="boardbox3">

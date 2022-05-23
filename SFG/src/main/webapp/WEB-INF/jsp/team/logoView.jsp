@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<div class="content">
+<div class="logoViewContent">
 	<div class="logoBox1 d-flex align-items-center justify-content-center">
 		<div class="logoBox2 d-flex align-items-center justify-content-center">
 			<div class="logobox3">
@@ -66,8 +66,8 @@
 						</div>
 						<%-- 사진 --%>
 						<div class="d-flex justify-content-between">
-							<img src="/static/images/2014win.png" alt="구단로고1" width="250px" height="250px">
-							<img src="/static/images/2014win.png" alt="구단로고1" width="250px" height="250px">
+							<img src="/static/images/2010win.png" alt="구단로고1" width="250px" height="250px">
+							<img src="/static/images/2012win.gif" alt="구단로고1" width="250px" height="250px">
 							<img src="/static/images/2014win.png" alt="구단로고1" width="250px" height="250px">
 						</div>
 						

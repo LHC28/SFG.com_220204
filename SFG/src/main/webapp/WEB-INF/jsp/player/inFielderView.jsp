@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<div class="content">
+<div class="infielderContent">
 	<div class="couchBox1 d-flex align-items-center justify-content-center">
 		<div class="couchBox2 d-flex align-items-center justify-content-center">
 			<div class="couchbox3">

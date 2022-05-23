@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<div class="content">
+<div class="representPlayerViewcontent">
 	<div class="representPlayerBox1 d-flex align-items-center justify-content-center">
 		<div class="representPlayerBox2 d-flex align-items-center justify-content-center">
 			<div class="representPlayerbox3">

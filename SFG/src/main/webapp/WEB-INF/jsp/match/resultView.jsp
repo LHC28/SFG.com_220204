@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<div class="content">
-	<div class="detailPlayerBox1 d-flex align-items-center justify-content-center">
-		<div class="detailPlayerBox2 d-flex align-items-center justify-content-center">
-			<div class="detailPlayerbox3">
+<div class="matchResultViewContent">
+	<div class="matchBox1 d-flex align-items-center justify-content-center">
+		<div class="matchBox2 d-flex align-items-start justify-content-center">
+			<div class="matchBox3">
 				<div class="d-flex justify-content-center mb-4">
 					<div class="detailTitleBox">
-						<div class="detailTitle d-flex align-items-center justify-content-center">
+						<div class="detailTitle d-flex justify-content-center">
 							<span>경기일정</span>
 						</div>
 					</div>
