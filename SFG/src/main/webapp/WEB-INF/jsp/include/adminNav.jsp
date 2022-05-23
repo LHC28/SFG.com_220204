@@ -3,6 +3,7 @@
 	<nav class="adminNav">
 		<ul class="nav flex-column">
 			<li class="nav-item adminNavFont p-2"><a href="/admin/main" class="nav-link">회원정보</a></li>
+			<%-- 
 			<li class="nav-item adminNavFont p-2">
 				<div class="dropdown">
 					<a href="#" class="dropbtn nav-link">메인 페이지 관리</a>
@@ -13,6 +14,8 @@
 					</div>
 				</div>
 			</li>
+			 --%>
+			<%--
 			<li class="nav-item adminNavFont p-2">
 				<div class="dropdown">
 					<a href="#" class="dropbtn nav-link">구단 페이지 관리</a>
@@ -24,6 +27,7 @@
 					</div>
 				</div>
 			</li>
+			 --%>
 			<li class="nav-item adminNavFont p-2">
 				<div class="dropdown">
 					<a href="/admin/player_info" class="nav-link">선수단 페이지 관리</a>
@@ -36,6 +40,6 @@
 				</div>
 			</li>
 			<li class="nav-item adminNavFont p-2"><a href="/admin/game_info" class="nav-link">경기정보 페이지 관리</a></li>
-			<li class="nav-item adminNavFont p-2"><a href="#" class="nav-link">팬 페이지 관리</a></li>
+			<%-- <li class="nav-item adminNavFont p-2"><a href="#" class="nav-link">팬 페이지 관리</a></li> --%>
 		</ul>
 	</nav>

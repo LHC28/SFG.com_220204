@@ -316,4 +316,4 @@ body {background-color: #ff4814;}
 .adminSection {width: 890px; height: 800px; background-color: white;}
 
 /* footer */
-footer {height:100px; background-color: #333333;}
+footer {height:150px; background-color: #333333; font-size: 15px; color: white;}
