@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,7 +39,14 @@ public class MainController {
 	}
 	
 	@RequestMapping("/main_page")
-	public String mainPage(Model model) {
+	public String mainPage(
+			Model model
+			,HttpServletRequest request
+			) {
+		
+		// 로그인이 된 경우
+		HttpSession session = request.getSession();
+		String loginId = (String)session.getAttribute("loginId");
 		
 		// 구단 다음 경기 가져오기
 		MatchSchedule match = new MatchSchedule();
@@ -96,6 +106,7 @@ public class MainController {
 		List<Post> fanList = postBO.getPostListByBoardKind(boardKind, limit);
 		
 		// 오늘 날짜를 활용해 경기일정 글자 변경하는데 활용하기 위함.
+		model.addAttribute("loginId", loginId);
 		model.addAttribute("month", month);
 		model.addAttribute("day", day);
 		model.addAttribute("teamRanks", teamRanks);

@@ -67,7 +67,7 @@
 		<%-- 로그인 후 --%>
 		<c:if test="${not empty loginId }">
 			<div class="buttonBox2 mr-3 d-flex align-items-center justify-content-between">
-				<div class="ml-3 loginBoxId"><span class="loginBoxIdFont mr-1">abcd</span><span class="text-white">님 환영합니다.</span></div>
+				<div class="ml-3 loginBoxId"><span class="loginBoxIdFont mr-1">${loginId }</span><span class="text-white">님 환영합니다.</span></div>
 				<div class="loginBox d-flex align-items-center justify-content-center">
 					<a href="/user/sign_out"><button class="btn signOutBtn">로그아웃</button></a>
 				</div>
