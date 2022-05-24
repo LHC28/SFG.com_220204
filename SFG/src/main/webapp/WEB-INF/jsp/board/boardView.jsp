@@ -57,6 +57,8 @@
 </div>
 <script>
 	$(document).ready(function(){
+		var referrer = document.referrer;
+		
 		$('.recommendBtn').on('click', function(e){
 			let userId = $(this).data("user-id");
 			let boardId = $(this).data("board-id");
@@ -93,7 +95,7 @@
 				,data: {"boardId":boardId, "userId":userId}
 				,success: function(data){
 					if(data.result=='success'){
-						history.go(-1);
+						location.href=referrer;
 					}
 				},error:function(request,status,error){
 					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
