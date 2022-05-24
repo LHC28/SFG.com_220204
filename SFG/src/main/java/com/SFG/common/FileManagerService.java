@@ -21,7 +21,8 @@ public class FileManagerService {
 	
 	// 이미지 저장 경로
 	public final static String FILE_UPLOAD_PATH="C:\\Users\\zzang\\Desktop\\sfg\\sfg.com\\workspace\\SFG\\images/";
-	
+	// aws저장용
+	//public final static String FILE_UPLOAD_PATH= "/home/ec2-user/upload_images/";
 	// aws로 옮길 때...
 	//public final static String FILE_UPLOAD_PATH= "/home/ec2-user/upload_images/";
 	// 이미지 저장 (1개)
