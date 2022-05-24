@@ -12,12 +12,11 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 @Component
-public class PermissionInterceptor implements HandlerInterceptor {
+public class PermissionInterceptor implements HandlerInterceptor{
 
 	// 로그 찍기용
 	private Logger logger = LoggerFactory.getLogger(PermissionInterceptor.class);
-	// 다른 기능 구현 후 인터셉터 적용
-	/*
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
@@ -29,14 +28,13 @@ public class PermissionInterceptor implements HandlerInterceptor {
 		// 로그인이 되어있지 않으면 로그인 화면으로 이동하도록 설정
 		// 프로필 변경 화면이 user에 있으므로 아래와 같이 로그인과 회원가입 화면이 아닐 경우를 조건으로 달아주어야 한다.
 		
-		if(loginId==null && !uri.startsWith("/user")) {
-			response.sendRedirect("/user/sign_in_view");
+		if(loginId == null && uri.startsWith("/admin")) {
+			response.sendRedirect("/main/main_page");
 			return false;
 		}
 		
-		// 로그인이 되어있는데 로그인 화면이나 회원가입 화면으로 넘어가려는 경우 게시물리스트 페이지로 이동
-		if(loginId!=null  && uri.startsWith("/user/sign")) {
-			response.sendRedirect("/timeline/post_list_view");
+		if(loginId!=null && !loginId.equals("admin") && uri.startsWith("/admin")) {
+			response.sendRedirect("/main/main_page");
 			return false;
 		}
 		
@@ -57,5 +55,4 @@ public class PermissionInterceptor implements HandlerInterceptor {
 		String uri = request.getRequestURI();
 		logger.info("#### afterCompletion():"+uri);
 	}
-	*/
 }

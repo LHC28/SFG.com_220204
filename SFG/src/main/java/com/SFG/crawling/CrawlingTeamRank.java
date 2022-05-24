@@ -61,10 +61,10 @@ public class CrawlingTeamRank {
             	teamRanks.add(teamRank);
             }
 //            출력 테스트
-            for(int i=0; i<dataElements.size(); i++) {
-            	final String data = dataElements.get(i).text();
-            	System.out.println(data);
-            }
+//            for(int i=0; i<dataElements.size(); i++) {
+//            	final String data = dataElements.get(i).text();
+//            	System.out.println(data);
+//            }
             
         } catch (IOException e) {
             e.printStackTrace();
