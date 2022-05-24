@@ -1,5 +1,6 @@
 package com.SFG.post.bo;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.SFG.board.bo.BoardBO;
 import com.SFG.board.model.Board;
 import com.SFG.board.model.File;
+import com.SFG.common.FileManagerService;
 import com.SFG.post.model.Post;
 import com.SFG.recommend.bo.RecommendBO;
 import com.SFG.recommend.model.Recommend;
@@ -22,6 +24,9 @@ public class PostBO {
 	
 	@Autowired
 	private RecommendBO recommendBO;
+	
+	@Autowired
+	private FileManagerService fileManagerService;
 	
 //	한 페이지에 나오는 게시글 갯수
 	private static final int POST_MAX_SIZE = 8;
@@ -131,8 +136,21 @@ public class PostBO {
 //	게시물 삭제
 	public void deletePostByBoardId(int boardId, int userId) {
 		
+		List<File> fileList = boardBO.getFileByBoardId(boardId); 
+		
 		// recommend 삭제
 		recommendBO.deleteRecommendByBoardId(boardId);
+		
+//		이미지 삭제
+		if(fileList != null) {
+			for(int i=0; i<fileList.size(); i++) {
+				try {
+					fileManagerService.deleteFile(fileList.get(i).getImagePath());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 		
 		// board 삭제
 		boardBO.deleteBoardByBoardId(boardId);

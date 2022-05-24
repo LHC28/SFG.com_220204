@@ -50,7 +50,7 @@ public class FileManagerService {
 		
 	}
 	
-	// 이미지 파일 여러 개 저장하라 때
+	// 이미지 파일 여러 개 저장할 때
 	public List<String> saveFiles(String userLoginId, List<MultipartFile> fileList) throws IOException {
 		
 		// 1. 파일 경로 만들기(폴더) - 안 겹치게. 이름이 겹치는 것도 있을 수 있기 때문
@@ -76,6 +76,22 @@ public class FileManagerService {
 		
 		// 파일 URI를 리턴
 		return imagePaths;
-		
 	}
+	
+//	이미지 파일 삭제
+	public void deleteFile(String imagePath) throws IOException {
+//		C:\Users\zzang\Desktop\sfg\sfg.com\workspace\SFG\images/
+//		/images\\usqq_1629444033939\.jpg
+		Path path = Paths.get(FILE_UPLOAD_PATH + imagePath.replace("/images/", ""));
+		if(Files.exists(path)) {
+			Files.delete(path); // 이미지 삭제
+		}
+		
+		// 디렉토리 삭제
+		path = path.getParent();
+		if(Files.exists(path)) {
+			Files.delete(path);
+		}
+	}
+	
 }

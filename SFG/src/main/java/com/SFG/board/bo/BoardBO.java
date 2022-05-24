@@ -67,6 +67,7 @@ public class BoardBO {
 		}
 	}
 	
+	
 //	게시물 가져오기 (페이징 용)
 	public List<Board> getBoardByBoardKindForPaging(int boardKind, String direction, Integer standardId, int limit) {
 		return boardDAO.selectBoardByBoardKindForPaging(boardKind, direction, standardId, limit);
