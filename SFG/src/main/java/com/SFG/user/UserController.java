@@ -35,6 +35,7 @@ public class UserController {
 		session.removeAttribute("name");
 		session.removeAttribute("email");
 		session.removeAttribute("imagePath");
+		session.removeAttribute("userId");
 		
 		return "redirect:/main/main_page";
 	}

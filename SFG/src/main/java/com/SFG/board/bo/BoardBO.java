@@ -95,4 +95,9 @@ public class BoardBO {
 	public int selectPostIdByBoardKindAndSort(int boardKind, String sort) {
 		return boardDAO.selectPostIdByBoardKindAndSort(boardKind, sort);
 	}
+	
+//	게시물 삭제
+	public void deleteBoardByBoardId(int boardId) {
+		boardDAO.deleteBoardByBoardId(boardId);
+	}
 }

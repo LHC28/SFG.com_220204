@@ -127,4 +127,15 @@ public class PostBO {
 		
 		return postList;
 	}
+	
+//	게시물 삭제
+	public void deletePostByBoardId(int boardId, int userId) {
+		
+		// recommend 삭제
+		recommendBO.deleteRecommendByBoardId(boardId);
+		
+		// board 삭제
+		boardBO.deleteBoardByBoardId(boardId);
+	}
+	
 }

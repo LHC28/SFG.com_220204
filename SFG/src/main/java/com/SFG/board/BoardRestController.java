@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.SFG.board.bo.BoardBO;
-import com.SFG.board.model.Board;
 
 @RequestMapping("/board")
 @RestController
@@ -43,6 +43,7 @@ public class BoardRestController {
 		
 		return result;
 	}
+	
 	
 //	조회수 증가
 	@RequestMapping("/add_views")

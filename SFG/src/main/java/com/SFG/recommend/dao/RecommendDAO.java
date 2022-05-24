@@ -23,4 +23,7 @@ public interface RecommendDAO {
 	public void deleteRecommend(
 			@Param("userId") int userId
 			,@Param("boardId") int boardId);
+	
+//	boardId와 관련된 추천 모두 삭제
+	public void deleteRecommendByBoardId(int boardId);
 }

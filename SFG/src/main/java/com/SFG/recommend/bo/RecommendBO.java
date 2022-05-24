@@ -30,4 +30,9 @@ public class RecommendBO {
 		recommendDAO.deleteRecommend(userId, boardId);
 	}
 	
+//	게시물과 관련된 모든 추천 삭제
+	public void deleteRecommendByBoardId(int boardId) {
+		recommendDAO.deleteRecommendByBoardId(boardId);
+	}
+	
 }

@@ -18,7 +18,13 @@
 							<%-- 작성자 --%>
 							<div class="boardViewHeadUserName d-flex align-items-center justify-content-center">${post.board.userName }</div>
 							<%-- 제목 --%>
-							<div class="boardViewHeadTitle d-flex align-items-center justify-content-center">${post.board.title }</div>
+							<div class="boardViewHeadTitle d-flex align-items-center justify-content-center">
+								${post.board.title }
+								<%-- 삭제 버튼 --%>
+								<c:if test="${userId ne null && post.board.userId eq userId}">
+								<a href=""><img src="/static/images/button/deleteBtn.png" class="deleteBoardBtn ml-2" alt="삭제 버튼" width="20px" height="20px" data-board-id="${post.board.id }" data-user-id="${userId }"></a>
+								</c:if>
+							</div>
 							<%-- 조회수 --%>
 							<div class="boardViewHeadViews d-flex align-items-center justify-content-center">조회수 : ${post.board.views }</div>
 							<%-- 추천수 --%>
@@ -73,6 +79,27 @@
 					alert("error : "+e);
 				}
 			});
+		});
+		
+		$('.deleteBoardBtn').on('click', function(){
+			// 게시글 id
+			var boardId = $(this).data('board-id');
+			// 유저 id
+			var userId = $(this).data('user-id');
+			
+			$.ajax({
+				url: '/post/delete_post'
+				,type: 'post'
+				,data: {"boardId":boardId, "userId":userId}
+				,success: function(data){
+					if(data.result=='success'){
+						history.go(-1);
+					}
+				},error:function(request,status,error){
+					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				}
+			});
+			
 		});
 	});
 </script>

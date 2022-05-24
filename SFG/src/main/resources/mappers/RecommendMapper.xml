@@ -44,4 +44,11 @@
 			`userId` = #{userId}
 			and `boardId` = #{boardId}
 	</delete>
+	<delete id="deleteRecommendByBoardId" parameterType="int">
+		DELETE
+		FROM
+			`recommend`
+		WHERE
+			`boardId` = #{boardId}
+	</delete>
 </mapper>

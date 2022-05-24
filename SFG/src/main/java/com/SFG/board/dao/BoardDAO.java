@@ -44,4 +44,6 @@ public interface BoardDAO {
 			@Param("boardKind") int boardKind
 			,@Param("sort") String sort
 			);
+	
+	public void deleteBoardByBoardId(int boardId);
 }
