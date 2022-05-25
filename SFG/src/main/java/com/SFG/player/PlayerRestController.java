@@ -163,7 +163,7 @@ public class PlayerRestController {
 		
 		int playerId = Integer.valueOf(SplayerId);
 		int year = Integer.valueOf(Syear);
-		int wins = Integer.valueOf(Syear);
+		int wins = Integer.valueOf(Swins);
 		int losses = Integer.valueOf(Slosses);
 		double earned_run_average = Double.valueOf(Searned_run_average);
 		int games = Integer.valueOf(Sgames);

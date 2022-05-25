@@ -29,7 +29,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
 		registry.addResourceHandler("/images/**")
 		// 실제 저장 장소
 		// file 다음 /가 3개가 들어가야 에러가 발생하지 않는다.
-		.addResourceLocations("file:///C:\\Users\\zzang\\Desktop\\sfg\\sfg.com\\workspace\\SFG\\images/");
+		//.addResourceLocations("file:///C:\\Users\\zzang\\Desktop\\sfg\\sfg.com\\workspace\\SFG\\images/");
+		.addResourceLocations("file:///home/ec2-user/upload_images/");
 		
 		// aws로 옮길 때 변경
 		//.addResourceLocations("file:///home/ec2-user/upload_images/");

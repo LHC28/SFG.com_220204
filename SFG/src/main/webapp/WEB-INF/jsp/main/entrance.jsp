@@ -21,7 +21,7 @@
 				<div>San Francisco<br>Giants</div>
 			</div>
 			<div id="aBox" class="d-flex align-items-center justify-content-end">
-				<a href="#">홈페이지 바로가기</a>
+				<a href="/main/main_page">홈페이지 바로가기</a>
 			</div>
 		</header>
 		<div>
