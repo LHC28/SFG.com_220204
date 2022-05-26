@@ -156,7 +156,7 @@
 				return;
 			}
 			
-			if($('.duplicatedLoginId').hasClass("d-none")){
+			if($('.possibleLoginId').hasClass("d-none")){
 				alert("아이디 중복여부를 확인하세요.");
 				return;
 			}
