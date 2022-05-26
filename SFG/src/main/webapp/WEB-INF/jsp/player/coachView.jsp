@@ -29,7 +29,7 @@
 								</tr>
 								<tr>
 									<td>
-										<img src="${coach.imagePath}" alt="코치" width="150px;" height="180px;">
+										<img class="couchImage" src="${coach.imagePath}" alt="코치" width="150px;" height="180px;">
 									</td>
 								</tr>
 								<tr>

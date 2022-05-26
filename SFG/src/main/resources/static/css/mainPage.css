@@ -196,6 +196,7 @@ body {background-color: #ff4814;}
 .couch{width: 200px; height: 300px; border: 1px solid #333333; margin: 30px 10px 30px 10px;}
 .couchTable {width:200px; height: 300px;}
 .couchTable td {font-size:20px; font-weight: bold;}
+.couchImage{border-radius: 80px;}
 
 /* 투수소개 페이지 */
 .pitcherContent{width:1110px; height: 1750px; background-color: white;}

@@ -27,7 +27,7 @@
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <%-- 외부 스타일 시트 --%>
-<link rel="stylesheet" href="/static/css/mainPage.css">
+<link rel="stylesheet" href="/static/css/mainpage.css">
 
 </head>
 <body>
