@@ -13,7 +13,7 @@
 					</div>
 				</div>
 				<div class="d-flex justify-content-center">
-					<div class="playerBox d-flex justify-content-between flex-wrap mb-4">
+					<div class="playerBox d-flex flex-wrap justify-content-between mb-4">
 						<%-- player --%>
 						<c:forEach var="outfielder" items="${outfieldList }" varStatus="status">
 						<div class="player">

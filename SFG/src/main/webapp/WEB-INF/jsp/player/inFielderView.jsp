@@ -3,9 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <div class="infielderContent">
-	<div class="couchBox1 d-flex align-items-center justify-content-center">
-		<div class="couchBox2 d-flex align-items-center justify-content-center">
-			<div class="couchbox3">
+	<div class="infieldBox1 d-flex align-items-center justify-content-center">
+		<div class="infieldBox2 d-flex align-items-center justify-content-center">
+			<div class="infieldBox3">
 				<div class="d-flex justify-content-center mb-4">
 					<div class="introduceTitleBox">
 						<div class="introduceTitle d-flex align-items-center justify-content-center">
@@ -14,7 +14,7 @@
 					</div>
 				</div>
 				<div class="d-flex justify-content-center">
-					<div class="playerBox d-flex justify-content-between flex-wrap mb-4">
+					<div class="playerBox d-flex flex-wrap mb-4">
 						<%-- player --%>
 						<c:forEach var="infielder" items="${infieldList}" varStatus="status">
 						<div class="player">

@@ -161,8 +161,9 @@
 				return;
 			}
 			
-			if($('.impossibleEmail').hasClass('d-none')){
+			if($('.possibleEmail').hasClass('d-none')){
 				alert("이메일 인증여부를 확인해주세요.");
+				return;
 			}
 			
 			$.ajax({
