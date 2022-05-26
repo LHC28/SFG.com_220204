@@ -273,7 +273,7 @@
 					<tr>
 						<th>공지사항</th>
 						<th></th>
-						<th><a class="etcBoxBoardTableMoreBtn" href="#">더보기+</a></th>
+						<th><a class="etcBoxBoardTableMoreBtn" href="/board/notice_view">더보기+</a></th>
 					</tr>
 					<%-- 3번 반복 --%>
 					<c:forEach var="notice" items="${noticeList }" varStatus="status">
@@ -290,7 +290,7 @@
 					<tr>
 						<th>팬게시판</th>
 						<td></td>
-						<td><a class="etcBoxBoardTableMoreBtn" href="#">더보기+</a></td>
+						<th><a class="etcBoxBoardTableMoreBtn" href="/board/fan_view">더보기+</a></th>
 					</tr>
 					<%-- 3번 반복 --%>
 					<c:forEach var="fan" items="${fanList }" varStatus="status">
