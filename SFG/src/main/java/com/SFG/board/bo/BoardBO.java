@@ -85,7 +85,20 @@ public class BoardBO {
 	
 //	게시물 있는지 확인
 	public Board getBoardByBoardId(int boardId) {
-		return boardDAO.selectBoardByBoardId(boardId);
+		Board board = boardDAO.selectBoardByBoardId(boardId);
+		
+		// .이 직힌 문장에 이어 문장이 이어지지 않고 다음 줄로 넘어가게 하기 위한 작업.
+		String content = board.getContent();
+		String[] contents = content.split("[.]");
+		
+		content = "";
+		for(int i=0; i<contents.length; i++) {
+			content+=contents[i]+".<br> ";
+		}
+		
+		board.setContent(content);
+		
+		return board;
 	}
 	
 //	조회수 증가
