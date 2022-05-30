@@ -131,10 +131,10 @@
 						</div>
 						<div id="recentBoard1Content">
 							<div id="recentBoard1ContentTitle" class="d-flex justify-content-center p-2">
-							<c:if test="${fn:length(news.board.title) gt 23}">
+							<c:if test="${fn:length(news.board.title) gt 20}">
 								${fn:substring(news.board.title,0,20)}...
 							</c:if>
-							<c:if test="${fn:length(news.board.title) le 23}">
+							<c:if test="${fn:length(news.board.title) le 20}">
 								${news.board.title }
 							</c:if>
 							</div>
@@ -262,7 +262,7 @@
 	<%-- 기타 부분 - 구단 SNS 및 공지사항, 팬 게시판 부분 --%>
 	<div id="etcBox" class="d-flex justify-content-center">
 		<div id="etcBoxTeamSnsBox" class="d-flex align-items-center">
-			<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Superman: Crawn of Justice 🦸‍♂️ <a href="https://t.co/RGX6hQbJpH">pic.twitter.com/RGX6hQbJpH</a></p>&mdash; SFGiants (@SFGiants) <a href="https://twitter.com/SFGiants/status/1526743146222129157?ref_src=twsrc%5Etfw">May 18, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Leaving on a winning note. <a href="https://twitter.com/hashtag/SFGameUp?src=hash&amp;ref_src=twsrc%5Etfw">#SFGameUp</a> <a href="https://t.co/nJj4mec8xV">pic.twitter.com/nJj4mec8xV</a></p>&mdash; SFGiants (@SFGiants) <a href="https://twitter.com/SFGiants/status/1530984791100624896?ref_src=twsrc%5Etfw">May 29, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 		</div>
 		<div id="etcBoxBoardBox">
 			<div class="tableTitle d-flex align-items-end justify-content-center">
