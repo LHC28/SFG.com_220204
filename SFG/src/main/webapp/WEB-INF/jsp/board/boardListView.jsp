@@ -32,19 +32,21 @@
 					<table class="boardTable text-center">
 						<thead>
 							<tr>
-								<th>번호</th>
+								<th class="boardIdBox">번호</th>
 								<th>제목</th>
-								<th>작성자</th>
-								<th>작성일</th>
-								<th>조회수</th>
-								<th>추천수</th>
+								<th class="boardUserNameBox">작성자</th>
+								<th class="boardCreatedAtBox">작성일</th>
+								<th class="boardViewsBox">조회수</th>
+								<th class="boardRecommendBox">추천수</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach var="post" items="${postList }" varStatus="status">
 							<tr class="boardTableSize">
 								<td>${fn:length(postList) - status.index }</td>
-								<td><a href="/board/board_view?boardId=${post.board.id }" class="boardTitle" data-board-id="${post.board.id }">${post.board.title }</a></td>
+								<td><a href="/board/board_view?boardId=${post.board.id }" class="boardTitle" data-board-id="${post.board.id }">
+								${fn:substring(post.board.title,0,30) }
+								</a></td>
 								<td>${post.board.userName }</td>
 								<td><fmt:formatDate value="${post.board.createdAt }" pattern="yyyy.MM.dd."/></td>
 								<td>${post.board.views }</td>

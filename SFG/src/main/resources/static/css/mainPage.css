@@ -267,6 +267,11 @@ body {background-color: #ff4814;}
 .writeBtn {width:100px; background-color: #ff7a2f; color: white;}
 .prevAndNextBtn {width:60px; height: 40px; background-color: #ff7a2f; font-size:15px; color: white;}
 .notWriteBtn {width: 250px; background-color: #ff7a2f; color: white;}
+.boardIdBox {width: 60px;}
+.boardUserNameBox{width: 140px;}
+.boardCreatedAtBox{width: 100px;}
+.boardViewsBox{width: 60px;}
+.boardRecommendBox{width: 60px;}
 .boardTitle:link {text-decoration: none; color: black;}
 .boardTitle:visited {text-decoration: none; color: black;}
 .boardTitle:active {text-decoration: none; color: black;}
