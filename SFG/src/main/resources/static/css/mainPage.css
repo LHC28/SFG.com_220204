@@ -225,6 +225,7 @@ body {background-color: #ff4814;}
 .player {width: 200px; height: 250px; border: 1px solid #333333; margin: 30px 10px 30px 10px;}
 
 /* 선수 세부사항 페이지 */
+.detailPlayerBoxContent {width:1110px; height:1350px;}
 .detailPlayerBox1 {width:1110px; height:1350px; background-color: #ff7a2f;}
 .detailPlayerBox2 {width:1050px; height:1300px; background-color: white;}
 .detailPlayerbox3 {width:1000px; height:1250px; background-color: #f2f2f2; border: 1px solid #333333;}
@@ -287,10 +288,10 @@ body {background-color: #ff4814;}
 .boardCreateBtn {color: white; background-color: #ff7a2f; margin-top: 100px;}
 
 /* 게시글 보기 */
-.boardContent {width:1110px; height:1300px; background-color: white;}
-.boardviewBox1 {width:1110px; height:1300px; background-color: #ff7a2f;}
-.boardviewBox2 {width:1050px; height:1250px; background-color: white;}
-.boardviewbox3 {width:1000px; height:1200px; background-color: #f2f2f2; border: 1px solid #333333;}
+.boardContent {width:1110px; height:1500px; background-color: white;}
+.boardviewBox1 {width:1110px; height:1500px; background-color: #ff7a2f;}
+.boardviewBox2 {width:1050px; height:1450px; background-color: white;}
+.boardviewbox3 {width:1000px; height:1400px; background-color: #f2f2f2; border: 1px solid #333333;}
 .boardViewTitleBox {width: 900px; margin-top: 30px; border-bottom: 1px solid #333333;}
 .boardViewTitle {width: 100px; border-top: 3px solid #ff7a2f; color: black; font-size: 20px;}
 .boardViewContentBox {width:900px; height: 680px;}

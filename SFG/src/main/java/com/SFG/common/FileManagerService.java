@@ -20,9 +20,9 @@ public class FileManagerService {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	// 이미지 저장 경로
-	public final static String FILE_UPLOAD_PATH="C:\\Users\\zzang\\Desktop\\sfg\\sfg.com\\workspace\\SFG\\images/";
+	//public final static String FILE_UPLOAD_PATH="C:\\Users\\zzang\\Desktop\\sfg\\sfg.com\\workspace\\SFG\\images/";
 	// aws로 옮길 때...
-	//public final static String FILE_UPLOAD_PATH= "/home/ec2-user/upload_images/";
+	public final static String FILE_UPLOAD_PATH= "/home/ec2-user/upload_images/";
 
 	// 이미지 저장 (1개)
 	public String saveFile(String userLoginId, MultipartFile file) throws IOException {
@@ -36,7 +36,7 @@ public class FileManagerService {
 		File directory = new File(filePath);
 		
 		if(directory.mkdir()==false) {
-			logger.error("######## 에러 발생!!!");
+			logger.error("######## 폴더 생성 에러 발생!!!");
 			return null; // 디렉토리 생성 X
 		}
 		
@@ -62,7 +62,7 @@ public class FileManagerService {
 		File directory = new File(filePath);
 		
 		if(directory.mkdir()==false) {
-			logger.error("######## 에러 발생!!!");
+			logger.error("######## 폴더 생성 에러 발생!!!");
 			return null; // 디렉토리 생성 X
 		}
 		List<String> imagePaths = new ArrayList<>();

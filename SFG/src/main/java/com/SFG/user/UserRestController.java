@@ -31,6 +31,7 @@ public class UserRestController {
 	@Autowired
 	public JavaMailSender javaMailSender;
 	
+//	아이디 중복여부 확인
 	@PostMapping("/duplicated_id")
 	public Map<String, String> duplicatedId(
 			@RequestParam("loginId") String loginId
@@ -48,6 +49,7 @@ public class UserRestController {
 		return result;
 	}
 	
+//	회원가입
 	@PostMapping("/sign_up")
 	public Map<String, String> signUp(
 			@RequestParam("loginId") String loginId
@@ -73,6 +75,7 @@ public class UserRestController {
 		return result;
 	}
 	
+//	로그인 기능
 	@PostMapping("/sign_in")
 	public Map<String, String> signIn(
 			@RequestParam("loginId") String loginId
