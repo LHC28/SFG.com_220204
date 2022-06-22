@@ -12,8 +12,7 @@
 
 
 - 메인 페이지
-![메인 페이지](https://user-images.githubusercontent.com/86460929/175053004-efdd5a87-ae3f-404b-9533-56621365d310.gif)
-#
+![메인 페이지](https://user-images.githubusercontent.com/86460929/175053004-efdd5a87-ae3f-404b-9533-56621365d310.gif)#
 
 
 - 선수단
