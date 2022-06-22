@@ -165,10 +165,10 @@ body {background-color: #ff4814;}
 .title {white-space:nowrap;}
 
 /* 대표선수 소개 페이지 */
-.representPlayerViewcontent {width: 1110px; height: 1200px; background-color: white;}
-.representPlayerBox1 {width:1110px; height:1200px; background-color: #ff7a2f;}
-.representPlayerBox2 {width:1050px; height:1150px; background-color: white;}
-.representPlayerbox3 {width:1000px; height:1100px; background-color: #f2f2f2; border: 1px solid #333333;}
+.representPlayerViewcontent {width: 1110px; height: 1900px; background-color: white;}
+.representPlayerBox1 {width:1110px; height:1900px; background-color: #ff7a2f;}
+.representPlayerBox2 {width:1050px; height:1850px; background-color: white;}
+.representPlayerbox3 {width:1000px; height:1800px; background-color: #f2f2f2; border: 1px solid #333333;}
 .representTable {width: 400px; font-size: 15px; color: black;}
 .representTable th, .representTable td {border: 1px solid #333333;}
 
