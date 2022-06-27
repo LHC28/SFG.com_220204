@@ -65,7 +65,7 @@ body {background-color: #ff4814;}
 .matchViewBtn {border: 1px solid white;}
 #teamRankBoxContentTableBox {width: 450px; height: 320px; background-color: white;}
 .teamRankBoxContentTable {width: 450px; height: 320px;}
-.teamRankBoxContentTable td {border: 1px solid #d3d3d3; border-collapse:collapse;}
+/*.teamRankBoxContentTable td {border: 1px solid #d3d3d3; border-collapse:collapse;}*/
 /* 메인 페이지게시판 부분 */
 #recentBoardBox {height: 450px; background-color: rgb(255,122,47);}
 #recentBoardTitle {font-size: 40px; color: white;}

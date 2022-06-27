@@ -87,27 +87,31 @@
 				</div>
 			</div>
 			<div id="teamRankBoxContentTableBox">
-				<table class="teamRankBoxContentTable text-center">
-					<tr>
-						<td>순위</td>
-						<td colspan="3">팀명</td>
-						<td>경기</td>
-						<td>승</td>
-						<td>패</td>
-						<td>게임차</td>
-					</tr>
-					<c:forEach var="team" items="${teamRanks }" varStatus="status">
-					<tr>
-						<td>${team.rank }</td>
-						<td colspan="3">${team.teamName }</td>
-						<td>${team.games }</td>
-						<td>${team.wins }</td>
-						<td>${team.loses }</td>
-						<td>${team.gamesBehind }</td>
-					</tr>
-					</c:forEach>
+				<table class="teamRankBoxContentTable text-center table table-striped table-bordered table-light">
+					<thead>
+						<tr>
+							<td>순위</td>
+							<td colspan="3">팀명</td>
+							<td>경기</td>
+							<td>승</td>
+							<td>패</td>
+							<td>게임차</td>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="team" items="${teamRanks }" varStatus="status">
+						<tr>
+							<td>${team.rank }</td>
+							<td colspan="3">${team.teamName }</td>
+							<td>${team.games }</td>
+							<td>${team.wins }</td>
+							<td>${team.loses }</td>
+							<td>${team.gamesBehind }</td>
+						</tr>
+						</c:forEach>
+						<caption>위 정보는 오후 중에 업데이트 됩니다.</caption>
+					</tbody>
 				</table>
-				<div>위 정보는 오후 중에 업데이트 됩니다.</div>
 			</div>
 		</div>
 	</div>
