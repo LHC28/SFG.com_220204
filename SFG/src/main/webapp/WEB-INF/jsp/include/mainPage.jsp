@@ -109,7 +109,6 @@
 							<td>${team.gamesBehind }</td>
 						</tr>
 						</c:forEach>
-						<caption>위 정보는 오후 중에 업데이트 됩니다.</caption>
 					</tbody>
 				</table>
 			</div>

@@ -43,12 +43,12 @@
 							</div>
 						</div>
 						<div class="mt-3">
-							<div class="d-flex flex-wrap justify-content-between">
+							<div class="d-flex flex-wrap justify-content-center">
 								<c:forEach var="file" items="${post.fileList }" varStatus="status">
-								<img src="${file.imagePath }" alt="게시물 사진" width="280px" height="280px">
+								<img class="mb-1" src="${file.imagePath }" alt="게시물 사진" width="800px" height="500px">
 								</c:forEach>
 							</div>
-							<div class="boardViewContent m-2 mt-3">${post.board.content }</div>
+							<div class="boardViewContent m-2 mt-3 mb-5">${post.board.content }</div>
 						</div>
 					</div>
 				</div>
