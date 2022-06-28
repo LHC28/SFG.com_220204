@@ -282,8 +282,28 @@
 					<c:forEach var="notice" items="${noticeList }" varStatus="status">
 					<tr>
 						<td class="etcBoxBoardTableId">${notice.board.id }</td>
-						<td class="etcBoxBoardTableTitle"><a class="boardTitle" data-board-id=${notice.board.id }  href="/board/board_view?boardId=${notice.board.id }">${notice.board.title }</a></td>
-						<td class="etcBoxBoardTableName">${notice.board.userName }</td>
+						<td class="etcBoxBoardTableTitle">
+							<a class="boardTitle" data-board-id=${notice.board.id }  href="/board/board_view?boardId=${notice.board.id }">
+								<c:choose>
+									<c:when test="${fn:length(notice.board.title) gt 12 }">
+										${fn:substring(notice.board.title,0,11) }...
+									</c:when>
+									<c:when test="${fn:length(notice.board.title) le 12 }">
+										${notice.board.title }
+									</c:when>
+								</c:choose>
+							</a>
+						</td>
+						<td class="etcBoxBoardTableName">
+							<c:choose>
+								<c:when test="${fn:length(notice.board.userName) gt 6 }">
+									${fn:substring(notice.board.userName,0,6) }...
+								</c:when>
+								<c:when test="${fn:length(notice.board.userName) le 6 }">
+									${notice.board.userName }
+								</c:when>
+							</c:choose>
+						</td>
 					</tr>
 					</c:forEach>
 				</table>
@@ -299,8 +319,28 @@
 					<c:forEach var="fan" items="${fanList }" varStatus="status">
 					<tr>
 						<td class="etcBoxBoardTableId">${fan.board.id }</td>
-						<td class="etcBoxBoardTableTitle"><a class="boardTitle" data-board-id=${fan.board.id } href="/board/board_view?boardId=${fan.board.id }">${fan.board.title }</a></td>
-						<td class="etcBoxBoardTableName">${fan.board.userName }</td>
+						<td class="etcBoxBoardTableTitle">
+							<a class="boardTitle" data-board-id=${fan.board.id } href="/board/board_view?boardId=${fan.board.id }">
+								<c:choose>
+									<c:when test="${fn:length(fan.board.title) gt 12 }">
+										${fn:substring(fan.board.title,0,11) }...
+									</c:when>
+									<c:when test="${fn:length(fan.board.title) le 12 }">
+										${fan.board.title }
+									</c:when>
+								</c:choose>
+							</a>
+						</td>
+						<td class="etcBoxBoardTableName">
+							<c:choose>
+								<c:when test="${fn:length(fan.board.userName) gt 6 }">
+									${fn:substring(fan.board.userName,0,6) }...
+								</c:when>
+								<c:when test="${fn:length(fan.board.userName) le 6 }">
+									${fan.board.userName }
+								</c:when>
+							</c:choose>
+						</td>
 					</tr>
 					</c:forEach>
 				</table>
