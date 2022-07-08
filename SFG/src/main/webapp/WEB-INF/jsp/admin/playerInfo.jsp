@@ -33,8 +33,8 @@
 			]
 			,height: 300
 			,width: 850
-			,rowNum: 10
-			,rowList: [10,20,30]
+			,rowNum: 100
+			//,rowList: [10,20,30]
 			,pager: '#jqGridPager'
 			,pgbuttons: true
 			,pginput: true
@@ -61,11 +61,19 @@
 	            // options for the Edit Dialog
 	            {
 	            	mtype: "post"
-	               	,url: ""
+	               	,url: "/player/edit_player"
 	               	,editData: {
 	               		account: function(){
 	               			//var id = $( "#jqGrid" ).jqGrid('getGridParam', "selarrrow" );
 	               			//var rowval = $("#jqGrid").jqGrid('getRowData',id);
+	               			var id = $( "#jqGrid" ).jqGrid('getGridParam', "selarrrow" );
+	               			var name = $("#name").val();
+		               		var number = $("#number").val();
+		               		var position = $("#position").val();
+		               		var birth = $("#birth").val();
+		               		var debut = $("#debut").val();
+		               		var imagePath = $('#imagePath').val();
+		               		return id;
 	               		}
 	               	}
 	                ,editCaption: "The Edit Dialog",
@@ -110,10 +118,11 @@
 	            	mtype:"post"
 	            	,closeAfterDel: true
 	            	,reloadAfterSubmit: true
-	            	,url: ''
+	            	,url: '/player/delete_player'
 	            	,delData:{
 	            		account:function(){
-	            			
+	            			var id = $( "#jqGrid" ).jqGrid('getGridParam', "selarrrow" );
+	            			return id;
 	            		}
 	            	}
 	                ,errorTextFormat: function (data) {

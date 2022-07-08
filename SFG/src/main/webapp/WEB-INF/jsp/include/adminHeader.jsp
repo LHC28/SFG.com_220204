@@ -51,6 +51,7 @@
 					</li>
 				</ul>
 			</nav>
+			<a href="/admin/main" class="btn btn-warning text-white">관리자 페이지 이동</a>
 		</div>
 		<%-- 회원가입 및 로그인 박스 --%>
 		<%-- 로그인 전 --%>

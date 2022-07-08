@@ -101,6 +101,16 @@ public interface PlayerDAO {
 	
 //	update
 	
+//	선수 및 코칭스태프 수정
+	public void editPlayer(
+			@Param("id") int id
+			,@Param("name") String name
+			,@Param("number") int number
+			,@Param("position") String position
+			,@Param("birth") String birth
+			,@Param("debut") String debut
+			,@Param("imagePath") String imagePath);
+	
 //	타자 기록 수정
 	public void updateBatterStatById(
 			@Param("id") int id
@@ -152,6 +162,9 @@ public interface PlayerDAO {
 			);
 	
 //	delete
+	
+//	선수 및 코칭스태프 삭제
+	public void deletePlayer(int id);
 	
 //	타자 기록 삭제
 	public void deleteBatterStatById(int id);

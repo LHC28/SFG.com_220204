@@ -24,6 +24,16 @@ public class PlayerBO {
 		playerDAO.insertPlayer(name, number, position, birth, debut, imagePath);
 	}
 	
+//	player 수정
+	public void editPlayer(int id, String name, int number, String position, String birth, String debut, String imagePath) {
+		playerDAO.editPlayer(id, name, number, position, birth, debut, imagePath);
+	}
+	
+//	player 삭제
+	public void deletePlayer(int id) {
+		playerDAO.deletePlayer(id);
+	}
+	
 	public List<Player> getAllPlayerList(){
 		return playerDAO.selectAllPlayerList();
 	}

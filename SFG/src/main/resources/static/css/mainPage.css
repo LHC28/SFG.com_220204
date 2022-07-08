@@ -199,7 +199,7 @@ body {background-color: #ff4814;}
 .couchImage{border-radius: 80px;}
 
 /* 투수소개 페이지 */
-.pitcherContent{width:1110px; height: 1750px; background-color: white;}
+.pitcherContent{width:1110px; background-color: white;}
 .pitcherBox1 {width:1110px; height:1750px; background-color: #ff7a2f;}
 .pitcherBox2 {width:1050px; height:1700px; background-color: white;}
 .pitcherbox3 {width:1000px; height:1650px; background-color: #f2f2f2; border: 1px solid #333333;}

@@ -184,6 +184,25 @@ public class PlayerRestController {
 		return result;
 	}
 	
+//	선수 및 코칭스태포 수정하기
+	@PostMapping("/edit_player")
+	public Map<String, String> editPlayer(
+			@RequestParam("id") int id
+			,@RequestParam("name") String name
+			,@RequestParam("number") int number
+			,@RequestParam("position") String position
+			,@RequestParam("birth") String birth
+			,@RequestParam("debut") String debut
+			,@RequestParam("imagePath") String imagePath
+			){
+		Map<String, String> result = new HashMap<>();
+		
+		playerBO.editPlayer(id, name, number, position, birth, debut, imagePath);
+		
+		System.out.println(name);
+		return result;
+	}
+	
 //	타자 스탯 수정
 	@PostMapping("/edit_batter_stat")
 	public Map<String, String> editBatterStat(
@@ -229,6 +248,7 @@ public class PlayerRestController {
 		return result;
 	}
 	
+//	투수 기록 수정
 	@RequestMapping("/edit_pitcher_stat")
 	public Map<String, String> editPitcherStat(
 			@RequestParam("id") int id
@@ -270,6 +290,18 @@ public class PlayerRestController {
 		
 		Map<String, String> result = new HashMap<>();
 		result.put("result", "success");
+		return result;
+	}
+	
+//	선수 및 코칭스태프 삭제
+	@PostMapping("/delete_player")
+	public Map<String, String> deletePlayer(
+			@RequestParam("id") int id
+			){
+		Map<String, String> result = new HashMap<>();
+		
+		playerBO.deletePlayer(id);
+		
 		return result;
 	}
 	

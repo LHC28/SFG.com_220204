@@ -329,6 +329,19 @@
 		FROM
 			`player_introduce`
 	</select>
+	<update id="editPlayer" parameterType="map">
+		UPDATE `player`
+		SET
+			`name` = #{name}
+			,`number` = #{number}
+			,`position` = #{position}
+			,`birth`= #{birth}
+			,`debut` = #{debut}
+			,`imagePath` = #{imagePath}
+			,`updatedAt` = NOW()
+		WHERE
+			`id` = #{id}
+	</update>
 	<update id="updateBatterStatById" parameterType="map">
 		UPDATE `batter_stat`
 		SET
@@ -383,6 +396,12 @@
 		WHERE
 			`id` = #{id}
 	</update>
+	<delete id="deletePlayer" parameterType="int">
+		DELETE
+		FROM `player`
+		WHERE
+			`id` = #{id}
+	</delete>
 	<delete id="deleteBatterStatById" parameterType="int">
 		DELETE
 		FROM `batter_stat`
