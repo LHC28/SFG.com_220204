@@ -17,9 +17,13 @@
 					<div class="matchScheduleBox">
 						<%-- 연월 및 방향버튼 --%>
 						<div class="matchScheduleBoxTitle d-flex justify-content-center mb-4">
-							<a href="/match/match_result_view?inputMonth=${month-1 }" class="mr-3">&lt;</a>
+							<c:if test="${month ne 1 }">
+								<a href="/match/match_result_view?inputMonth=${month-1 }" class="mr-3">&lt;</a>
+							</c:if>
 							<span>2021. ${month }.</span>
-							<a href="/match/match_result_view?inputMonth=${month+1 }" class="ml-3">&gt;</a>
+							<c:if test="${month ne 12 }">
+								<a href="/match/match_result_view?inputMonth=${month+1 }" class="ml-3">&gt;</a>
+							</c:if>
 						</div>
 						<%-- 일정표 --%>
 						<div class="d-flex justify-content-center">
