@@ -188,39 +188,39 @@ body {background-color: #ff4814;}
 .stadiumTable tr {border: 1px solid #969696;}
 
 /* 코칭스태프 페이지 */
-.couchContent{width:1110px; height: 2000px; background-color: white;}
-.couchBox1 {width:1110px; height:2000px; background-color: #ff7a2f;}
-.couchBox2 {width:1050px; height:1950px; background-color: white;}
-.couchbox3 {width:1000px; height:1900px; background-color: #f2f2f2; border: 1px solid #333333;}
-.couchBox {width: 900px;}
+.couchContent{width:1110px; background-color: white;}
+.couchBox1 {width:1110px; background-color: #ff7a2f; padding: 20px;}
+.couchBox2 {width:1050px; background-color: white; padding: 20px;}
+.couchbox3 {width:1000px; background-color: #f2f2f2; border: 1px solid #333333; padding: 20px;}
+.couchBox {width: 880px;}
 .couch{width: 200px; height: 300px; border: 1px solid #333333; margin: 30px 10px 30px 10px;}
 .couchTable {width:200px; height: 300px;}
 .couchTable td {font-size:20px; font-weight: bold;}
 .couchImage{border-radius: 80px;}
 
 /* 투수소개 페이지 */
-.pitcherContent{width:1110px; height: 2000px; background-color: white;}
-.pitcherBox1 {width:1110px; height:2000px; background-color: #ff7a2f;}
-.pitcherBox2 {width:1050px; height:1950px; background-color: white;}
-.pitcherbox3 {width:1000px; height:1900px; background-color: #f2f2f2; border: 1px solid #333333;}
-.pitcherBox {width: 900px; height: 1850px;}
+.pitcherContent{width:1110px; background-color: white;}
+.pitcherBox1 {width:1110px; background-color: #ff7a2f; padding: 20px;}
+.pitcherBox2 {width:1050px; background-color: white; padding: 20px;}
+.pitcherbox3 {width:1000px; background-color: #f2f2f2; border: 1px solid #333333; padding: 20px;}
+.pitcherBox {width: 870px;}
 
 .playerBox {width: 900px;}
 .playerTable {width:200px; height: 250px;}
 .playerTable td {font-size:20px; font-weight: bold;}
 
 /* 내야수 소개 페이지 */
-.infielderContent {width:1110px; height: 1500px; background-color: white;}
-.infieldBox1 {width:1110px; height:1500px; background-color: #ff7a2f;}
-.infieldBox2 {width:1050px; height:1450px; background-color: white;}
-.infieldBox3 {width:1000px; height:1400px; background-color: #f2f2f2; border: 1px solid #333333;}
+.infielderContent {width:1110px; background-color: white;}
+.infieldBox1 {width:1110px; background-color: #ff7a2f; padding: 20px;}
+.infieldBox2 {width:1050px; background-color: white; padding: 20px;}
+.infieldBox3 {width:1000px; background-color: #f2f2f2; border: 1px solid #333333; padding: 20px;}
 
 
 /* 외야수 소개 페이지 */
-.outfielderContent {width:1110px; height: 1250px; background-color: white;}
-.outfieldBox1 {width:1110px; height:1250px; background-color: #ff7a2f;}
-.outfieldBox2 {width:1050px; height:1200px; background-color: white;}
-.outfieldBox3 {width:1000px; height:1150px; background-color: #f2f2f2; border: 1px solid #333333;}
+.outfielderContent {width:1110px; background-color: white;}
+.outfieldBox1 {width:1110px; background-color: #ff7a2f; padding: 20px;}
+.outfieldBox2 {width:1050px; background-color: white; padding: 20px;}
+.outfieldBox3 {width:1000px; background-color: #f2f2f2; border: 1px solid #333333; padding: 20px;}
 
 .player {width: 200px; height: 250px; border: 1px solid #333333; margin: 30px 10px 30px 10px;}
 
