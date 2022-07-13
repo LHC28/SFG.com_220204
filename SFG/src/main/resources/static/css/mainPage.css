@@ -241,17 +241,17 @@ body {background-color: #ff4814;}
 .playerAnnualStat td {border: 1px solid black; height:35px;}
 
 /* 경기일정 페이지 */
-.matchResultViewContent {width:1110px; height:1600px; background-color: white;}
-.matchBox1 {width:1110px; height:1600px; background-color: #ff7a2f;}
-.matchBox2 {width:1050px; height:1550px; background-color: white;}
-.matchbox3 {width:1000px; height:1500px; background-color: #f2f2f2; border: 1px solid #333333;}
-.matchScheduleBox {width:900px; height:1000px;}
+.matchResultViewContent {width:1110px; background-color: white;}
+.matchBox1 {width:1110px; background-color: #ff7a2f; padding: 20px;}
+.matchBox2 {width:1050px; background-color: white; padding: 20px;}
+.matchbox3 {width:1000px;  background-color: #f2f2f2; border: 1px solid #333333; padding: 20px;}
+.matchScheduleBox {width:900px; padding: 20px;}
 .matchScheduleBoxTitle {color: black; font-size: 30px;}
 .matchScheduleBox a:link{text-decoration: none; color: black;}
 .matchScheduleBox a:visited{text-decoration: none; color: black;}
 .matchScheduleBox a:active{text-decoration: none; color: black;}
 .matchScheduleBox a:hover{text-decoration: none; color: black;}
-.matchScheduleBoxContent {width: 900px; height: 900px;}
+.matchScheduleBoxContent {width: 900px;}
 .matchScheduleBoxContent th {border: 1px solid black;}
 .matchScheduleBoxContent td {border: 1px solid black; width: 120px; height: 170px;}
 .dateFont {font-size: 20px;}
