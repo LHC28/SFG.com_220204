@@ -49,6 +49,25 @@
 								</c:forEach>
 							</div>
 							<div class="boardViewContent m-2 mt-3 mb-5">${post.board.content }</div>
+							<%-- 게시글과 댓글 사이 구분선 --%>
+							<hr class="commentContour">
+							<%-- 댓글 --%>
+							<div class="commentBox">
+								<div class="d-flex mb-2">
+									<input type="text" class="postComment form-control">
+									<button id="postCommentBtn" class="btn" data-user-id="${userId }" data-post-id=${post.board.id }>등록</button>
+								</div>
+								<table class="w-100 text-center">
+									<tr>
+										<td class="w-25">작성자</td>
+										<td class="w-50">내용</td>
+										<td class="w-25">작성시간</td>
+									</tr>
+									<tr>
+										<%-- 댓글 들어갈 위치 --%>
+									</tr>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -103,6 +122,45 @@
 				}
 			});
 			
+		});
+		
+		// 댓글 달기
+		$('#postCommentBtn').on('click', function(){
+			var content = $('.postComment').val();
+			var postId = $(this).data('post-id');
+			
+			// 유효성 검사
+			if(content==''){
+				alert("댓글 내용을 입력해주세요.");
+				return;
+			}
+			
+			if(postId==''){
+				alert("에러가 발생하였습니다. 관리자에게 문의해주세요.");
+				return;
+			}
+			
+
+			// 로그인 여부 확인
+			var userId = $(this).data('user-id');
+			if(userId==''){
+				alert("로그인 후 등록해주세요.");
+				return;
+			}
+			
+			$.ajax({
+				url: '/comment/create_comment'
+				,type: 'post'
+				,data: {'userId':userId, 'postId':postId, 'content': content}
+				,success: function(data){
+					if(data.result=="success"){
+						alert("댓글 등록에 성공하였습니다.");
+						location.reload();
+					}
+				},error:function(request,status,error){
+					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				}
+			});
 		});
 	});
 </script>

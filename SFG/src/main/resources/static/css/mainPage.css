@@ -301,6 +301,10 @@ body {background-color: #ff4814;}
 .boardViewHeadViews{width: 15%;}
 .boardViewHeadRecommend{width: 15%;}
 .boardViewContent {font-size: 20px; font-weight: 200; word-wrap: break-word;}
+.commentContour {background-color: #ff4814; height: 2px;}
+.commentBox {border: 1px solid black;}
+.postComment {width: 85%;}
+#postCommentBtn {width: 15%; background-color: #ff7a2f; color: white;}
 
 /* adminMain */
 .adminNav {width: 220px; height: 800px; background-color: #a9a9a9;}
