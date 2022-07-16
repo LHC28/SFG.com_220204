@@ -54,4 +54,10 @@ public class UserBO {
 	public void changePasswordByLoginId(String loginId, String password) {
 		userDAO.updatePasswordByLoginId(loginId, password);
 	}
+	
+//	댓글에서 필요한 닉네임 가져오기
+	public String getUserName(int userId) {
+		User user = userDAO.selectUserByUserId(userId);
+		return user.getName();
+	}
 }

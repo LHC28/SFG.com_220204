@@ -20,4 +20,17 @@
 			,now()
 		)
 	</insert>
+	<select id="selectCommentList" parameterType="int" resultType="com.SFG.comment.model.Comment">
+		SELECT
+			`id`
+			,`boardId`
+			,`userId`
+			,`content`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`comment`
+		WHERE
+			`boardId` = #{boardId}
+	</select>
 </mapper>

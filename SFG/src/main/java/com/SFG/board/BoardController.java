@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.SFG.board.bo.BoardBO;
+import com.SFG.comment.bo.CommentBO;
+import com.SFG.comment.model.Comment;
 import com.SFG.post.bo.PostBO;
 import com.SFG.post.model.Post;
 import com.SFG.recommend.bo.RecommendBO;
@@ -31,6 +33,10 @@ public class BoardController {
 	// 게시물 종합용
 	@Autowired
 	private PostBO postBO;
+	
+	// 댓글 가져오기용
+	@Autowired
+	private CommentBO commentBO;
 	
 	@RequestMapping("/notice_view")
 	public String noticeView(
@@ -307,8 +313,12 @@ public class BoardController {
 			model.addAttribute("recommendCheck", recommendCheck);
 		}
 		
+		// 댓글 가져오기
+		List<Comment> commentList = commentBO.getCommentList(boardId);
+		
 		model.addAttribute("userId", userId);
 		model.addAttribute("post", post);
+		model.addAttribute("commentList", commentList);
 		model.addAttribute("viewName", "board/boardView");
 		
 		return "template/layout";

@@ -45,4 +45,7 @@ public interface UserDAO {
 			@Param("loginId") String loginId
 			,@Param("password") String password
 			);
+	
+//	유저아이디를 활용한 유저 정보 가져오기
+	public User selectUserByUserId(int userId);
 }

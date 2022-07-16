@@ -63,9 +63,14 @@
 										<td class="w-50">내용</td>
 										<td class="w-25">작성시간</td>
 									</tr>
+									<c:forEach var="comment" items="${commentList }" varStatus="status">
 									<tr>
 										<%-- 댓글 들어갈 위치 --%>
+										<td>${comment.userName }</td>
+										<td>${comment.content }</td>
+										<td>${comment.updatedAt }</td>
 									</tr>
+									</c:forEach>
 								</table>
 							</div>
 						</div>
