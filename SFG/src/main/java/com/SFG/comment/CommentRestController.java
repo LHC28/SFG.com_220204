@@ -20,13 +20,11 @@ public class CommentRestController {
 	@RequestMapping("/create_comment")
 	public Map<String, String> createComment(
 			@RequestParam("userId") int userId
-			,@RequestParam("postId") int postId
+			,@RequestParam("boardId") int boardId
 			,@RequestParam("content") String content
 			){
-		System.out.println(userId);
-		System.out.println(postId);
-		System.out.println(content);
-		commentBO.createComment(userId, postId, content);
+		
+		commentBO.createComment(userId, boardId, content);
 		
 		Map<String, String> result = new HashMap<>();
 		

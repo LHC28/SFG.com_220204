@@ -18,8 +18,8 @@ public class CommentBO {
 	@Autowired
 	private UserBO userBO;
 	
-	public void createComment(int userId, int postId, String content) {
-		commentDAO.insertComment(userId, postId, content);
+	public void createComment(int userId, int boardId, String content) {
+		commentDAO.insertComment(userId, boardId, content);
 	}
 	
 	public List<Comment> getCommentList(int boardId) {

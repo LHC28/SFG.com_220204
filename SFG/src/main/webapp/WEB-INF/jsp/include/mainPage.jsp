@@ -403,17 +403,18 @@
 			,"/board/board_view?boardId="+postList[4].board.id
 		];
 		
-		var index = 0;
+		var index = 1;
 		function changeBanner(){
 			// 배너 이미지 바꾸기
 			banner.setAttribute("src", arrImage[index]);
 			// 배너 제목
 			// 번호와 제목 내용 두 줄로 만들기 위한 과정
-			var title = arrTitle[index].split(".");
-			if(title[1].length > 20){
-				title[1] = title[1].substring(0,20)+"...";
+			var titleNum = arrTitle[index].substring(0,2);
+			var titleContent = arrTitle[index].substring(2);
+			if(titleContent.length > 20){
+				titleContent = titleContent.substring(0,20)+"...";
 			}
-			bannerTitle.innerHTML = title[0]+". <br>"+title[1];
+			bannerTitle.innerHTML = titleNum+"<br>"+titleContent;
 			// 배너 내용
 			for(let i=0; i<arrContent.length; i++){
 				if(arrContent[i].length > 35){

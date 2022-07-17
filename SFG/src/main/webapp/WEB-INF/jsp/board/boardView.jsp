@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div class="boardContent">
 	<div class="boardviewBox1 d-flex align-items-center justify-content-center">
 		<div class="boardviewBox2 d-flex align-items-center justify-content-center">
@@ -53,11 +54,11 @@
 							<hr class="commentContour">
 							<%-- 댓글 --%>
 							<div class="commentBox">
-								<div class="d-flex mb-2">
+								<div class="d-flex mb-4">
 									<input type="text" class="postComment form-control">
-									<button id="postCommentBtn" class="btn" data-user-id="${userId }" data-post-id=${post.board.id }>등록</button>
+									<button id="postCommentBtn" class="btn" data-user-id="${userId }" data-board-id=${post.board.id }>댓글 등록</button>
 								</div>
-								<table class="w-100 text-center">
+								<table id="commentTable" class="w-100 text-center">
 									<tr>
 										<td class="w-25">작성자</td>
 										<td class="w-50">내용</td>
@@ -67,8 +68,10 @@
 									<tr>
 										<%-- 댓글 들어갈 위치 --%>
 										<td>${comment.userName }</td>
-										<td>${comment.content }</td>
-										<td>${comment.updatedAt }</td>
+										<td class="text-left">${comment.content }</td>
+										<td>
+											<fmt:formatDate value="${comment.updatedAt }" pattern="yyyy-MM-dd HH:ss"/>
+											</td>
 									</tr>
 									</c:forEach>
 								</table>
@@ -132,19 +135,7 @@
 		// 댓글 달기
 		$('#postCommentBtn').on('click', function(){
 			var content = $('.postComment').val();
-			var postId = $(this).data('post-id');
-			
-			// 유효성 검사
-			if(content==''){
-				alert("댓글 내용을 입력해주세요.");
-				return;
-			}
-			
-			if(postId==''){
-				alert("에러가 발생하였습니다. 관리자에게 문의해주세요.");
-				return;
-			}
-			
+			var boardId = $(this).data('board-id');
 
 			// 로그인 여부 확인
 			var userId = $(this).data('user-id');
@@ -153,10 +144,21 @@
 				return;
 			}
 			
+			// 유효성 검사
+			if(content==''){
+				alert("댓글 내용을 입력해주세요.");
+				return;
+			}
+			
+			if(boardId==''){
+				alert("에러가 발생하였습니다. 관리자에게 문의해주세요.");
+				return;
+			}
+			
 			$.ajax({
 				url: '/comment/create_comment'
 				,type: 'post'
-				,data: {'userId':userId, 'postId':postId, 'content': content}
+				,data: {'userId':userId, 'boardId':boardId, 'content': content}
 				,success: function(data){
 					if(data.result=="success"){
 						alert("댓글 등록에 성공하였습니다.");

@@ -101,7 +101,7 @@
 			AND `loginId` = #{loginId}
 			AND `email` = #{email}
 	</select>
-	<select id="selectUserByUserId" parameterType="int">
+	<select id="selectUserByUserId" parameterType="int" resultType="com.SFG.user.model.User">
 		SELECT
 			`id`
 			,`loginId`
