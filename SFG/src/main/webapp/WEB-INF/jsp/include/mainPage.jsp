@@ -267,6 +267,7 @@
 		<div id="etcBoxTeamSnsBox" class="d-flex align-items-center">
 			<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Leaving on a winning note. <a href="https://twitter.com/hashtag/SFGameUp?src=hash&amp;ref_src=twsrc%5Etfw">#SFGameUp</a> <a href="https://t.co/nJj4mec8xV">pic.twitter.com/nJj4mec8xV</a></p>&mdash; SFGiants (@SFGiants) <a href="https://twitter.com/SFGiants/status/1530984791100624896?ref_src=twsrc%5Etfw">May 29, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 		</div>
+		
 		<div id="etcBoxBoardBox">
 			<div class="tableTitle d-flex align-items-end justify-content-center">
 				공지사항 및 팬 게시판
