@@ -58,6 +58,7 @@ public class MainController {
 		int month = Integer.valueOf(curDate.format(MonthFormatter));
 		int day = Integer.valueOf(curDate.format(dayFormatter));
 		System.out.println(day);
+		System.out.println(month);
 		// 경기 일정 가져오기 (int 이기 때문에 null이 아닌 0이 비어있는 값으로)
 		List<MatchSchedule> matchSchedule = matchBO.getMatchSchedule(month);
 		for(int i=0; i<=matchSchedule.size(); i++) {
@@ -69,12 +70,7 @@ public class MainController {
 		
 		if(match.getId()==0) {
 			while(true) {
-				// 오늘 기준 다음 월로...
-				month++;
-				// 12월 이후로 넘어가면 반복 중지(경기 일정이 없는 경우도 고려)
-				if(month>12) {
-					break;
-				}
+
 				// 가까운 일자의 경기 일정 가져오기
 				matchSchedule = matchBO.getMatchSchedule(month);
 				for(int i=1; i<=matchSchedule.size(); i++) {
@@ -85,6 +81,13 @@ public class MainController {
 				}
 				// 다음 경기가 있으면 중단.
 				if(match.getId()!=0) {
+					break;
+				}
+				// 오늘 기준 다음 월로...
+				month++;
+
+				// 12월 이후로 넘어가면 반복 중지(경기 일정이 없는 경우도 고려)
+				if(month>12) {
 					break;
 				}
 			}
