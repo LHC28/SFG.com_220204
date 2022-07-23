@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div class="content">
-	<%-- 슬라이드 부분 --%>
+	<%-- 뉴스 슬라이드 부분 --%>
 	<div id="slideBanner">
 		<img id="banner" src="${newsList[0].fileList[0].imagePath }" alt="" width="1110px;" height="450px;">
 		<div id="bannerContentBox">
@@ -43,6 +43,7 @@
 					<c:if test="${match.day eq day}">오늘 일정</c:if>
 					<c:if test="${match.day ne day}">다음 일정</c:if>
 				</div>
+				<%-- 다음 경기 일정 내용 --%>
 				<div id="matchScheduleContentTeam" class="d-flex justify-content-center align-items-center">
 					<c:set var="name" value="${fn:split(match.awayTeamName,' ')}" />
 					<div class="matchScheduleContentTeamFont2 m-2">${name[0] }<br>${name[1] }</div>
@@ -67,7 +68,7 @@
 			</div>
 		</div>
 	</div>
-	<%-- 팀 순위 --%>
+	<%-- 팀(지구) 순위 --%>
 	<div id="teamRankBox">
 		<div id="teamRankBoxTitle" class="d-flex align-items-center justify-content-center">
 			<div>Sanfrancisco Giants Record</div>
