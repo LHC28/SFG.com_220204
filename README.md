@@ -17,8 +17,11 @@
 
 - 구단
   - 구단 소개
+  ![구단소개페이지](https://user-images.githubusercontent.com/86460929/181475854-7831c892-755d-426a-bbf9-69d92cd2cdff.gif)
   - 대표 선수
+  ![대표선수 페이지](https://user-images.githubusercontent.com/86460929/181481851-61d1feda-d99c-4926-884e-99291dc32807.gif)
   - 로고 및 마스코트
+  ![로고및마스코트 페이지](https://user-images.githubusercontent.com/86460929/181482555-45eddbe4-13d1-479d-925e-805fde5ebf2d.gif)
   - 구장
 - 선수단
   - 코칭스태프
