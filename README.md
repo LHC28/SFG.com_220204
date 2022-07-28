@@ -38,6 +38,7 @@
   - 외야수<br>
   ![외야수 페이지](https://user-images.githubusercontent.com/86460929/181487783-86b1def0-9f43-43f2-8a7d-d8a3a9f76b13.gif)
 - 경기정보<br>
-![경기일정 페이지](https://user-images.githubusercontent.com/86460929/181507632-2bae2a46-ba7a-41cb-84cf-33cfefca56b2.gif)
+  ![경기일정 페이지](https://user-images.githubusercontent.com/86460929/181507632-2bae2a46-ba7a-41cb-84cf-33cfefca56b2.gif)
 - 게시판<br>
+  ![게시글 페이지](https://user-images.githubusercontent.com/86460929/181574537-914ccb88-44e0-4544-8af5-8a8a75548e60.gif)
 
