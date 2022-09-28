@@ -43,4 +43,13 @@
   ![게시글 페이지](https://user-images.githubusercontent.com/86460929/181574537-914ccb88-44e0-4544-8af5-8a8a75548e60.gif)
 
 - 관리자 페이지 (선수 정보 및 상세 내용, 유저 정보 관련)
-  - 페이지 복구 이후 이미지 추가
+  - 유저 정보 관련<br>
+    ![유저정보](https://user-images.githubusercontent.com/86460929/192699127-06527cbc-53f0-4a09-8691-e36dbc4b1dd2.png)
+  - 선수 정보 관련<br>
+    ![선수정보 등록](https://user-images.githubusercontent.com/86460929/192699246-48b69c51-6143-4683-ba84-f7c4804baf6b.png)
+  - 선수 기록 관련<br>
+    ![선수 기록 선택 및 등록 등](https://user-images.githubusercontent.com/86460929/192699255-4041f121-9021-43b1-a7e6-d44fcc848432.png)
+  - 선수 소개 관련<br>
+    ![선수 소개 등록](https://user-images.githubusercontent.com/86460929/192699284-a300cea0-dc2f-4d6a-843b-331d54ea06f6.png)
+  - 경기 정보 관련<br>
+    ![관리자 경기정보](https://user-images.githubusercontent.com/86460929/192699373-76956379-f207-4f2e-beb6-9f5fffa24ac0.png)
